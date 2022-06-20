@@ -2,6 +2,16 @@ package com.flipkart.bean;
 
 public class Student {
 
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private int StudentId;
 
     public int getStudentId() {
