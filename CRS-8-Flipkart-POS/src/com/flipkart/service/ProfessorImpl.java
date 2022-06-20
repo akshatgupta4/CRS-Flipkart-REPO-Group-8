@@ -5,12 +5,8 @@ import java.util.List;
 
 import com.flipkart.bean.Student;
 
-public class ProfessorOperation implements ProfessorInterface {
+public class ProfessorImpl implements ProfessorInterface {
 
-    private ProfessorOperation()
-    {
-
-    }
 
 
 

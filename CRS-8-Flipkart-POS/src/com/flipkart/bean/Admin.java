@@ -1,29 +1,34 @@
 package com.flipkart.bean;
 
-import java.util.Date;
+public class Admin{
+    private int userId;
+    private String name;
+    private String address;
 
-/**
- *
- * @author JEDI Group 8
- * Admin Class
- *
- */
-public class Admin extends User{
-    private Date dateOfJoining;
-
-    /**
-     * Method to get Date of joining
-     * @return Date of joining
-     */
-    public Date getDateOfJoining() {
-        return dateOfJoining;
+    public int getUserId() {
+        return userId;
     }
 
-    /**
-     * Method to set Date of joining
-     * @param dateOfJoining
-     */
-    public void setDateOfJoining(Date dateOfJoining) {
-        this.dateOfJoining = dateOfJoining;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+
 }

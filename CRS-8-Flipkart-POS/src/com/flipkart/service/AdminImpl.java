@@ -7,16 +7,8 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 
 
-public class AdminOperation implements AdminInterface{
+public class AdminImpl implements AdminInterface{
 
-    private AdminOperation()
-    {
-
-    }
-
-    public static AdminOperation getInstance()
-    {
-    }
 
 
 
