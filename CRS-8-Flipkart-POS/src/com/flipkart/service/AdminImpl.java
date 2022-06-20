@@ -41,6 +41,12 @@ public class AdminImpl implements AdminInterface{
     public List<Course> viewCourses(int catalogId) {
 
 
+        return null;
+    }
+
+    @Override
+    public List<Professor> viewProfessors() {
+        return null;
     }
 
     @Override

@@ -1,56 +1,31 @@
 package com.flipkart.bean;
 
-public class Student {
+import javax.management.relation.Role;
 
-    private String password;
+public class Student extends User{
 
-    public String getPassword() {
-        return password;
+    private  String studentId;
+    private  String branch;
+
+    public Student( String studentId, String branch) {
+        super();
+        this.studentId = studentId;
+        this.branch = branch;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getStudentId() {
+        return studentId;
     }
 
-    private int StudentId;
-
-    public int getStudentId() {
-        return StudentId;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public void setStudentId(int studentId) {
-        StudentId = studentId;
+    public String getBranch() {
+        return branch;
     }
 
-    public String getStudentName() {
-        return StudentName;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
-
-    public void setStudentName(String studentName) {
-        StudentName = studentName;
-    }
-
-    public String getStudentAddress() {
-        return StudentAddress;
-    }
-
-    public void setStudentAddress(String studentAddress) {
-        StudentAddress = studentAddress;
-    }
-
-    public String getStudentBranch() {
-        return StudentBranch;
-    }
-
-    public void setStudentBranch(String studentBranch) {
-        StudentBranch = studentBranch;
-    }
-
-    private String StudentName;
-
-    private String StudentAddress;
-
-    private String StudentBranch;
-
-
 }

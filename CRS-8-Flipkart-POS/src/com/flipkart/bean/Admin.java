@@ -1,34 +1,17 @@
 package com.flipkart.bean;
 
-public class Admin{
-    private int userId;
-    private String name;
-    private String address;
+import java.util.Date;
 
-    public int getUserId() {
-        return userId;
+
+public class Admin extends User{
+    private Date dateOfJoining;
+
+
+    public Date getDateOfJoining() {
+        return dateOfJoining;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setDateOfJoining(Date dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-
 }
