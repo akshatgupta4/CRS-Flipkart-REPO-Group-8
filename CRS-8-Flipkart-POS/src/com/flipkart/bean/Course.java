@@ -1,16 +1,16 @@
 package com.flipkart.bean;
 
 public class Course {
-    private int courseCode;
+    private String courseCode;
     private String name;
     private boolean isOffered;
     private int instructorId;
-
-    public int getCourseCode() {
+    private int seats = 10;
+    public String getCourseCode() {
         return courseCode;
     }
 
-    public void setCourseCode(int courseCode) {
+    public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
 
@@ -37,5 +37,17 @@ public class Course {
     public void setInstructorId(int instructorId) {
         this.instructorId = instructorId;
     }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+
+
+
 
 }

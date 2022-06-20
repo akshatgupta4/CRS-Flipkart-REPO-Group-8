@@ -4,6 +4,16 @@ public class Notification {
     private int studendId;
     private int paymentId;
 
+    private int notificationId;
+    private String notificationMessage;
+
+    public Notification(int studendId, int paymentId, int notificationId, String notificationMessage) {
+        this.studendId = studendId;
+        this.paymentId = paymentId;
+        this.notificationId = notificationId;
+        this.notificationMessage = notificationMessage;
+    }
+
     public int getStudendId() {
         return studendId;
     }
@@ -36,6 +46,5 @@ public class Notification {
         this.notificationMessage = notificationMessage;
     }
 
-    private int notificationId;
-    private String notificationMessage;
+
 }
