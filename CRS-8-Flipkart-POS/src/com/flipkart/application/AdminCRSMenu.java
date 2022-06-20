@@ -28,10 +28,7 @@ import com.crs.flipkart.exception.StudentNotFoundForApprovalException;
 import com.crs.flipkart.exception.UserIdAlreadyInUseException;
 import com.crs.flipkart.exception.UserNotAddedException;
 
-/**
- * @author harsh
- *
- */
+
 public class AdminApplication {
 	
 	
