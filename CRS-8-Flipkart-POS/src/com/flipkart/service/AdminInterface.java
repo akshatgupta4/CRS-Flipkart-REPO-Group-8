@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
+import com.flipkart.bean.Course;
 
 public interface AdminInterface {
 
