@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ProfessorInterface {
 
-    public boolean addGrade(int studentId,String courseCode,String grade);
+    public boolean addGrade(String studentId);
 
     public List<EnrolledStudent> viewEnrolledStudents(String profId) ;
 
