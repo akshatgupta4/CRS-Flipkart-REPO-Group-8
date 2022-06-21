@@ -30,7 +30,6 @@ public enum Gender {
             case 2:
                 gender=Gender.FEMALE;
                 break;
-
         }
         return gender;
     }

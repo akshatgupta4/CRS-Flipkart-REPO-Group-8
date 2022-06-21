@@ -160,7 +160,7 @@ public class AdminCRSMenu {
     public void viewPendingAdmissions() {
         List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
         for(Student student: pendingAdmissionsList) {
-            System.out.println(String.format("%20s | %20s ", student.getStudentId(), student.getName()));
+            System.out.println(String.format("%20s | %20s ", student.getUserId(), student.getName()));
         }
     }
 

@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87c80942-3426-4acf-a3cb-c2cdfc8d2d4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mohan.joshi/Jedi/Project/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mohan.joshi/Jedi/Project/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="CRSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.flipkart.application.CRSApplication" />
+      <module name="CRS-8-Flipkart-POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flipkart.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CRSApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

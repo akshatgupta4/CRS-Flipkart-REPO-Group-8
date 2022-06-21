@@ -1,0 +1,22 @@
+package com.flipkart.service;
+
+import com.flipkart.bean.User;
+import com.flipkart.constant.Role;
+
+import java.util.HashMap;
+
+public class UserImpl implements UserInterface{
+    public static HashMap<Integer, User> userList;
+    public boolean verifyCredentials(String userID,String password) {
+        int userId_ = Integer.parseInt(userID);
+        User user = userList.get(userId_);
+        if(user.getPassword().equals(password)) return true;
+        return false;
+    }
+
+    public Role getRole(String userId){
+        int userId_ = Integer.parseInt(userId);
+        User user = userList.get(userId_);
+        return user.getRole();
+    }
+}

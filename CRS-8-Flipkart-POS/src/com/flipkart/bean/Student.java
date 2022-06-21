@@ -1,6 +1,7 @@
 package com.flipkart.bean;
 
-import javax.management.relation.Role;
+import com.flipkart.constant.Gender;
+import com.flipkart.constant.Role;
 
 public class Student extends User{
 
@@ -20,19 +21,12 @@ public class Student extends User{
 
 
 
-    public Student( String studentId, String branch) {
-        super();
-        this.studentId = studentId;
+    public Student(String userId, String name, Role role, String password, Gender gender, String address,
+                   String country, String branch) {
+        super(userId, name, role, password, gender, address, country);
         this.branch = branch;
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
 
     public String getBranch() {
         return branch;

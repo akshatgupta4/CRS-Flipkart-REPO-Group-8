@@ -1,12 +1,16 @@
 package com.flipkart.application;
 
+import com.flipkart.bean.Student;
+import com.flipkart.bean.User;
+import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
-import com.flipkart.service.NotificationImpl;
-import com.flipkart.service.StudentImpl;
+import com.flipkart.constant.Role;
+import com.flipkart.service.*;
 
 import java.util.Scanner;
 public class CRSApplication {
-    static boolean loggedIn = false;
+    public static boolean loggedIn = false;
+    public static UserInterface userInterface = new UserImpl();
 
 
     static Scanner sc = new Scanner(System.in);
@@ -54,18 +58,71 @@ public class CRSApplication {
     }
 
     public static void loginUser(){
+        Scanner sc=new Scanner(System.in);
+
+        String userId,password;
+
+            System.out.println("-----------------Login------------------");
+            System.out.println("Email:");
+            userId=sc.next();
+            System.out.println("Password:");
+            password=sc.next();
+            loggedIn = userInterface.verifyCredentials(userId, password);
+
+            if(loggedIn)
+            {
+
+                Role userRole=userInterface.getRole(userId);
+//                Role userRole=Role.stringToName(role);
+                switch(userRole)
+                {
+                    case ADMIN:
+                        System.out.println(" Login Successful");
+                        AdminCRSMenu adminMenu=new AdminCRSMenu();
+                        adminMenu.displayMenu();
+                        break;
+                    case PROFESSOR:
+                        System.out.println(" Login Successful");
+                        ProfessorCRSMenu professorMenu=new ProfessorCRSMenu();
+                        professorMenu.createMenu(userId);
+
+                        break;
+                    case STUDENT:
+
+                        StudentInterface studentInterface = new StudentImpl();
+                        boolean isApproved=studentInterface.isApproved(userId);
+                        if(isApproved)
+                        {
+                            System.out.println(" Login Successful");
+                            StudentCRSMenu studentMenu=new StudentCRSMenu();
+                            studentMenu.studentLoggedin(userId);
+
+                        }
+                        else
+                        {
+                            System.out.println("Failed to login, you have not been approved by the administration!");
+                            loggedIn=false;
+                        }
+                        break;
+                }
 
 
+            }
+            else
+            {
+                System.out.println("Invalid Credentials!");
+            }
+
+        }
 
 
-    }
 
     public static void registerStudent() {
 
         Scanner sc = new Scanner(System.in);
         StudentImpl studentImpl = new StudentImpl();
         NotificationImpl notificationImpl = new NotificationImpl();
-        String userId, name, password, address, country, branchName;
+        String userId, name, password, address, country, branchName, gender;
         int genderV, batch;
         try {
             //input all the student details
@@ -76,6 +133,8 @@ public class CRSApplication {
             userId = sc.next();
             System.out.println("Password:");
             password = sc.next();
+            System.out.println("Gender: 1. Male | 2. Female | 3. Other");
+            gender = sc.next();
             System.out.println("Branch:");
             branchName = sc.nextLine();
             System.out.println("Batch:");
@@ -86,7 +145,7 @@ public class CRSApplication {
             System.out.println("Country");
             country = sc.next();
 
-            int newStudentId = studentImpl.register(name, userId, password, branchName, batch, address, country);
+            int newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
             notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
 
 
