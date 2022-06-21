@@ -1,6 +1,8 @@
 package com.flipkart.application;
 
 import com.flipkart.bean.Course;
+import com.flipkart.bean.Professor;
+import com.flipkart.constant.Role;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
@@ -91,6 +93,42 @@ public class AdminCRSMenu {
         System.out.println("Enter Student's ID:");
         int studentUserId= scanner.nextInt();
         adminObj.approveStudent(studentUserId);
+    }
+
+    public void addProfessor() {
+        Professor professor = new Professor();
+
+        System.out.println("Enter Professor Name:");
+        System.out.println("Enter Professor Name:");
+        String professorName = scanner.next();
+        professor.setName(professorName);
+
+        System.out.println("Enter Department:");
+        String department = scanner.next();
+        professor.setDepartment(department);
+
+        System.out.println("Enter Designation:");
+        String designation = scanner.next();
+        professor.setDesignation(designation);
+
+        System.out.println("Enter User Id:");
+        String userId = scanner.next();
+        professor.setUserId(userId);
+
+        System.out.println("Enter Password:");
+        String password = scanner.next();
+        professor.setPassword(password);
+
+        System.out.println("Enter Address:");
+        String address = scanner.next();
+        professor.setAddress(address);
+
+        System.out.println("Enter Country:");
+        String country = scanner.next();
+        professor.setCountry(country);
+
+        professor.setRole(Role.getRole("Professor"));
+        adminObj.addProfessor(professor);
     }
 
 }

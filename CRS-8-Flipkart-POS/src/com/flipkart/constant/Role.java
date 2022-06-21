@@ -5,7 +5,7 @@ public enum Role {
     ADMIN,PROFESSOR,STUDENT;
 
 
-    public static Role stringToName(String role)
+    public static Role getRole(String role)
     {
         Role userRole=null;
 

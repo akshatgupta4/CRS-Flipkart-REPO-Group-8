@@ -46,8 +46,8 @@ public class AdminImpl implements AdminInterface{
     }
 
     public void addProfessor(Professor professor)  {
-
-
+        ProfessorImpl.profList.put(Integer.parseInt(professor.getUserId()), professor);
+        return;
     }
 
     public void assignCourse(String courseCode, String professorId) {
