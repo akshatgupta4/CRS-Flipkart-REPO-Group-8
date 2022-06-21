@@ -48,9 +48,4 @@ public class AdminImpl implements AdminInterface{
     public List<Professor> viewProfessors() {
         return null;
     }
-
-    @Override
-    public List<Professor> viewProfessors() {
-        return null;
-    }
 }
