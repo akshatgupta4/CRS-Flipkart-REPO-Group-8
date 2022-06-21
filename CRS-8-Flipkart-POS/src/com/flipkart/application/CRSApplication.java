@@ -1,5 +1,9 @@
 package com.flipkart.application;
 
+import com.flipkart.constant.NotificationType;
+import com.flipkart.service.NotificationImpl;
+import com.flipkart.service.StudentImpl;
+
 import java.util.Scanner;
 public class CRSApplication {
     static boolean loggedIn = false;
@@ -17,15 +21,15 @@ public class CRSApplication {
                 switch (userInput) {
                     case 1:
                         // login
-                        CRSApplication.loginUser();
+                        loginUser();
                         break;
                     case 2:
                         // student registration
-                        CRSApplication.registerStudent();
+                        registerStudent();
                         break;
                     case 3:
                         // update Password
-                        CRSApplication.updatePassword();
+                        updatePassword();
                         break;
                     default:
                         System.out.println("Invalid Input");
@@ -51,14 +55,51 @@ public class CRSApplication {
 
     public static void loginUser(){
 
-    }
 
-    public static void registerStudent(){
 
-    }
-    public static void updatePassword(){
 
     }
+
+    public static void registerStudent() {
+
+        Scanner sc = new Scanner(System.in);
+        StudentImpl studentImpl = new StudentImpl();
+        NotificationImpl notificationImpl = new NotificationImpl();
+        String userId, name, password, address, country, branchName;
+        int genderV, batch;
+        try {
+            //input all the student details
+            System.out.println("---------------Student Registration-------------");
+            System.out.println("Name:");
+            name = sc.nextLine();
+            System.out.println("Email:");
+            userId = sc.next();
+            System.out.println("Password:");
+            password = sc.next();
+            System.out.println("Branch:");
+            branchName = sc.nextLine();
+            System.out.println("Batch:");
+            batch = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Address:");
+            address = sc.nextLine();
+            System.out.println("Country");
+            country = sc.next();
+
+            int newStudentId = studentImpl.register(name, userId, password, branchName, batch, address, country);
+            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
+
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong!  not registered. Please try again");
+        }
+
+    }
+        public static void updatePassword() {
+
+
+        }
+
 
 
 
