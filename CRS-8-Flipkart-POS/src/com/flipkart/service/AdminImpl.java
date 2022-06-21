@@ -10,10 +10,18 @@ import com.flipkart.bean.Student;
 public class AdminImpl implements AdminInterface{
 
 
+    @Override
+    public void deleteCourse(String courseCode, List<Course> courseList) {
 
+    }
 
     public void addCourse(Course newCourse, List<Course> courseList) {
 
+    }
+
+    @Override
+    public List<Student> viewPendingAdmissions() {
+        return null;
     }
 
 
@@ -33,5 +41,16 @@ public class AdminImpl implements AdminInterface{
     public List<Course> viewCourses(int catalogId) {
 
 
+        return null;
+    }
+
+    @Override
+    public List<Professor> viewProfessors() {
+        return null;
+    }
+
+    @Override
+    public List<Professor> viewProfessors() {
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package com.flipkart.application;
 
 import java.util.Scanner;
 public class CRSApplication {
+    static boolean loggedIn = false;
 
 
     static Scanner sc = new Scanner(System.in);
