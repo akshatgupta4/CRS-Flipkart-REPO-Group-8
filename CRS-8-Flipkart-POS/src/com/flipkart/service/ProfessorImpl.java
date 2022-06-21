@@ -13,10 +13,9 @@ public class ProfessorImpl implements ProfessorInterface {
 
 
 
-    public boolean addGrade(int studentId,String courseCode,String grade) {
+    public boolean addGrade(String studentId) {
         return false;
     }
-
 
     public List<EnrolledStudent> viewEnrolledStudents(String profId){
 
