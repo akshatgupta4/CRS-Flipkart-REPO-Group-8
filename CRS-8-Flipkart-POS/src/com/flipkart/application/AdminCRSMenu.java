@@ -2,6 +2,7 @@ package com.flipkart.application;
 
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
+import com.flipkart.bean.Student;
 import com.flipkart.constant.Role;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
@@ -27,7 +28,7 @@ public class AdminCRSMenu {
             System.out.println("7. Assign Courses To Professor");
             System.out.println("8. Logout");
             System.out.println("*****************************");
-        }
+
 
         int choice = scanner.nextInt();
 
@@ -35,7 +36,7 @@ public class AdminCRSMenu {
             case 1:
 //                viewCoursesInCatalogue();
                 List<Course> courseList = adminObj.viewCoursesInCatalog();
-                for(Course course: courseList) {
+                for (Course course : courseList) {
                     System.out.println(course.getName());
                 }
                 break;
@@ -65,12 +66,13 @@ public class AdminCRSMenu {
                 break;
 
             case 8:
-                CRSApplication.loggedin = false;
+//                CRSApplication.loggedin = false;
                 return;
 
             default:
                 System.out.println("***** Wrong Choice *****");
         }
+    }
     }
 
     public void addCourseToCatalog() {
@@ -153,6 +155,13 @@ public class AdminCRSMenu {
         String courseCode = scanner.next();
 
         adminObj.assignCourse(courseCode, profId);
+    }
+
+    public void viewPendingAdmissions() {
+        List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
+        for(Student student: pendingAdmissionsList) {
+            System.out.println(String.format("%20s | %20s ", student.getStudentId(), student.getName()));
+        }
     }
 
 }
