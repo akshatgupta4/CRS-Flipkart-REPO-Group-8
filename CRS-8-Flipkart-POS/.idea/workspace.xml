@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87c80942-3426-4acf-a3cb-c2cdfc8d2d4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

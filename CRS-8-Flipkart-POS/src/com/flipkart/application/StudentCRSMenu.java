@@ -63,10 +63,6 @@ public class StudentCRSMenu {
 		return null;
 	}
 
-	@Override
-	public void approveStudent(int studentId, List<Student> studentList) {
-
-	}
 
 	@Override
 	public void addProfessor(Professor professor) {

@@ -43,7 +43,7 @@ public class AdminCRSMenu {
                 break;
 
             case 3:
-                deleteCourse();
+//                deleteCourse();
                 break;
 
             case 4:
@@ -83,6 +83,14 @@ public class AdminCRSMenu {
         Course course = new Course(courseCode, courseName);
 
         adminObj.addCourse(course);
+    }
+
+    public void deleteCourseFromCatalog(){}
+
+    public void approveStudent() {
+        System.out.println("Enter Student's ID:");
+        int studentUserId= scanner.nextInt();
+        adminObj.approveStudent(studentUserId);
     }
 
 }

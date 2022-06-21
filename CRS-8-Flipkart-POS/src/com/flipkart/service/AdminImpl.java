@@ -39,8 +39,10 @@ public class AdminImpl implements AdminInterface{
     }
 
 
-    public void approveStudent(int studentId, List<Student> studentList) {
-
+    @Override
+    public void approveStudent(int studentId) {
+        StudentImpl.studentList.get(studentId).setApproved(true);
+        return;
     }
 
     public void addProfessor(Professor professor)  {

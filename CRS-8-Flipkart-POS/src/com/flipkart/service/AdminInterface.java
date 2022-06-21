@@ -22,7 +22,7 @@ public interface AdminInterface {
 
     public List<Student> viewPendingAdmissions();
 
-    public void approveStudent(int studentId, List<Student> studentList) ;
+    public void approveStudent(int studentId) ;
 
     public void addProfessor(Professor professor);
 

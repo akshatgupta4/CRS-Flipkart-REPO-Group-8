@@ -6,6 +6,19 @@ public class Student extends User{
 
     private  String studentId;
     private  String branch;
+    boolean isApproved = false;
+
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
+    }
+
+
+
+
 
     public Student( String studentId, String branch) {
         super();
