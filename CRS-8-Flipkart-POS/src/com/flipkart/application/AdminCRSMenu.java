@@ -131,4 +131,28 @@ public class AdminCRSMenu {
         adminObj.addProfessor(professor);
     }
 
+    public void assignCourseToProfessor() {
+        List<Professor> professorList = adminObj.viewProfessors();
+
+        System.out.println(String.format("%20s | %20s | %20s ", "ProfessorId", "Name", "Designation"));
+        for(Professor professor : professorList) {
+            System.out.println(String.format("%20s | %20s | %20s ", professor.getUserId(), professor.getName(), professor.getDesignation()));
+        }
+
+        System.out.println("Enter Professor's User Id:");
+        String profId = scanner.next();
+
+        System.out.println("\n\n");
+
+        List<Course> courseList = adminObj.viewCoursesInCatalog();
+        for(Course course: courseList) {
+            System.out.println(String.format("%20s | %20s | %20s ", course.getCourseCode(), course.getName()));
+        }
+
+        System.out.println("Enter Course Code:");
+        String courseCode = scanner.next();
+
+        adminObj.assignCourse(courseCode, profId);
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.flipkart.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.flipkart.bean.Course;
@@ -51,7 +53,11 @@ public class AdminImpl implements AdminInterface{
     }
 
     public void assignCourse(String courseCode, String professorId) {
-
+        int courseCode_ = Integer.parseInt(courseCode);
+        int instructorId_ = Integer.parseInt(professorId);
+        Course course = CourseCatalogImpl.courseCatalog.get(courseCode_);
+        course.setInstructorId(instructorId_);
+        CourseCatalogImpl.courseCatalog.put(courseCode_, course);
     }
 
     public List<Course> viewCoursesInCatalog() {
@@ -62,6 +68,9 @@ public class AdminImpl implements AdminInterface{
 
     @Override
     public List<Professor> viewProfessors() {
-        return null;
+        HashMap<Integer, Professor> profListMap= ProfessorImpl.profList;
+        List<Professor> profList = new ArrayList<Professor>();
+        profListMap.forEach((k, v) -> profList.add(v));
+        return profList;
     }
 }
