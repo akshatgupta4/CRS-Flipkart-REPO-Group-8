@@ -15,7 +15,7 @@ public class User {
 
     public User(String userId, String name, Role role, String password, Gender gender, String address,
                 String country) {
-        super();
+//        super();
         this.userId = userId;
         this.name = name;
         this.role = role;

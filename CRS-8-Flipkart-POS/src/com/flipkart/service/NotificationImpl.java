@@ -9,7 +9,7 @@ public class NotificationImpl {
     public UUID getReferenceId(int notificationId){
         return UUID.randomUUID();
     }
-    public int sendNotification(int type, int studentId, ModeOfPayment modeOfPayment, double amount){
+    public int sendNotification(int type, String studentId, ModeOfPayment modeOfPayment, double amount){
         return  0;
     }
 

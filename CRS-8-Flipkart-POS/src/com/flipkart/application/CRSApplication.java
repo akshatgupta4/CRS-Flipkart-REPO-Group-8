@@ -1,5 +1,6 @@
 package com.flipkart.application;
 
+import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
@@ -84,7 +85,7 @@ public class CRSApplication {
                     case PROFESSOR:
                         System.out.println(" Login Successful");
                         ProfessorCRSMenu professorMenu=new ProfessorCRSMenu();
-                        professorMenu.createMenu(userId);
+                        professorMenu.professorLoggedin(userId);
 
                         break;
                     case STUDENT:
@@ -128,7 +129,7 @@ public class CRSApplication {
             //input all the student details
             System.out.println("---------------Student Registration-------------");
             System.out.println("Name:");
-            name = sc.nextLine();
+            name = sc.next();
             System.out.println("Email:");
             userId = sc.next();
             System.out.println("Password:");
@@ -136,21 +137,22 @@ public class CRSApplication {
             System.out.println("Gender: 1. Male | 2. Female | 3. Other");
             gender = sc.next();
             System.out.println("Branch:");
-            branchName = sc.nextLine();
+            branchName = sc.next();
             System.out.println("Batch:");
             batch = sc.nextInt();
             sc.nextLine();
             System.out.println("Address:");
-            address = sc.nextLine();
+            address = sc.next();
             System.out.println("Country");
             country = sc.next();
-
-            int newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
-            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
+            System.out.println("here...");
+            String newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
+            System.out.println("here...");
+//            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
 
 
         } catch (Exception e) {
-            System.out.println("Something went wrong!  not registered. Please try again");
+            System.out.println(e+"Something went wrong!  not registered. Please try again");
         }
 
     }

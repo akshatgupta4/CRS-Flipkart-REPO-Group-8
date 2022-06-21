@@ -5,7 +5,7 @@ import com.flipkart.constant.ModeOfPayment;
 
 public interface NotificationInterface {
 
-    public int sendNotification(int type, int studentId, ModeOfPayment modeOfPayment, double amount);
+    public int sendNotification(int type, String studentId, ModeOfPayment modeOfPayment, double amount);
 
     public UUID getReferenceId(int notificationId);
 

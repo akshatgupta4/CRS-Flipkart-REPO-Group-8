@@ -38,7 +38,7 @@ public class AdminImpl implements AdminInterface{
     @Override
     public List<Student> viewPendingAdmissions() {
         List<Student> pendingAdmissionsList = new ArrayList<Student>();
-        StudentImpl.studentList.forEach((k, v) -> {
+        StudentImpl.StudentList.forEach((k, v) -> {
             if(!v.isApproved()) pendingAdmissionsList.add(v);
         });
 
@@ -48,7 +48,7 @@ public class AdminImpl implements AdminInterface{
 
     @Override
     public void approveStudent(int studentId) {
-        StudentImpl.studentList.get(studentId).setApproved(true);
+        StudentImpl.StudentList.get(studentId).setApproved(true);
         return;
     }
 
