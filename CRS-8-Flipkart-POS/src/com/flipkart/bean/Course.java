@@ -6,6 +6,11 @@ public class Course {
     private boolean isOffered;
     private int instructorId;
     private int seats = 10;
+
+    public Course(String courseCode, String name) {
+        this.courseCode = courseCode;
+        this.name = name;
+    }
     public String getCourseCode() {
         return courseCode;
     }

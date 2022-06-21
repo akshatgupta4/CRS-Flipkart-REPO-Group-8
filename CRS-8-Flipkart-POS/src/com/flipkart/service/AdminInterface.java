@@ -17,7 +17,7 @@ public interface AdminInterface {
     public void deleteCourse(String courseCode, List<Course> courseList) ;
 
 
-    public void addCourse(Course course, List<Course> courseList);
+    public void addCourse(Course course);
 
 
     public List<Student> viewPendingAdmissions();
@@ -28,7 +28,7 @@ public interface AdminInterface {
 
     public void assignCourse(String courseCode, String professorId) ;
 
-    public List<Course> viewCourses(int catalogId);
+    public List<Course> viewCoursesInCatalog();
 
     public List<Professor> viewProfessors();
 }

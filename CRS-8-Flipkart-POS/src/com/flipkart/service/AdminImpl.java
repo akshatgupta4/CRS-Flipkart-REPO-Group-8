@@ -9,14 +9,28 @@ import com.flipkart.bean.Student;
 
 public class AdminImpl implements AdminInterface{
 
+    private static AdminImpl instance = null;
+    private static CourseCatalogImpl catalogInstance = null;
 
+    private AdminImpl() {
+        catalogInstance = new CourseCatalogImpl();
+    }
+    public static AdminImpl getInstance()
+    {
+        if(instance==null)
+        {
+            // This is a synchronized block, when multiple threads will access this instance
+            instance = new AdminImpl();
+        }
+        return instance;
+    }
     @Override
     public void deleteCourse(String courseCode, List<Course> courseList) {
 
     }
 
-    public void addCourse(Course newCourse, List<Course> courseList) {
-
+    public void addCourse(Course newCourse) {
+        catalogInstance.addCourse(newCourse);
     }
 
     @Override
@@ -38,10 +52,10 @@ public class AdminImpl implements AdminInterface{
 
     }
 
-    public List<Course> viewCourses(int catalogId) {
+    public List<Course> viewCoursesInCatalog() {
 
-
-        return null;
+//        CourseCatalogInterface catalog = new CourseCatalogImpl();
+        return catalogInstance.viewAllCourses();
     }
 
     @Override

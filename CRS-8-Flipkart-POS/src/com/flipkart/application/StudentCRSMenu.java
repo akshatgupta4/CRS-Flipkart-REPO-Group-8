@@ -34,7 +34,7 @@ import com.flipkart.service.StudentInterface;
  *
  */
 
-public class StudentApplication {
+public class StudentCRSMenu {
 	NotificationInterface notificationService = new NotificationInterface() {
 		@Override
 		public int sendNotification(NotificationType type, int studentId, ModeOfPayment modeOfPayment, double amount) {
