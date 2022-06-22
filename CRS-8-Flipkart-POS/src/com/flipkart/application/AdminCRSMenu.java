@@ -85,7 +85,7 @@ public class AdminCRSMenu {
         String courseName = scanner.nextLine();
 
         Course course = new Course(courseCode, courseName);
-
+        System.out.println(course.getName() + " " + course.getCourseCode());
         adminObj.addCourse(course);
     }
 
@@ -93,7 +93,7 @@ public class AdminCRSMenu {
 
     public void approveStudent() {
         System.out.println("Enter Student's ID:");
-        int studentUserId= scanner.nextInt();
+        String studentUserId= scanner.next();
         adminObj.approveStudent(studentUserId);
     }
 

@@ -4,7 +4,7 @@ public class Course {
     private String courseCode;
     private String name;
     private boolean isOffered;
-    private int instructorId;
+    private String instructorId;
     private int seats = 10;
 
     public Course(String courseCode, String name) {
@@ -35,11 +35,11 @@ public class Course {
         isOffered = offered;
     }
 
-    public int getInstructorId() {
+    public String getInstructorId() {
         return instructorId;
     }
 
-    public void setInstructorId(int instructorId) {
+    public void setInstructorId(String instructorId) {
         this.instructorId = instructorId;
     }
 

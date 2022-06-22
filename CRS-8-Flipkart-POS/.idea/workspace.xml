@@ -1,64 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87c80942-3426-4acf-a3cb-c2cdfc8d2d4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserInterface.java" afterDir="false" />
+    <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CRS-8-Flipkart-POS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/CRS-Flipkart-REPO-Group-8.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/.idea/workspace.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/flipkart/application/ProfessorCRSMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/flipkart/service/ProfessorInterface.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="2ApdgjmKi7Xu3nRDE4Ut2D9ivhb" />
+  <component name="ProjectId" id="2AtjB5qp30Qkp1muEFCSmODH2yk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/mohan.joshi/Jedi/Project/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/akshat.gupta4/fk_jedi/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CRSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.flipkart.application.CRSApplication" />
@@ -82,39 +68,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="211df86c-7daa-4d20-9a66-d0d2bf2fe301" name="Changes" comment="" />
-      <created>1655710576367</created>
+      <changelist id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="" />
+      <created>1655835638813</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1655710576367</updated>
-      <workItem from="1655710580246" duration="1028000" />
-      <workItem from="1655711632875" duration="1376000" />
+      <updated>1655835638813</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/flipkart/constant/Role.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

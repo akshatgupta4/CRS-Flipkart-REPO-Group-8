@@ -47,7 +47,8 @@ public class AdminImpl implements AdminInterface{
 
 
     @Override
-    public void approveStudent(int studentId) {
+    public void approveStudent(String studentId) {
+        System.out.println(StudentImpl.StudentList.size());
         StudentImpl.StudentList.get(studentId).setApproved(true);
         return;
     }
@@ -58,11 +59,9 @@ public class AdminImpl implements AdminInterface{
     }
 
     public void assignCourse(String courseCode, String professorId) {
-        int courseCode_ = Integer.parseInt(courseCode);
-        int instructorId_ = Integer.parseInt(professorId);
-        Course course = CourseCatalogImpl.courseCatalog.get(courseCode_);
-        course.setInstructorId(instructorId_);
-        CourseCatalogImpl.courseCatalog.put(courseCode_, course);
+        Course course = CourseCatalogImpl.courseCatalog.get(courseCode);
+        course.setInstructorId(professorId);
+        CourseCatalogImpl.courseCatalog.put(courseCode, course);
     }
 
     public List<Course> viewCoursesInCatalog() {

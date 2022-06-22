@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CourseCatalogImpl implements CourseCatalogInterface{
-    public static HashMap<Integer, Course> courseCatalog;
+    public static HashMap<String, Course> courseCatalog = new HashMap<String, Course>();
 
     public List<Course> viewAllCourses() {
         List<Course> courseList = new ArrayList<Course>();
@@ -15,7 +15,7 @@ public class CourseCatalogImpl implements CourseCatalogInterface{
         return courseList;
     }
     public void addCourse(Course newCourse) {
-        courseCatalog.put(Integer.parseInt(newCourse.getCourseCode()), newCourse);
+        courseCatalog.put(newCourse.getCourseCode(), newCourse);
         return;
     }
 
