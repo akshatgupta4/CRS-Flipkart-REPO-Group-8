@@ -4,6 +4,8 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.AdminDaoInterface;
+import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
@@ -12,6 +14,7 @@ import java.util.Scanner;
 
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
+    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
     public void displayMenu() {
@@ -87,6 +90,13 @@ public class AdminCRSMenu {
         Course course = new Course(courseCode, courseName);
         System.out.println(course.getName() + " " + course.getCourseCode());
         adminObj.addCourse(course);
+        try {
+            adminDaoObj.addCourse(course);
+        }
+        catch (Exception e) {
+            return;
+        }
+
     }
 
     public void deleteCourseFromCatalog(){}
