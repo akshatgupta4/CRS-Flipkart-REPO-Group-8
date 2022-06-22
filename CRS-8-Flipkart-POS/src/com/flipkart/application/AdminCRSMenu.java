@@ -46,7 +46,7 @@ public class AdminCRSMenu {
                 break;
 
             case 3:
-//                deleteCourse();
+                deleteCourseFromCatalog();
                 break;
 
             case 4:
@@ -89,7 +89,11 @@ public class AdminCRSMenu {
         adminObj.addCourse(course);
     }
 
-    public void deleteCourseFromCatalog(){}
+    public void deleteCourseFromCatalog(){
+        System.out.println("Enter Course Code:");
+        String courseCode = scanner.nextLine();
+        adminObj.deleteCourse(courseCode);
+    }
 
     public void approveStudent() {
         System.out.println("Enter Student's ID:");

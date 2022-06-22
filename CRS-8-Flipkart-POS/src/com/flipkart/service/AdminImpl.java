@@ -27,8 +27,8 @@ public class AdminImpl implements AdminInterface{
         return instance;
     }
     @Override
-    public void deleteCourse(String courseCode, List<Course> courseList) {
-
+    public void deleteCourse(String courseCode) {
+        catalogInstance.deleteCourse(courseCode);
     }
 
     public void addCourse(Course newCourse) {

@@ -14,7 +14,7 @@ public interface AdminInterface {
 
 
 
-    public void deleteCourse(String courseCode, List<Course> courseList) ;
+    public void deleteCourse(String courseCode) ;
 
 
     public void addCourse(Course course);
