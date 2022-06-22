@@ -2,28 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CRS-8-Flipkart-POS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/util/CRSDbConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CRS-Flipkart-REPO-Group-8.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/UserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRS-8-Flipkart-POS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CRS-8-Flipkart-POS.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -37,14 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/akshat.gupta4/fk_jedi/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/akshat.gupta4/fk_jedi/CRS-Flipkart-REPO-Group-8/CRS-8-Flipkart-POS",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="CRSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.flipkart.application.CRSApplication" />
