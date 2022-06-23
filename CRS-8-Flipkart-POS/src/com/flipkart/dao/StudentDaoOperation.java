@@ -134,7 +134,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     };
     public void showNotifications(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_NOTIFICATION);
         String notificationId="n0101";
 
         String notificationMessage="done";

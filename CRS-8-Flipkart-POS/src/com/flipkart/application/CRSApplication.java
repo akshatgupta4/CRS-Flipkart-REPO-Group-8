@@ -8,6 +8,7 @@ import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
 import com.flipkart.service.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 public class CRSApplication {
     public static boolean loggedIn = false;
@@ -58,7 +59,7 @@ public class CRSApplication {
         System.out.println("Enter user input");
     }
 
-    public static void loginUser(){
+    public static void loginUser() throws SQLException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;

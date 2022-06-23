@@ -20,9 +20,9 @@ public interface AdminDaoInterface {
 //
     public void addProfessor(Professor professor) throws SQLException;
 //
-//    public void assignCourse(String courseCode, String professorId) ;
+    public void assignCourse(String courseCode, String professorId) throws SQLException;
 //
     public List<Course> viewCoursesInCatalog() throws SQLException;
 //
-//    public List<Professor> viewProfessors();
+    public List<Professor> viewProfessors() throws SQLException;
 }
