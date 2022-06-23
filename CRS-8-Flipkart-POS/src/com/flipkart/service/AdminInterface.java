@@ -15,10 +15,10 @@ public interface AdminInterface {
 
 
 
-    public void deleteCourse(String courseCode, List<Course> courseList) ;
+    public void deleteCourse(String courseCode) throws SQLException;
 
 
-    public void addCourse(Course course);
+    public void addCourse(Course course) throws SQLException;
 
 
     public List<Student> viewPendingAdmissions();

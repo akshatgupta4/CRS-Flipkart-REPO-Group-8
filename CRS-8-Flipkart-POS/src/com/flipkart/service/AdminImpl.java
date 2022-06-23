@@ -32,12 +32,12 @@ public class AdminImpl implements AdminInterface{
         return instance;
     }
     @Override
-    public void deleteCourse(String courseCode, List<Course> courseList) {
-
+    public void deleteCourse(String courseCode) throws SQLException {
+        adminDaoObj.deleteCourse(courseCode);
     }
 
-    public void addCourse(Course newCourse) {
-        catalogInstance.addCourse(newCourse);
+    public void addCourse(Course newCourse) throws SQLException {
+        adminDaoObj.addCourse(newCourse);
     }
 
     @Override

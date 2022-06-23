@@ -16,8 +16,20 @@ public class AdminDaoOperation implements AdminDaoInterface {
     public static PreparedStatement stmt = null;
     private static AdminDaoOperation instance = null;
 
-    public void deleteCourse(String courseCode, List<Course> courseList) {
+    public void deleteCourse(String courseCode) throws SQLException {
+        Connection connection = CRSDbConnection.getConnection();
+        stmt = connection.prepareStatement(SQLQueryConstants.DELETE_COURSE_FROM_CATALOG_QUERY);
 
+        stmt.setString(1, courseCode);
+
+        try {
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            connection.close();
+            return;
+        }
     }
 
     ;

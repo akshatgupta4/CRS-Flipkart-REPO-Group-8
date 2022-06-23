@@ -4,12 +4,8 @@
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoOperation.java" afterDir="false" />

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface AdminDaoInterface {
-//    public void deleteCourse(String courseCode, List<Course> courseList) ;
+    public void deleteCourse(String courseCode) throws SQLException;
 
 
     public void addCourse(Course course) throws SQLException;
