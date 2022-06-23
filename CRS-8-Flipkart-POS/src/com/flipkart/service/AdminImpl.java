@@ -1,5 +1,6 @@
 package com.flipkart.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +8,14 @@ import java.util.List;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
+import com.flipkart.dao.AdminDaoInterface;
+import com.flipkart.dao.AdminDaoOperation;
 
 
 public class AdminImpl implements AdminInterface{
 
     private static AdminImpl instance = null;
+    private static AdminDaoInterface adminDaoObj = null;
     private static CourseCatalogImpl catalogInstance = null;
 
     private AdminImpl() {
@@ -23,6 +27,7 @@ public class AdminImpl implements AdminInterface{
         {
             // This is a synchronized block, when multiple threads will access this instance
             instance = new AdminImpl();
+            adminDaoObj = AdminDaoOperation.getInstance();
         }
         return instance;
     }
@@ -58,23 +63,22 @@ public class AdminImpl implements AdminInterface{
         return;
     }
 
-    public void assignCourse(String courseCode, String professorId) {
-        Course course = CourseCatalogImpl.courseCatalog.get(courseCode);
-        course.setInstructorId(professorId);
-        CourseCatalogImpl.courseCatalog.put(courseCode, course);
+    public void assignCourse(String courseCode, String professorId) throws SQLException {
+        adminDaoObj.assignCourse(courseCode, professorId);
     }
 
-    public List<Course> viewCoursesInCatalog() {
+    public List<Course> viewCoursesInCatalog() throws SQLException {
 
 //        CourseCatalogInterface catalog = new CourseCatalogImpl();
-        return catalogInstance.viewAllCourses();
+        return adminDaoObj.viewCoursesInCatalog();
     }
 
     @Override
-    public List<Professor> viewProfessors() {
-        HashMap<Integer, Professor> profListMap= ProfessorImpl.profList;
-        List<Professor> profList = new ArrayList<Professor>();
-        profListMap.forEach((k, v) -> profList.add(v));
-        return profList;
+    public List<Professor> viewProfessors() throws SQLException {
+//        HashMap<Integer, Professor> profListMap= ProfessorImpl.profList;
+//        List<Professor> profList = new ArrayList<Professor>();
+//        profListMap.forEach((k, v) -> profList.add(v));
+//        return profList;
+        return adminDaoObj.viewProfessors();
     }
 }

@@ -3,12 +3,14 @@ package com.flipkart.application;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
+import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class AdminCRSMenu {
     AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
-    public void displayMenu() {
+    public void displayMenu() throws SQLException {
         while(true) {
             System.out.println("**********Admin Menu*********");
             System.out.println("*****************************");
@@ -115,7 +117,7 @@ public class AdminCRSMenu {
         adminObj.approveStudent(studentUserId);
     }
 
-    public void addProfessor() {
+    public void addProfessor() throws SQLException {
         Professor professor = new Professor();
 
 //        System.out.println("Enter Professor Name:");
@@ -139,6 +141,10 @@ public class AdminCRSMenu {
         String password = scanner.next();
         professor.setPassword(password);
 
+        System.out.println("Enter Gender:");
+        String gender = scanner.next();
+        professor.setGender(Gender.stringToGender(gender));
+
         System.out.println("Enter Address:");
         String address = scanner.next();
         professor.setAddress(address);
@@ -148,10 +154,12 @@ public class AdminCRSMenu {
         professor.setCountry(country);
 
         professor.setRole(Role.getRole("Professor"));
+//        System.out.println(professor.getUserId()) + " "  + " " + professor.getName() + " " + professor.getPassword() + " " + professor.getGender().toString());
+
         adminObj.addProfessor(professor);
     }
 
-    public void assignCourseToProfessor() {
+    public void assignCourseToProfessor() throws SQLException {
         List<Professor> professorList = adminObj.viewProfessors();
 
         System.out.println(String.format("%20s | %20s | %20s ", "ProfessorId", "Name", "Designation"));
@@ -166,7 +174,7 @@ public class AdminCRSMenu {
 
         List<Course> courseList = adminObj.viewCoursesInCatalog();
         for(Course course: courseList) {
-            System.out.println(String.format("%20s | %20s | %20s ", course.getCourseCode(), course.getName()));
+            System.out.println(String.format("%20s | %20s | %20s", course.getCourseCode(), course.getName(), course.getInstructorId()));
         }
 
         System.out.println("Enter Course Code:");
