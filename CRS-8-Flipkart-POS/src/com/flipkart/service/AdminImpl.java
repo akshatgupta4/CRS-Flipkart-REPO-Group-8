@@ -32,29 +32,23 @@ public class AdminImpl implements AdminInterface{
         return instance;
     }
     @Override
-    public void deleteCourse(String courseCode, List<Course> courseList) {
-
+    public void deleteCourse(String courseCode) throws SQLException {
+        adminDaoObj.deleteCourse(courseCode);
     }
 
-    public void addCourse(Course newCourse) {
-        catalogInstance.addCourse(newCourse);
+    public void addCourse(Course newCourse) throws SQLException {
+        adminDaoObj.addCourse(newCourse);
     }
 
     @Override
-    public List<Student> viewPendingAdmissions() {
-        List<Student> pendingAdmissionsList = new ArrayList<Student>();
-        StudentImpl.StudentList.forEach((k, v) -> {
-            if(!v.isApproved()) pendingAdmissionsList.add(v);
-        });
-
-        return pendingAdmissionsList;
+    public List<Student> viewPendingAdmissions() throws SQLException {
+        return adminDaoObj.viewPendingAdmissions();
     }
 
 
     @Override
-    public void approveStudent(String studentId) {
-        System.out.println(StudentImpl.StudentList.size());
-        StudentImpl.StudentList.get(studentId).setApproved(true);
+    public void approveStudent(String studentId) throws SQLException {
+        adminDaoObj.approveStudent(studentId);
         return;
     }
 

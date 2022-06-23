@@ -27,6 +27,8 @@ public class Student extends User{
         this.branch = branch;
     }
 
+    public Student(){}
+
 
     public String getBranch() {
         return branch;
