@@ -5,12 +5,24 @@ public class Course {
     private String name;
     private boolean isOffered;
     private String instructorId;
-    private int seats = 10;
+    private int vacantSeats = 10;
+
+    private int courseFee = 5000;
+    public int getCourseFee() {
+        return courseFee;
+    }
+
+    public void setCourseFee(int courseFee) {
+        this.courseFee = courseFee;
+    }
+
 
     public Course(String courseCode, String name) {
         this.courseCode = courseCode;
         this.name = name;
     }
+
+    public Course(){}
     public String getCourseCode() {
         return courseCode;
     }
@@ -43,12 +55,12 @@ public class Course {
         this.instructorId = instructorId;
     }
 
-    public int getSeats() {
-        return seats;
+    public int getVacantSeats() {
+        return vacantSeats;
     }
 
-    public void setSeats(int seats) {
-        this.seats = seats;
+    public void setVacantSeats(int seats) {
+        this.vacantSeats = seats;
     }
 
 

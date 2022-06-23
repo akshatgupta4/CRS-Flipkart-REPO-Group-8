@@ -38,11 +38,19 @@ public class AdminCRSMenu {
         switch(choice) {
             case 1:
 //                viewCoursesInCatalogue();
-                List<Course> courseList = adminObj.viewCoursesInCatalog();
-                for (Course course : courseList) {
-                    System.out.println(course.getName());
+                try {
+                    List<Course> courseList = adminDaoObj.viewCoursesInCatalog();
+                    for (Course course : courseList) {
+                        System.out.print(course.getCourseCode() + " |   " + course.getName() + "\n");
+
+                    }
+                    break;
                 }
-                break;
+                catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    break;
+                }
+
 
             case 2:
                 addCourseToCatalog();
@@ -110,7 +118,7 @@ public class AdminCRSMenu {
     public void addProfessor() {
         Professor professor = new Professor();
 
-        System.out.println("Enter Professor Name:");
+//        System.out.println("Enter Professor Name:");
         System.out.println("Enter Professor Name:");
         String professorName = scanner.next();
         professor.setName(professorName);

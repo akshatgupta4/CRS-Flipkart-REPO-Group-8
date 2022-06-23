@@ -8,22 +8,22 @@ import com.flipkart.constant.SQLQueryConstants;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.util.CRSDbConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDaoOperation implements AdminDaoInterface {
     public static PreparedStatement stmt = null;
     private static AdminDaoOperation instance = null;
-    public void deleteCourse(String courseCode, List<Course> courseList){
 
-    } ;
+    public void deleteCourse(String courseCode, List<Course> courseList) {
 
-    public static AdminDaoOperation getInstance()
-    {
-        if(instance==null)
-        {
+    }
+
+    ;
+
+    public static AdminDaoOperation getInstance() {
+        if (instance == null) {
             // This is a synchronized block, when multiple threads will access this instance
             instance = new AdminDaoOperation();
         }
@@ -40,18 +40,16 @@ public class AdminDaoOperation implements AdminDaoInterface {
         //Bind values into the parameters.
 //        stmt.setInt(1, id);  // This would set age
         int fee = 5000;
-        stmt.setString(1,course.getCourseCode());
-        stmt.setString(2,"Null");
-        stmt.setInt(3,fee);
-        stmt.setString(4,course.getName());
+        stmt.setString(1, course.getCourseCode());
+        stmt.setNull(2, Types.NULL);
+        stmt.setInt(3, fee);
+        stmt.setString(4, course.getName());
         stmt.setInt(5, 10);
         try {
             stmt.executeUpdate();
-        }
-        catch (SQLException se) {
+        } catch (SQLException se) {
             System.out.println(se.getMessage());
-        }
-        finally {
+        } finally {
             connection.close();
         }
 
@@ -59,15 +57,57 @@ public class AdminDaoOperation implements AdminDaoInterface {
     }
 
 
-//    public List<Student> viewPendingAdmissions(){}
+    //    public List<Student> viewPendingAdmissions(){}
 //
 //    public void approveStudent(String studentId){}
 //
-//    public void addProfessor(Professor professor){};
+    public void addProfessor(Professor professor) throws SQLException {
+        Connection connection = CRSDbConnection.getConnection();
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
+
+//        String name="Anand ";
+//        String address="Bengaluru";
+//        String location="india";
+        //Bind values into the parameters.
+//        stmt.setInt(1, id);  // This would set age
+        stmt.setString(1, course.getCourseCode());
+        stmt.setNull(2, Types.NULL);
+        stmt.setInt(3, fee);
+        stmt.setString(4, course.getName());
+        stmt.setInt(5, 10);
+        try {
+            stmt.executeUpdate();
+        } catch (SQLException se) {
+            System.out.println(se.getMessage());
+        } finally {
+            connection.close();
+        }
+    };
 //
 //    public void assignCourse(String courseCode, String professorId){}
 //
-//    public List<Course> viewCoursesInCatalog(){}
+    public List<Course> viewCoursesInCatalog() throws SQLException {
+//        sql = "SELECT id, name ,address, location FROM employee";
+//        ResultSet rs = stmt.executeQuery(sql);
+
+        Connection connection = CRSDbConnection.getConnection();
+        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_COURSES_IN_CATALOG_QUERY);
+        ResultSet rs = stmt.executeQuery();
+
+        //STEP 5: Extract data from result set
+        List<Course> courseList = new ArrayList<Course>();
+        while (rs.next()) {
+            Course course = new Course();
+            course.setCourseCode(rs.getString(1));
+            course.setInstructorId(rs.getString(2));
+            course.setCourseFee(rs.getInt(3));
+            course.setName(rs.getString(4));
+            course.setVacantSeats(rs.getInt(5));
+            courseList.add(course);
+        }
+
+        return courseList;
+    }
+}
 //
 //    public List<Professor> viewProfessors(){}
-}

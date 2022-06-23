@@ -18,11 +18,11 @@ public interface AdminDaoInterface {
 //
 //    public void approveStudent(String studentId) ;
 //
-//    public void addProfessor(Professor professor);
+    public void addProfessor(Professor professor) throws SQLException;
 //
 //    public void assignCourse(String courseCode, String professorId) ;
 //
-//    public List<Course> viewCoursesInCatalog();
+    public List<Course> viewCoursesInCatalog() throws SQLException;
 //
 //    public List<Professor> viewProfessors();
 }
