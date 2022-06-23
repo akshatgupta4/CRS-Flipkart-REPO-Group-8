@@ -55,25 +55,43 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     public void addCourse(String studentID) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
-         stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
         String cid="cs002";
-        stmt.setString(1,studentID);
-        stmt.setString(2,cid);
-        stmt.setString(3,"NULL");
-        try {
-            stmt.executeUpdate();
-        }
-        catch (SQLException se)
-        {
+        PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
+        checkStmt.setString(1, cid);
+        try{
+            ResultSet R= checkStmt.executeQuery();
+            if(R.getInt("vacantSeat")>0){
+                    stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_BY_STUDENT_QUERY);
+                    stmt.setString(1,studentID);
+                    stmt.setString(2,cid);
+                    stmt.setString(3, cid);
+                    try {
+                        stmt.executeUpdate();
+                    }
+                    catch (SQLException se)
+                    {
+                        System.out.println(se.getMessage());
+                    }
+                    finally {
+                        connection.close();
+                    }
+            }
+            else{
+                throw new SQLException();
+            }
+        }catch(SQLException se){
             System.out.println(se.getMessage());
-        }
-        finally {
+        }finally {
             connection.close();
         }
     };
     public void dropCourse(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
+        String courseCode="CS101";
+        stmt.setString(1, studentID);
+        stmt.setString(2, courseCode);
+        stmt.setString(3, courseCode);
         try {
             stmt.executeUpdate();
         }
@@ -134,7 +152,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     };
     public void showNotifications(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_NOTIFCATION_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_NOTIFICATION_QUERY);
         String notificationId="n0101";
 
         String notificationMessage="done";
