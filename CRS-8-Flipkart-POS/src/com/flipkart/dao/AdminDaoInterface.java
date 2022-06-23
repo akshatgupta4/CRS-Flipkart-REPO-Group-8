@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface AdminDaoInterface {
-//    public void deleteCourse(String courseCode, List<Course> courseList) ;
+    public void deleteCourse(String courseCode) throws SQLException;
 
 
     public void addCourse(Course course) throws SQLException;
@@ -18,11 +18,11 @@ public interface AdminDaoInterface {
 //
 //    public void approveStudent(String studentId) ;
 //
-//    public void addProfessor(Professor professor);
+    public void addProfessor(Professor professor) throws SQLException;
 //
-//    public void assignCourse(String courseCode, String professorId) ;
+    public void assignCourse(String courseCode, String professorId) throws SQLException;
 //
-//    public List<Course> viewCoursesInCatalog();
+    public List<Course> viewCoursesInCatalog() throws SQLException;
 //
-//    public List<Professor> viewProfessors();
+    public List<Professor> viewProfessors() throws SQLException;
 }

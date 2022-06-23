@@ -25,6 +25,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     public void viewGrades(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt.setString(1, studentID);
         try {
             ResultSet R = stmt.executeQuery();
             while(R.next())
@@ -54,7 +55,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     public void addCourse(String studentID) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
-         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+         stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
         String cid="cs002";
         stmt.setString(1,studentID);
         stmt.setString(2,cid);
@@ -87,7 +88,8 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     public void viewRegisteredCourses(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_REGISTERED_COURSE_QUERY);
+        stmt.setString(1, studentID);
         try {
             ResultSet R = stmt.executeQuery();
             while(R.next())
@@ -108,7 +110,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     };
     public void payFees(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_PAYMENT_QUERY);
         String paymentId="p0101";
         int amount=5000;
         String mode="online";
@@ -132,7 +134,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     };
     public void showNotifications(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_NOTIFCATION_QUERY);
         String notificationId="n0101";
 
         String notificationMessage="done";
@@ -157,14 +159,13 @@ public class StudentDaoOperation implements StudentDaoInterface{
     public boolean isApproved(String studentId) throws SQLException{
 
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
+        stmt = connection.prepareStatement(SQLQueryConstants.IS_STUDENT_APPROVED);
+        stmt.setString(1, studentId);
         boolean isApproved=false;
-
-
         try {
 
             ResultSet R = stmt.executeQuery();
-            isApproved=R.getBoolean(3);
+            isApproved=R.getBoolean("isApproved");
 
         }
         catch (SQLException se)
