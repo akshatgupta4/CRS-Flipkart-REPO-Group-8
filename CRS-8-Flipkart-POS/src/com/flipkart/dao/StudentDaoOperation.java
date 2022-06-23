@@ -65,16 +65,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
                     stmt.setString(1,studentID);
                     stmt.setString(2,cid);
                     stmt.setString(3, cid);
-                    try {
-                        stmt.executeUpdate();
-                    }
-                    catch (SQLException se)
-                    {
-                        System.out.println(se.getMessage());
-                    }
-                    finally {
-                        connection.close();
-                    }
+                    stmt.executeUpdate();
             }
             else{
                 throw new SQLException();
