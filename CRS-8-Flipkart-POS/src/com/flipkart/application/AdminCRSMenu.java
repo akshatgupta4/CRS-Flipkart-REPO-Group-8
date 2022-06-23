@@ -3,12 +3,14 @@ package com.flipkart.application;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
+import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class AdminCRSMenu {
     AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
-    public void displayMenu() {
+    public void displayMenu() throws SQLException {
         while(true) {
             System.out.println("**********Admin Menu*********");
             System.out.println("*****************************");
@@ -39,7 +41,7 @@ public class AdminCRSMenu {
             case 1:
 //                viewCoursesInCatalogue();
                 try {
-                    List<Course> courseList = adminDaoObj.viewCoursesInCatalog();
+                    List<Course> courseList = adminObj.viewCoursesInCatalog();
                     for (Course course : courseList) {
                         System.out.print(course.getCourseCode() + " |   " + course.getName() + "\n");
 
@@ -57,7 +59,7 @@ public class AdminCRSMenu {
                 break;
 
             case 3:
-                deleteCourseFromCatalog();
+                deleteCourse();
                 break;
 
             case 4:
@@ -86,7 +88,7 @@ public class AdminCRSMenu {
     }
     }
 
-    public void addCourseToCatalog() {
+    public void addCourseToCatalog() throws SQLException {
 
         scanner.nextLine();
         System.out.println("Enter Course Code:");
@@ -95,11 +97,11 @@ public class AdminCRSMenu {
         System.out.println("Enter Course Name:");
         String courseName = scanner.nextLine();
 
-        Course course = new Course(courseCode, courseName, res.getString(3), res.getString(4), res.getString(5));
+        Course course = new Course(courseCode, courseName);
         System.out.println(course.getName() + " " + course.getCourseCode());
         adminObj.addCourse(course);
         try {
-            adminDaoObj.addCourse(course);
+            adminObj.addCourse(course);
         }
         catch (Exception e) {
             return;
@@ -107,19 +109,15 @@ public class AdminCRSMenu {
 
     }
 
-    public void deleteCourseFromCatalog(){
-        System.out.println("Enter Course Code:");
-        String courseCode = scanner.nextLine();
-        adminObj.deleteCourse(courseCode);
-    }
+    public void deleteCourseFromCatalog(){}
 
-    public void approveStudent() {
+    public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
         String studentUserId= scanner.next();
         adminObj.approveStudent(studentUserId);
     }
 
-    public void addProfessor() {
+    public void addProfessor() throws SQLException {
         Professor professor = new Professor();
 
 //        System.out.println("Enter Professor Name:");
@@ -143,6 +141,10 @@ public class AdminCRSMenu {
         String password = scanner.next();
         professor.setPassword(password);
 
+        System.out.println("Enter Gender:");
+        String gender = scanner.next();
+        professor.setGender(Gender.stringToGender(gender));
+
         System.out.println("Enter Address:");
         String address = scanner.next();
         professor.setAddress(address);
@@ -152,10 +154,12 @@ public class AdminCRSMenu {
         professor.setCountry(country);
 
         professor.setRole(Role.getRole("Professor"));
+//        System.out.println(professor.getUserId()) + " "  + " " + professor.getName() + " " + professor.getPassword() + " " + professor.getGender().toString());
+
         adminObj.addProfessor(professor);
     }
 
-    public void assignCourseToProfessor() {
+    public void assignCourseToProfessor() throws SQLException {
         List<Professor> professorList = adminObj.viewProfessors();
 
         System.out.println(String.format("%20s | %20s | %20s ", "ProfessorId", "Name", "Designation"));
@@ -170,7 +174,7 @@ public class AdminCRSMenu {
 
         List<Course> courseList = adminObj.viewCoursesInCatalog();
         for(Course course: courseList) {
-            System.out.println(String.format("%20s | %20s | %20s ", course.getCourseCode(), course.getName()));
+            System.out.println(String.format("%20s | %20s | %20s", course.getCourseCode(), course.getName(), course.getInstructorId()));
         }
 
         System.out.println("Enter Course Code:");
@@ -179,11 +183,22 @@ public class AdminCRSMenu {
         adminObj.assignCourse(courseCode, profId);
     }
 
-    public void viewPendingAdmissions() {
+    public void viewPendingAdmissions() throws SQLException {
         List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
         for(Student student: pendingAdmissionsList) {
             System.out.println(String.format("%20s | %20s ", student.getUserId(), student.getName()));
         }
+    }
+
+    public void deleteCourse() throws SQLException {
+        List<Course> courseList = adminObj.viewCoursesInCatalog();
+        for(Course course: courseList) {
+            System.out.println(String.format("%20s | %20s | %20s", course.getCourseCode(), course.getName(), course.getInstructorId()));
+        }
+
+        System.out.println("Enter Course Code for the course to be deleted:");
+        String courseCode = scanner.next();
+        adminObj.deleteCourse(courseCode);
     }
 
 }
