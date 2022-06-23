@@ -95,7 +95,7 @@ public class AdminCRSMenu {
         System.out.println("Enter Course Name:");
         String courseName = scanner.nextLine();
 
-        Course course = new Course(courseCode, courseName);
+        Course course = new Course(courseCode, courseName, res.getString(3), res.getString(4), res.getString(5));
         System.out.println(course.getName() + " " + course.getCourseCode());
         adminObj.addCourse(course);
         try {

@@ -18,7 +18,7 @@ public interface AdminDaoInterface {
 //
 //    public void approveStudent(String studentId) ;
 //
-    public void addProfessor(Professor professor) throws SQLException;
+//    public void addProfessor(Professor professor) throws SQLException;
 //
 //    public void assignCourse(String courseCode, String professorId) ;
 //

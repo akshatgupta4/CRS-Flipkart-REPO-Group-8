@@ -61,28 +61,28 @@ public class AdminDaoOperation implements AdminDaoInterface {
 //
 //    public void approveStudent(String studentId){}
 //
-    public void addProfessor(Professor professor) throws SQLException {
-        Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
-
-//        String name="Anand ";
-//        String address="Bengaluru";
-//        String location="india";
-        //Bind values into the parameters.
-//        stmt.setInt(1, id);  // This would set age
-        stmt.setString(1, course.getCourseCode());
-        stmt.setNull(2, Types.NULL);
-        stmt.setInt(3, fee);
-        stmt.setString(4, course.getName());
-        stmt.setInt(5, 10);
-        try {
-            stmt.executeUpdate();
-        } catch (SQLException se) {
-            System.out.println(se.getMessage());
-        } finally {
-            connection.close();
-        }
-    };
+//    public void addProfessor(Professor professor) throws SQLException {
+//        Connection connection = CRSDbConnection.getConnection();
+//        stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
+//
+////        String name="Anand ";
+////        String address="Bengaluru";
+////        String location="india";
+//        //Bind values into the parameters.
+////        stmt.setInt(1, id);  // This would set age
+//        stmt.setString(1, course.getCourseCode());
+//        stmt.setNull(2, Types.NULL);
+//        stmt.setInt(3, fee);
+//        stmt.setString(4, course.getName());
+//        stmt.setInt(5, 10);
+//        try {
+//            stmt.executeUpdate();
+//        } catch (SQLException se) {
+//            System.out.println(se.getMessage());
+//        } finally {
+//            connection.close();
+//        }
+//    };
 //
 //    public void assignCourse(String courseCode, String professorId){}
 //

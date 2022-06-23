@@ -17,7 +17,7 @@ public class Course {
     }
 
 
-    public Course(String courseCode, String name) {
+    public Course(String courseCode, String name, String string, String resString, String s) {
         this.courseCode = courseCode;
         this.name = name;
     }
