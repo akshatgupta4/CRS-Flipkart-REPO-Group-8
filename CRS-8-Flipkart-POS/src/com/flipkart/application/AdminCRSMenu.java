@@ -111,7 +111,7 @@ public class AdminCRSMenu {
 
     public void deleteCourseFromCatalog(){}
 
-    public void approveStudent() {
+    public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
         String studentUserId= scanner.next();
         adminObj.approveStudent(studentUserId);
@@ -183,7 +183,7 @@ public class AdminCRSMenu {
         adminObj.assignCourse(courseCode, profId);
     }
 
-    public void viewPendingAdmissions() {
+    public void viewPendingAdmissions() throws SQLException {
         List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
         for(Student student: pendingAdmissionsList) {
             System.out.println(String.format("%20s | %20s ", student.getUserId(), student.getName()));

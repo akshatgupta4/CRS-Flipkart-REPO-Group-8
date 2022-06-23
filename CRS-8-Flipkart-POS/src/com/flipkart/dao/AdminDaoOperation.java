@@ -69,9 +69,40 @@ public class AdminDaoOperation implements AdminDaoInterface {
     }
 
 
-    //    public List<Student> viewPendingAdmissions(){}
+        public List<Student> viewPendingAdmissions() throws SQLException {
+            Connection connection = CRSDbConnection.getConnection();
+            stmt = connection.prepareStatement(SQLQueryConstants.VIEW_PENDING_ADMISSIONS_QUERY);
+
+            ResultSet rs = stmt.executeQuery();
+            List<Student> studentList = new ArrayList<Student>();
+            while(rs.next()) {
+                Student student = new Student();
+                student.setUserId(rs.getString(1));
+                student.setName(rs.getString(2));
+                studentList.add(student);
+            }
+
+            connection.close();
+            return studentList;
+        }
 //
-//    public void approveStudent(String studentId){}
+    public void approveStudent(String studentId) throws SQLException {
+        Connection connection = CRSDbConnection.getConnection();
+        stmt = connection.prepareStatement(SQLQueryConstants.APPROVE_STUDENT_QUERY);
+
+        stmt.setString(1, studentId);
+
+        try {
+            stmt.executeUpdate();
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            connection.close();
+            return;
+        }
+
+
+    }
 //
     public void addProfessor(Professor professor) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();

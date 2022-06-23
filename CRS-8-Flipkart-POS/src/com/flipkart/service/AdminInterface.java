@@ -21,9 +21,9 @@ public interface AdminInterface {
     public void addCourse(Course course) throws SQLException;
 
 
-    public List<Student> viewPendingAdmissions();
+    public List<Student> viewPendingAdmissions() throws SQLException;
 
-    public void approveStudent(String studentId) ;
+    public void approveStudent(String studentId) throws SQLException;
 
     public void addProfessor(Professor professor);
 

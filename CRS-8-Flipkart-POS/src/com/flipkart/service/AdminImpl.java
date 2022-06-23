@@ -41,20 +41,14 @@ public class AdminImpl implements AdminInterface{
     }
 
     @Override
-    public List<Student> viewPendingAdmissions() {
-        List<Student> pendingAdmissionsList = new ArrayList<Student>();
-        StudentImpl.StudentList.forEach((k, v) -> {
-            if(!v.isApproved()) pendingAdmissionsList.add(v);
-        });
-
-        return pendingAdmissionsList;
+    public List<Student> viewPendingAdmissions() throws SQLException {
+        return adminDaoObj.viewPendingAdmissions();
     }
 
 
     @Override
-    public void approveStudent(String studentId) {
-        System.out.println(StudentImpl.StudentList.size());
-        StudentImpl.StudentList.get(studentId).setApproved(true);
+    public void approveStudent(String studentId) throws SQLException {
+        adminDaoObj.approveStudent(studentId);
         return;
     }
 
