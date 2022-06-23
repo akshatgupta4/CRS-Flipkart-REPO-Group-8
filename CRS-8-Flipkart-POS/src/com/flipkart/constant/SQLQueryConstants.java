@@ -12,6 +12,7 @@ public class SQLQueryConstants {
     public static final String VIEW_REGISTERED_COURSE_QUERY="select courseId from studentcoursegrade where studentId = ?;";
     public static final String IS_STUDENT_APPROVED="select isApproved from student where studentId = ?;";
     public static final String ADD_STUDENT_PAYMENT_QUERY="insert into payment values(?, ?, ?, ?, ?);";
+    public static final String ADD_STUDENT_NOTIFCATION_QUERY="insert into notification values(?, ?, ?);";
 
     public static final String ADD_PROFESSOR_QUERY = "insert into professor values (?, ?, ?);";
     public static final String ADD_USER_QUERY = "insert into user values (?, ?, ?, ?, ?, ?, ?);";
