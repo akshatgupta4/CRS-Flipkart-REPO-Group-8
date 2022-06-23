@@ -4,6 +4,8 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.AdminDaoInterface;
+import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
@@ -12,6 +14,7 @@ import java.util.Scanner;
 
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
+    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
     public void displayMenu() {
@@ -35,11 +38,19 @@ public class AdminCRSMenu {
         switch(choice) {
             case 1:
 //                viewCoursesInCatalogue();
-                List<Course> courseList = adminObj.viewCoursesInCatalog();
-                for (Course course : courseList) {
-                    System.out.println(course.getName());
+                try {
+                    List<Course> courseList = adminDaoObj.viewCoursesInCatalog();
+                    for (Course course : courseList) {
+                        System.out.print(course.getCourseCode() + " |   " + course.getName() + "\n");
+
+                    }
+                    break;
                 }
-                break;
+                catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    break;
+                }
+
 
             case 2:
                 addCourseToCatalog();
@@ -87,6 +98,13 @@ public class AdminCRSMenu {
         Course course = new Course(courseCode, courseName);
         System.out.println(course.getName() + " " + course.getCourseCode());
         adminObj.addCourse(course);
+        try {
+            adminDaoObj.addCourse(course);
+        }
+        catch (Exception e) {
+            return;
+        }
+
     }
 
     public void deleteCourseFromCatalog(){
@@ -104,7 +122,7 @@ public class AdminCRSMenu {
     public void addProfessor() {
         Professor professor = new Professor();
 
-        System.out.println("Enter Professor Name:");
+//        System.out.println("Enter Professor Name:");
         System.out.println("Enter Professor Name:");
         String professorName = scanner.next();
         professor.setName(professorName);
