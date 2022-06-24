@@ -6,19 +6,27 @@ import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.StudentDaoInterface;
+import com.flipkart.dao.StudentDaoOperation;
+import com.flipkart.dao.UserDaoInterface;
+import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.exception.GradeNotAddedException;
 import com.flipkart.exception.SeatNotAvailableException;
 import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.service.*;
+import java.util.Date;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Scanner;
 public class CRSApplication {
     public static boolean loggedIn = false;
-    public static UserInterface userInterface = new UserImpl();
+    public static UserDaoInterface userInterface = new UserDaoOperation();
 
-
+    /*
+    Main Menu Displays Here.
+     */
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
 //        System.out.println("hello hello...");
@@ -31,6 +39,8 @@ public class CRSApplication {
                 switch (userInput) {
                     case 1:
                         // login
+                        //Date currentDate = new Date();
+                        //System.out.println("Current Date and Time: " + currentDate);
                         loginUser();
                         break;
                     case 2:
@@ -62,6 +72,13 @@ public class CRSApplication {
         System.out.println("4. Exit");
         System.out.println("Enter user input");
     }
+    /*
+    Method to login the user.
+    -> Admin
+    -> Student
+    -> Professor
+     */
+
 
     public static void loginUser() throws SQLException, CourseFoundException, GradeNotAddedException, StudentNotFoundForApprovalException, SeatNotAvailableException {
         Scanner sc=new Scanner(System.in);
@@ -69,16 +86,21 @@ public class CRSApplication {
         String userId,password;
 
             System.out.println("-----------------Login------------------");
+            //Date currentDate = new Date();
+            //System.out.println("Current Date and Time - Before Java 8 : " + currentDate);
             System.out.println("Email:");
             userId=sc.next();
             System.out.println("Password:");
             password=sc.next();
             loggedIn = userInterface.verifyCredentials(userId, password);
 
+
             if(loggedIn)
             {
-
+                Date currentDate = new Date();
+                System.out.println("Logged in at : " + currentDate);
                 Role userRole=userInterface.getRole(userId);
+
 //                Role userRole=Role.stringToName(role);
                 switch(userRole)
                 {
@@ -94,8 +116,8 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-
-                        StudentInterface studentInterface = new StudentImpl();
+	                    System.out.println(" Login Successful");
+                        StudentDaoInterface studentInterface = new StudentDaoOperation();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
                         {
@@ -122,11 +144,14 @@ public class CRSApplication {
         }
 
 
-
+    /*
+    Method to register the student on
+    the portal.
+     */
     public static void registerStudent() {
 
         Scanner sc = new Scanner(System.in);
-        StudentImpl studentImpl = new StudentImpl();
+        StudentDaoInterface studentImpl = new StudentDaoOperation();
         NotificationImpl notificationImpl = new NotificationImpl();
         String userId, name, password, address, country, branchName, gender;
         int genderV, batch;
@@ -152,7 +177,7 @@ public class CRSApplication {
             country = sc.next();
             System.out.println("here...");
             String newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
-            System.out.println("here...");
+            System.out.println(newStudentId);
 //            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
 
 
@@ -161,6 +186,7 @@ public class CRSApplication {
         }
 
     }
+
         public static void updatePassword() {
 
 

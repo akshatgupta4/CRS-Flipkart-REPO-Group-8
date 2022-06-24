@@ -50,7 +50,9 @@ public class ProfessorCRSMenu {
             option = sc.nextInt();
         }
     }
-
+    /*
+    Manin menu of the professor.
+     */
         private void CreateMenu() {
             // TODO Auto-generated method stub
             System.out.println("1. View Courses");
@@ -59,7 +61,11 @@ public class ProfessorCRSMenu {
             System.out.println("4. Logout");
 
         }
-
+    /*
+    Method to get the desired course of the
+    professor based on its UserId.
+    @Params -> profId
+     */
         public void getCourses(String profId){
 
             try
@@ -77,6 +83,10 @@ public class ProfessorCRSMenu {
             }
 
         }
+        /*
+        Method to view the enrolled students
+        in all the courses of specific professor.
+         */
 
     public void viewEnrolledStudents(String profId){try{
         List<EnrolledStudent> enrolledStudents = professorImpl.viewEnrolledStudents(profId);
@@ -89,6 +99,12 @@ public class ProfessorCRSMenu {
         System.out.println("Something went wrong!"+e.getMessage());
     }
     }
+
+    /*
+    Method to add the grade to the student
+    by the professor.
+     */
+
     public void  addGrade(String profId){
         Scanner sc=new Scanner(System.in);
 

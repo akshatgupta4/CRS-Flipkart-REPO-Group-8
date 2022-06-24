@@ -13,6 +13,8 @@ public class SQLQueryConstants {
 
     public static final String GET_VACANT_SEATS_QUERY = "select vacantSeat from coursecatalog where courseId = ?;";
     public static final String GET_COURSE_QUERY = "select * from coursecatalog where courseId = ?;";
+    public static final String GET_PROFESSOR_QUERY = "select * from professor where professorId = ?;";
+    public static final String GET_STUDENT_QUERY = "select * from student where studentId = ?;";
 
 
     //student operations
@@ -28,6 +30,7 @@ public class SQLQueryConstants {
 
     public static final String ADD_PROFESSOR_QUERY = "insert into professor values (?, ?, ?);";
     public static final String ADD_USER_QUERY = "insert into user values (?, ?, ?, ?, ?, ?, ?);";
+    public static final String ADD_STUDENT_QUERY = "insert into student values(?, ?, 0);";
     public static final String VIEW_PROFESSORS_QUERY = "select professorId, name, designation from professor inner join user where professor.professorId = user.userId;";
     public static final String ASSIGN_COURSE_TO_PROF_QUERY = "update coursecatalog set professorId = ? where courseId = ?;";
 
@@ -35,4 +38,11 @@ public class SQLQueryConstants {
     public static final String GET_PROF_NAME = "select name from user where userId = ?";
     public static final String VIEW_PENDING_ADMISSIONS_QUERY = "select studentId, name from student inner join user where student.studentId = user.userId and student.isApproved = 0;";
     public static final String APPROVE_STUDENT_QUERY = "update student set isApproved = 1 where studentId = ?;";
+
+    //user
+    public static  final String VERIFY_CREDENTIALS_QUERY="select password from user where userId = ?;";
+    public static  final String GET_ROLE_ID_QUERY="select roleId from user where userId = ?;";
+    public static  final String GET_ROLE_NAME_QUERY="select name from role where roleid = ?;";
+
+    public static final String SEND_NOTIFICATION_QUERY="insert into notification values (?, ?, ?);";
 }

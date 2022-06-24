@@ -3,8 +3,14 @@ package com.flipkart.dao;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.constant.SQLQueryConstants;
+<<<<<<< HEAD
 import com.flipkart.exception.GradeNotAddedException;
 import com.flipkart.exception.ProfessorNotAddedException;
+=======
+import com.flipkart.exception.CourseNotFoundException;
+import com.flipkart.exception.ProfessorDoesNotExistsException;
+import com.flipkart.exception.UserNotFoundException;
+>>>>>>> 947280ef724bddead115bb8e991f82d3f7ab640e
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -43,13 +49,17 @@ public class ProfessorDaoOperation {
 
     }
 
-    public List<Course> getCoursesByProf(String profId) throws SQLException {
+    public List<Course> getCoursesByProf(String profId) throws SQLException, ProfessorDoesNotExistsException {
         Connection connection = CRSDbConnection.getConnection();
         List<Course> coursesOffered= new ArrayList<Course>();
 
+        PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_PROFESSOR_QUERY);
+        stmt.setString(1, profId);
+        ResultSet rs = stmt.executeQuery();
+        if(!rs.next()) throw new ProfessorDoesNotExistsException(profId);
         try
         {
-        PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.PROF_GET_COURSE);
+        stmt = connection.prepareStatement(SQLQueryConstants.PROF_GET_COURSE);
         stmt.setString(1, profId);
         ResultSet res = stmt.executeQuery();
         while(res.next()){
@@ -67,10 +77,24 @@ public class ProfessorDaoOperation {
         return coursesOffered;
     }
 
+<<<<<<< HEAD
     public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException {
         Connection connection =CRSDbConnection.getConnection();
+=======
+    public boolean addGrade(String studentId, String courseId, String grade) throws SQLException, CourseNotFoundException, UserNotFoundException {
+        Connection connection = CRSDbConnection.getConnection();
+        PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
+        stmt.setString(1, courseId);
+        ResultSet rs = stmt.executeQuery();
+        if(!rs.next()) throw new CourseNotFoundException(courseId);
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_STUDENT_QUERY);
+        stmt.setString(1, studentId);
+        rs = stmt.executeQuery();
+        if(!rs.next()) throw new UserNotFoundException(studentId);
+>>>>>>> 947280ef724bddead115bb8e991f82d3f7ab640e
         try {
-            PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.ADD_GRADE);
+            stmt = connection.prepareStatement(SQLQueryConstants.ADD_GRADE);
 
 
             stmt.setString(1, grade);

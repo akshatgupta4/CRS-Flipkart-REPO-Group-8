@@ -55,7 +55,26 @@ public class StudentDaoOperation implements StudentDaoInterface{
     } ;
 
     public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country){
-        return "NULL";
+        Connection connection = CRSDbConnection.getConnection();
+        try{
+            stmt=connection.prepareStatement(SQLQueryConstants.ADD_USER_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setInt(2, role.getValue());
+            stmt.setString(3, name);
+            stmt.setString(4, password);
+            stmt.setString(5, gender.toString());
+            stmt.setString(6, address);
+            stmt.setString(7, country);
+            stmt.executeUpdate();
+            stmt=connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setString(2, branch);
+            stmt.executeUpdate();
+            return "Done\n";
+        }catch (SQLException se){
+            System.out.println(se.getMessage());
+        }
+        return "Error";
     } ;
 
  //changes to be made
@@ -181,7 +200,8 @@ public class StudentDaoOperation implements StudentDaoInterface{
         try {
 
             ResultSet R = stmt.executeQuery();
-            isApproved=R.getBoolean("isApproved");
+            R.next();
+            isApproved=R.getBoolean(1);
 
         }
         catch (SQLException se)

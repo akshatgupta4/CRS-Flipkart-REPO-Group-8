@@ -6,9 +6,14 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.SQLQueryConstants;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
+import com.flipkart.exception.CourseNotFoundException;
+import com.flipkart.exception.ProfessorAlreadyExistsException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.util.CRSDbConnection;
+//import com.mysql.cj.protocol.Resultset;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +22,13 @@ public class AdminDaoOperation implements AdminDaoInterface {
     public static PreparedStatement stmt = null;
     private static AdminDaoOperation instance = null;
 
-    public void deleteCourse(String courseCode) throws SQLException {
+    public void deleteCourse(String courseCode) throws SQLException, CourseNotFoundException {
         Connection connection = CRSDbConnection.getConnection();
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
+        stmt.setString(1, courseCode);
+        ResultSet rs = stmt.executeQuery();
+        if(!rs.next()) throw new CourseNotFoundException(courseCode);
         stmt = connection.prepareStatement(SQLQueryConstants.DELETE_COURSE_FROM_CATALOG_QUERY);
 
         stmt.setString(1, courseCode);
@@ -78,7 +88,6 @@ public class AdminDaoOperation implements AdminDaoInterface {
             connection.close();
         }
 
-
     }
 
 
@@ -117,8 +126,14 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     }
 //
-    public void addProfessor(Professor professor) throws SQLException {
+    public void addProfessor(Professor professor) throws SQLException, ProfessorAlreadyExistsException {
         Connection connection = CRSDbConnection.getConnection();
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_PROFESSOR_QUERY);
+        stmt.setString(1, professor.getUserId());
+        ResultSet rs = stmt.executeQuery();
+        if(rs.next()) throw new ProfessorAlreadyExistsException(professor.getUserId());
+
         stmt = connection.prepareStatement(SQLQueryConstants.ADD_USER_QUERY);
 
         stmt.setString(1, professor.getUserId());
@@ -152,16 +167,28 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     };
 //
-    public void assignCourse(String courseCode, String professorId) throws SQLException {
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException {
         Connection connection = CRSDbConnection.getConnection();
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
+        stmt.setString(1, courseCode);
+        ResultSet rs = stmt.executeQuery();
+        if(!rs.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_PROFESSOR_QUERY);
+        stmt.setString(1, professorId);
+        ResultSet rs2 = stmt.executeQuery();
+//        if(!rs.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
+        if(!rs2.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
         stmt = connection.prepareStatement(SQLQueryConstants.ASSIGN_COURSE_TO_PROF_QUERY);
 
         stmt.setString(1, professorId);
         stmt.setString(2, courseCode);
         try {
             stmt.executeUpdate();
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
+        }
+        catch(Exception e) {
+            throw new Exception(e);
         } finally {
             connection.close();
             return;
