@@ -3,10 +3,13 @@
  */
 package com.flipkart.application;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import com.flipkart.dao.StudentDaoInterface;
+import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.service.StudentImpl;
 
 
@@ -18,13 +21,14 @@ import com.flipkart.service.StudentImpl;
 public class StudentCRSMenu {
 
 	
-	public void studentLoggedin(String id) {
+	public void studentLoggedin(String id) throws SQLException {
 		
 		CreateMenu();
 		Scanner sc = new Scanner(System.in);
-		StudentImpl studentImpl = new StudentImpl();
+		StudentDaoInterface studentImpl = new StudentDaoOperation();
 		System.out.println("Enter your option");
 		int option = sc.nextInt();
+		String courseId;
 		while(option != 11) {
 			switch (option) {
 				case 1:
@@ -37,10 +41,12 @@ public class StudentCRSMenu {
 					 studentImpl.showNotifications(id);
 					 break;
 				case 4:
-					studentImpl.addCourse(id);
+					courseId= sc.next();
+					studentImpl.addCourse(id, courseId);
 					break;
 				case 5:
-					studentImpl.dropCourse(id);
+					courseId= sc.next();
+					studentImpl.dropCourse(id, courseId);
 					break;
 				case 6:
 					studentImpl.payFees(id);

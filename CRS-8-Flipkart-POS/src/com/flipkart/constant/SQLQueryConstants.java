@@ -23,10 +23,12 @@ public class SQLQueryConstants {
     public static final String IS_STUDENT_APPROVED="select isApproved from student where studentId = ?;";
     public static final String ADD_STUDENT_PAYMENT_QUERY="insert into payment values(?, ?, ?, ?, ?);";
     public static final String ADD_STUDENT_NOTIFICATION_QUERY="insert into notification values(?, ?, ?);";
-    public static final String DROP_COURSE_BY_STUDENT_QUERY="delete from studentcoursegrade where studentId=? and courseId=?;" +
-            "update coursecatalog set vacantSeat=vacantSeat-1 where courseId = ?;" ;
-    public static final String ADD_COURSE_BY_STUDENT_QUERY="insert into studentcoursegrade values(?, ?, null);" +
-            "update coursecatalog set vacantSeat=vacantSeat+1 where courseId = ?;";
+    public static final String DROP_COURSE_BY_STUDENT_QUERY="delete from studentcoursegrade where studentId=? and courseId=?;";
+
+    public static final String ADD_COURSE_BY_STUDENT_QUERY="insert into studentcoursegrade values(?, ?, null);";
+    public static final String DECREMENT_VACANT_SEATS_QUERY="update coursecatalog set vacantSeat=vacantSeat-1 where courseId = ?;";
+    public static final String INCREMENT_VACANT_SEARS_QUERY="update coursecatalog set vacantSeat=vacantSeat+1 where courseId = ?;" ;
+
 
     public static final String ADD_PROFESSOR_QUERY = "insert into professor values (?, ?, ?);";
     public static final String ADD_USER_QUERY = "insert into user values (?, ?, ?, ?, ?, ?, ?);";

@@ -36,14 +36,14 @@ public interface StudentDaoInterface {
      * @param studentID
      * @throws SQLException
      */
-    public void addCourse(String studentID) throws SQLException;
+    public void addCourse(String studentID, String courseId) throws SQLException;
 
     /**
      * method to drop course by Id
      * @param studentID
      * @throws SQLException
      */
-    public void dropCourse(String studentID) throws SQLException;
+    public void dropCourse(String studentID, String courseId) throws SQLException;
 
     /**
      * Method to view the registered courses for student by Id

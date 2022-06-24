@@ -72,18 +72,20 @@ public class StudentDaoOperation implements StudentDaoInterface{
     } ;
 
 
-    public void addCourse(String studentID) throws SQLException {
+    public void addCourse(String studentID, String cid) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
-        String cid="cs002";
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
         checkStmt.setString(1, cid);
         try{
             ResultSet R= checkStmt.executeQuery();
+            R.next();
             if(R.getInt("vacantSeat")>0){
                     stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_BY_STUDENT_QUERY);
                     stmt.setString(1,studentID);
                     stmt.setString(2,cid);
-                    stmt.setString(3, cid);
+                    stmt.executeUpdate();
+                    stmt = connection.prepareStatement(SQLQueryConstants.DECREMENT_VACANT_SEATS_QUERY);
+                    stmt.setString(1, cid);
                     stmt.executeUpdate();
             }
             else{
@@ -95,14 +97,15 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
     };
-    public void dropCourse(String studentID) throws SQLException{
+    public void dropCourse(String studentID, String courseCode) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
-        String courseCode="CS101";
-        stmt.setString(1, studentID);
-        stmt.setString(2, courseCode);
-        stmt.setString(3, courseCode);
         try {
+            stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setString(2, courseCode);
+            stmt.executeUpdate();
+            stmt = connection.prepareStatement(SQLQueryConstants.INCREMENT_VACANT_SEARS_QUERY);
+            stmt.setString(1, courseCode);
             stmt.executeUpdate();
         }
         catch (SQLException se)

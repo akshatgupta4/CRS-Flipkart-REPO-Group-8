@@ -113,7 +113,6 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-	                    System.out.println(" Login Successful");
                         StudentDaoInterface studentInterface = new StudentDaoOperation();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
@@ -121,7 +120,6 @@ public class CRSApplication {
                             System.out.println(" Login Successful");
                             StudentCRSMenu studentMenu=new StudentCRSMenu();
                             studentMenu.studentLoggedin(userId);
-
                         }
                         else
                         {
