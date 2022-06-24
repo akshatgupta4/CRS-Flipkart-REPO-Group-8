@@ -14,6 +14,7 @@ public class SQLQueryConstants {
     public static final String GET_VACANT_SEATS_QUERY = "select vacantSeat from coursecatalog where courseId = ?;";
     public static final String GET_COURSE_QUERY = "select * from coursecatalog where courseId = ?;";
     public static final String GET_PROFESSOR_QUERY = "select * from professor where professorId = ?;";
+    public static final String GET_STUDENT_QUERY = "select * from student where studentId = ?;";
 
 
     //student operations
@@ -42,4 +43,6 @@ public class SQLQueryConstants {
     public static  final String VERIFY_CREDENTIALS_QUERY="select password from user where userId = ?;";
     public static  final String GET_ROLE_ID_QUERY="select roleId from user where userId = ?;";
     public static  final String GET_ROLE_NAME_QUERY="select name from role where roleid = ?;";
+
+    public static final String SEND_NOTIFICATION_QUERY="insert into notification values (?, ?, ?);";
 }
