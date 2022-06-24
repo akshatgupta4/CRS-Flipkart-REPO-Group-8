@@ -10,6 +10,10 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.bean.Course;
+import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
+import com.flipkart.exception.CourseNotFoundException;
+import com.flipkart.exception.ProfessorAlreadyExistsException;
 
 public interface AdminInterface {
 
@@ -50,7 +54,7 @@ public interface AdminInterface {
      * @throws ProfessorNotAddedException
      * @throws UserIdAlreadyInUseException
      */
-    public void addProfessor(Professor professor);
+    public void addProfessor(Professor professor) throws SQLException, ProfessorAlreadyExistsException;
 
     /*
      * Method to assign Course to a Professor
@@ -59,7 +63,7 @@ public interface AdminInterface {
      * @throws CourseNotFoundException
      * @throws UserNotFoundException
      */
-    public void assignCourse(String courseCode, String professorId) throws SQLException;
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException;
 
     /*
      * Method to get list of courses in catalog
