@@ -19,4 +19,16 @@ public class CourseCatalogImpl implements CourseCatalogInterface{
         return;
     }
 
+    public void deleteCourse(String courseCode) {
+
+        try{
+            courseCatalog.remove(courseCode);
+            return;
+        }
+        catch(Exception e){
+            System.out.println("Enter correct course code!!.");
+        }
+
+    }
+
 }

@@ -7,6 +7,7 @@ import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
+import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
@@ -16,10 +17,10 @@ import java.util.Scanner;
 
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
-    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
+//    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
-    public void displayMenu() throws SQLException {
+    public void displayMenu() throws SQLException, CourseFoundException {
         while(true) {
             System.out.println("**********Admin Menu*********");
             System.out.println("*****************************");
@@ -88,7 +89,7 @@ public class AdminCRSMenu {
     }
     }
 
-    public void addCourseToCatalog() throws SQLException {
+    public void addCourseToCatalog() throws SQLException, CourseFoundException {
 
         scanner.nextLine();
         System.out.println("Enter Course Code:");
@@ -99,17 +100,20 @@ public class AdminCRSMenu {
 
         Course course = new Course(courseCode, courseName);
         System.out.println(course.getName() + " " + course.getCourseCode());
-        adminObj.addCourse(course);
+//        adminObj.addCourse(course);
         try {
             adminObj.addCourse(course);
         }
+        catch (CourseFoundException e) {
+            System.out.println(e.getMessage());
+        }
         catch (Exception e) {
-            return;
+            System.out.println(e.getMessage());
         }
 
     }
 
-    public void deleteCourseFromCatalog(){}
+//    public void deleteCourseFromCatalog(){}
 
     public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
@@ -180,7 +184,12 @@ public class AdminCRSMenu {
         System.out.println("Enter Course Code:");
         String courseCode = scanner.next();
 
-        adminObj.assignCourse(courseCode, profId);
+        try {
+            adminObj.assignCourse(courseCode, profId);
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void viewPendingAdmissions() throws SQLException {
