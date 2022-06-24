@@ -10,6 +10,7 @@ import com.flipkart.dao.UserDaoInterface;
 import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.*;
+import java.util.Date;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -33,6 +34,8 @@ public class CRSApplication {
                 switch (userInput) {
                     case 1:
                         // login
+                        //Date currentDate = new Date();
+                        //System.out.println("Current Date and Time: " + currentDate);
                         loginUser();
                         break;
                     case 2:
@@ -78,17 +81,22 @@ public class CRSApplication {
         String userId,password;
 
             System.out.println("-----------------Login------------------");
+            //Date currentDate = new Date();
+            //System.out.println("Current Date and Time - Before Java 8 : " + currentDate);
             System.out.println("Email:");
             userId=sc.next();
             System.out.println("Password:");
             password=sc.next();
             loggedIn = userInterface.verifyCredentials(userId, password);
 
+
             if(loggedIn)
             {
                 Date currentDate = new Date();
                 System.out.println("Logged in at : " + currentDate);
                 Role userRole=userInterface.getRole(userId);
+                Date currentDate = new Date();
+                System.out.println("Logged in at : " + currentDate);
 //                Role userRole=Role.stringToName(role);
                 switch(userRole)
                 {
