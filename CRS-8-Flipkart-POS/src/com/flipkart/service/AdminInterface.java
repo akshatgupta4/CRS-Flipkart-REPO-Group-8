@@ -11,6 +11,7 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.bean.Course;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
 
 public interface AdminInterface {
 
@@ -28,7 +29,7 @@ public interface AdminInterface {
 
     public void addProfessor(Professor professor) throws SQLException;
 
-    public void assignCourse(String courseCode, String professorId) throws SQLException;
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException;
 
     public List<Course> viewCoursesInCatalog() throws SQLException;
 

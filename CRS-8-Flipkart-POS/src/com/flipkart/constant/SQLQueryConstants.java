@@ -13,6 +13,7 @@ public class SQLQueryConstants {
 
     public static final String GET_VACANT_SEATS_QUERY = "select vacantSeat from coursecatalog where courseId = ?;";
     public static final String GET_COURSE_QUERY = "select * from coursecatalog where courseId = ?;";
+    public static final String GET_PROFESSOR_QUERY = "select * from professor where professorId = ?;";
 
 
     //student operations

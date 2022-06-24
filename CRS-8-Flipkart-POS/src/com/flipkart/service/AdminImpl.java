@@ -11,6 +11,7 @@ import com.flipkart.bean.Student;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
 
 
 public class AdminImpl implements AdminInterface{
@@ -59,7 +60,7 @@ public class AdminImpl implements AdminInterface{
         return;
     }
 
-    public void assignCourse(String courseCode, String professorId) throws SQLException {
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException {
         adminDaoObj.assignCourse(courseCode, professorId);
     }
 

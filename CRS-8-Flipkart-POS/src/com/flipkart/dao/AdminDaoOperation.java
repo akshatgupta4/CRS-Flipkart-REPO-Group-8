@@ -6,8 +6,10 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.SQLQueryConstants;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.util.CRSDbConnection;
+import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -152,16 +154,28 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     };
 //
-    public void assignCourse(String courseCode, String professorId) throws SQLException {
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException {
         Connection connection = CRSDbConnection.getConnection();
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
+        stmt.setString(1, courseCode);
+        ResultSet rs = stmt.executeQuery();
+        if(!rs.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
+
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_PROFESSOR_QUERY);
+        stmt.setString(1, professorId);
+        ResultSet rs2 = stmt.executeQuery();
+//        if(!rs.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
+        if(!rs2.next()) throw new CourseNotAssignedToProfessorException(courseCode, professorId);
         stmt = connection.prepareStatement(SQLQueryConstants.ASSIGN_COURSE_TO_PROF_QUERY);
 
         stmt.setString(1, professorId);
         stmt.setString(2, courseCode);
         try {
             stmt.executeUpdate();
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
+        }
+        catch(Exception e) {
+            throw new Exception(e);
         } finally {
             connection.close();
             return;
