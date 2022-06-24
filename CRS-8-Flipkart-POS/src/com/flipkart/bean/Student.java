@@ -9,7 +9,7 @@ public class Student extends User{
     private  String branch;
     boolean isApproved = false;
 
-    public boolean isApproved() {
+    public boolean isApproved(String studentId) {
         return isApproved;
     }
 

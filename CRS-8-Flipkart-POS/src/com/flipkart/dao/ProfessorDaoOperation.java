@@ -3,6 +3,8 @@ package com.flipkart.dao;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.GradeNotAddedException;
+//import com.flipkart.exception.ProfessorNotAddedException;
 import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.ProfessorDoesNotExistsException;
 import com.flipkart.exception.UserNotFoundException;
@@ -17,9 +19,7 @@ import java.util.List;
 
 public class ProfessorDaoOperation {
 
-    public boolean addGrade(String studentId) {
-        return false;
-    }
+
 
     public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
@@ -74,7 +74,11 @@ public class ProfessorDaoOperation {
         return coursesOffered;
     }
 
-    public boolean addGrade(String studentId, String courseId, String grade) throws SQLException, CourseNotFoundException, UserNotFoundException {
+//<<<<<<< HEAD
+//    public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException {
+//        Connection connection =CRSDbConnection.getConnection();
+//=======
+    public boolean addGrade(String studentId, String courseId, String grade) throws SQLException, CourseNotFoundException, UserNotFoundException, GradeNotAddedException {
         Connection connection = CRSDbConnection.getConnection();
         PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
         stmt.setString(1, courseId);
@@ -88,6 +92,7 @@ public class ProfessorDaoOperation {
         try {
             stmt = connection.prepareStatement(SQLQueryConstants.ADD_GRADE);
 
+
             stmt.setString(1, grade);
             stmt.setString(2, courseId);
             stmt.setString(3, studentId);
@@ -97,7 +102,7 @@ public class ProfessorDaoOperation {
             if(row==1)
                 return true;
             else
-                return false;
+                throw new GradeNotAddedException(studentId);
         }
         catch(SQLException e)
         {
@@ -105,4 +110,6 @@ public class ProfessorDaoOperation {
         }
         return false;
     }
+
+
 }

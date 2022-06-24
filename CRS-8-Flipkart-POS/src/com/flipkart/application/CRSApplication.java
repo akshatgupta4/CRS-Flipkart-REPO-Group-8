@@ -11,6 +11,9 @@ import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.dao.UserDaoInterface;
 import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.SeatNotAvailableException;
+import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.service.*;
 import java.util.Date;
 
@@ -77,7 +80,7 @@ public class CRSApplication {
      */
 
 
-    public static void loginUser() throws SQLException, CourseFoundException {
+    public static void loginUser() throws SQLException, CourseFoundException, GradeNotAddedException, StudentNotFoundForApprovalException, SeatNotAvailableException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;
