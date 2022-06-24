@@ -11,7 +11,7 @@ import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.ProfessorAlreadyExistsException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.util.CRSDbConnection;
-import com.mysql.cj.protocol.Resultset;
+//import com.mysql.cj.protocol.Resultset;
 
 import javax.xml.transform.Result;
 import java.sql.*;
