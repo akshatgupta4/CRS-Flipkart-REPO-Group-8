@@ -6,6 +6,8 @@ import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.StudentDaoInterface;
+import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.dao.UserDaoInterface;
 import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
@@ -21,7 +23,7 @@ import java.util.Scanner;
  */
 public class CRSApplication {
     public static boolean loggedIn = false;
-    public static UserInterface userInterface = new UserImpl();
+    public static UserDaoInterface userInterface = new UserDaoOperation();
 
     /*
     Main Menu Displays Here.
@@ -120,7 +122,7 @@ public class CRSApplication {
                         break;
                     case STUDENT:
 	                    System.out.println(" Login Successful");
-                        StudentInterface studentInterface = new StudentImpl();
+                        StudentDaoInterface studentInterface = new StudentDaoOperation();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
                         {
@@ -154,7 +156,7 @@ public class CRSApplication {
     public static void registerStudent() {
 
         Scanner sc = new Scanner(System.in);
-        StudentImpl studentImpl = new StudentImpl();
+        StudentDaoInterface studentImpl = new StudentDaoOperation();
         NotificationImpl notificationImpl = new NotificationImpl();
         String userId, name, password, address, country, branchName, gender;
         int genderV, batch;
@@ -180,7 +182,7 @@ public class CRSApplication {
             country = sc.next();
             System.out.println("here...");
             String newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
-            System.out.println("here...");
+            System.out.println(newStudentId);
 //            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);
 
 
@@ -189,6 +191,7 @@ public class CRSApplication {
         }
 
     }
+
         public static void updatePassword() {
 //            TODO
 
