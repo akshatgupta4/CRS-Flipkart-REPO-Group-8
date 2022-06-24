@@ -53,7 +53,7 @@ public class ProfessorDaoOperation {
         stmt.setString(1, profId);
         ResultSet res = stmt.executeQuery();
         while(res.next()){
-            coursesOffered.add(new Course(res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)));
+            coursesOffered.add(new Course(res.getString(1), res.getString(2), res.getInt(3), res.getString(4), res.getInt(5)));
         }
 
         }
