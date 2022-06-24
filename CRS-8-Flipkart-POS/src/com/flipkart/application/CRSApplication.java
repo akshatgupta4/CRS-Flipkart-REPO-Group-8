@@ -94,7 +94,7 @@ public class CRSApplication {
      * @throws SQLException
      * @throws CourseFoundException
      */
-    public static void loginUser() throws SQLException, CourseFoundException {
+    public static void loginUser() throws SQLException, CourseFoundException, GradeNotAddedException, SeatNotAvailableException, StudentNotFoundForApprovalException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;
