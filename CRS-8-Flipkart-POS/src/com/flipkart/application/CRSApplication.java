@@ -20,6 +20,10 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
+
+/**
+ * Class containing methods for main menu
+ */
 public class CRSApplication {
     public static boolean loggedIn = false;
     public static UserDaoInterface userInterface = new UserDaoOperation();
@@ -64,6 +68,9 @@ public class CRSApplication {
     }
 
 
+    /**
+     * Method to display main menu
+     */
     public static void menu() {
         System.out.println("----------Welcome to Course Management System---------");
         System.out.println("1. Login");
@@ -79,8 +86,15 @@ public class CRSApplication {
     -> Professor
      */
 
-
-    public static void loginUser() throws SQLException, CourseFoundException, GradeNotAddedException, StudentNotFoundForApprovalException, SeatNotAvailableException {
+    /**
+     * Method to login the user.
+     *     -> Admin
+     *     -> Student
+     *     -> Professor
+     * @throws SQLException
+     * @throws CourseFoundException
+     */
+    public static void loginUser() throws SQLException, CourseFoundException, GradeNotAddedException, SeatNotAvailableException, StudentNotFoundForApprovalException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;
@@ -116,7 +130,6 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-	                    System.out.println(" Login Successful");
                         StudentDaoInterface studentInterface = new StudentDaoOperation();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
@@ -124,7 +137,6 @@ public class CRSApplication {
                             System.out.println(" Login Successful");
                             StudentCRSMenu studentMenu=new StudentCRSMenu();
                             studentMenu.studentLoggedin(userId);
-
                         }
                         else
                         {
@@ -144,9 +156,9 @@ public class CRSApplication {
         }
 
 
-    /*
-    Method to register the student on
-    the portal.
+    /**
+     * Method to register the student on
+     *     the portal.
      */
     public static void registerStudent() {
 
@@ -187,7 +199,7 @@ public class CRSApplication {
     }
 
         public static void updatePassword() {
-
+//            TODO
 
         }
 
