@@ -12,6 +12,8 @@ import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.exception.CourseNotAssignedToProfessorException;
+import com.flipkart.exception.CourseNotFoundException;
+import com.flipkart.exception.ProfessorAlreadyExistsException;
 
 
 public class AdminImpl implements AdminInterface{
@@ -34,7 +36,7 @@ public class AdminImpl implements AdminInterface{
         return instance;
     }
     @Override
-    public void deleteCourse(String courseCode) throws SQLException {
+    public void deleteCourse(String courseCode) throws SQLException, CourseNotFoundException {
         adminDaoObj.deleteCourse(courseCode);
     }
 
@@ -54,7 +56,7 @@ public class AdminImpl implements AdminInterface{
         return;
     }
 
-    public void addProfessor(Professor professor) throws SQLException{
+    public void addProfessor(Professor professor) throws SQLException, ProfessorAlreadyExistsException {
 //        ProfessorImpl.profList.put(Integer.parseInt(professor.getUserId()), professor);
         adminDaoObj.addProfessor(professor);
         return;

@@ -159,8 +159,13 @@ public class AdminCRSMenu {
 
         professor.setRole(Role.getRole("Professor"));
 //        System.out.println(professor.getUserId()) + " "  + " " + professor.getName() + " " + professor.getPassword() + " " + professor.getGender().toString());
+        try {
+            adminObj.addProfessor(professor);
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
 
-        adminObj.addProfessor(professor);
     }
 
     public void assignCourseToProfessor() throws SQLException {
@@ -207,7 +212,13 @@ public class AdminCRSMenu {
 
         System.out.println("Enter Course Code for the course to be deleted:");
         String courseCode = scanner.next();
-        adminObj.deleteCourse(courseCode);
+        try {
+            adminObj.deleteCourse(courseCode);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 }

@@ -1,9 +1,9 @@
 package com.flipkart.exception;
 
-public class ProfessorNotAddedException extends Exception{
+public class ProfessorAlreadyExistsException extends Exception{
     private String professorId;
 
-    public ProfessorNotAddedException(String professorId) {
+    public ProfessorAlreadyExistsException (String professorId) {
         this.professorId = professorId;
     }
 
@@ -15,6 +15,6 @@ public class ProfessorNotAddedException extends Exception{
 
     @Override
     public String getMessage() {
-        return "professorId: " + professorId + " not added!";
+        return "professorId: " + professorId + " already exists!";
     }
 }
