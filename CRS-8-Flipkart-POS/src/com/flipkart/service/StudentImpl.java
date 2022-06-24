@@ -6,6 +6,7 @@ import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class StudentImpl implements StudentInterface  {
     public static HashMap<String, Student> StudentList = new HashMap<String, Student>();
@@ -36,7 +37,23 @@ public class StudentImpl implements StudentInterface  {
 
     public void showNotifications(String studentID){};
 
-    public void payFees(String studentID){};
+    public void payFees(String studentID){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Credit Card Number:");
+        String cardNumber = sc.next();
+        System.out.println("Enter Expiry in the format(MM/YY):");
+        String expiry = sc.next();
+        System.out.println("Enter CVV:");
+        String cvv = sc.next();
+        System.out.println("Connecting to Payment Server");
+        System.out.println("Redirecting");
+        for(int i=0;i<1e7;i++);
+        System.out.println("Enter OTP sent to mobile Number:");
+        String otp = sc.next();
+        System.out.println("Processing Payment");
+        for(int i=0;i<1e7;i++);
+        System.out.println("Payment Completed Successfully");
+    };
 
     public HashMap<String, Student> getStudentList(){
         return StudentList;
