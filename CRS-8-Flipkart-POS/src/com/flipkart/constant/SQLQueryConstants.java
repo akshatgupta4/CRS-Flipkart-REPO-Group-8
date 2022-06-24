@@ -36,4 +36,9 @@ public class SQLQueryConstants {
 
     public static final String VIEW_PENDING_ADMISSIONS_QUERY = "select studentId, name from student inner join user where student.studentId = user.userId and student.isApproved = 0;";
     public static final String APPROVE_STUDENT_QUERY = "update student set isApproved = 1 where studentId = ?;";
+
+    //user
+    public static  final String VERIFY_CREDENTIALS_QUERY="select password from user where userId = ?;";
+    public static  final String GET_ROLE_ID_QUERY="select roleId from user where userId = ?;";
+    public static  final String GET_ROLE_NAME_QUERY="select name from role where roleid = ?;";
 }
