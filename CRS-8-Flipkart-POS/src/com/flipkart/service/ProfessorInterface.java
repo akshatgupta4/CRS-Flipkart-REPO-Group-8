@@ -23,7 +23,7 @@ public interface ProfessorInterface {
      * @return boolean indicating if grade is added or not
      * @throws GradeNotAddedException
      */
-    public boolean addGrade(String studentId, String courseId, String grade);
+    public boolean addGrade(String studentId, String courseId, String grade) throws UserNotFoundException, SQLException, CourseNotFoundException;
 
     /*
      * Method to view all the enrolled students
@@ -37,7 +37,7 @@ public interface ProfessorInterface {
      * @param profId: professor id
      * @return List of courses the professor is teaching
      */
-    public List<Course> getCourses(String profId) throws SQLException;
+    public List<Course> getCourses(String profId) throws SQLException, ProfessorDoesNotExistsException;
 
     /*
      * Method to get the professor name with ID
