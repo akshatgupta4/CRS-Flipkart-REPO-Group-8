@@ -6,6 +6,9 @@ import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.UserDaoInterface;
+import com.flipkart.dao.UserDaoOperation;
+import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.*;
 
 import java.sql.SQLException;
@@ -99,7 +102,7 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-
+	                    System.out.println(" Login Successful");
                         StudentInterface studentInterface = new StudentImpl();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)

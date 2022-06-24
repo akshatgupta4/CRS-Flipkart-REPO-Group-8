@@ -10,6 +10,9 @@ import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.bean.Professor;
 import com.flipkart.dao.ProfessorDaoInterface;
 import com.flipkart.dao.ProfessorDaoOperation;
+import com.flipkart.exception.CourseNotFoundException;
+import com.flipkart.exception.ProfessorDoesNotExistsException;
+import com.flipkart.exception.UserNotFoundException;
 
 public class ProfessorImpl implements ProfessorInterface {
 
@@ -18,7 +21,7 @@ public class ProfessorImpl implements ProfessorInterface {
     ProfessorDaoOperation professorDaoOperation = new ProfessorDaoOperation();
 
 
-    public boolean addGrade(String studentId, String courseId, String grade) {
+    public boolean addGrade(String studentId, String courseId, String grade) throws UserNotFoundException, SQLException, CourseNotFoundException {
         try
         {
             professorDaoOperation.addGrade(studentId, courseId, grade);
@@ -44,7 +47,7 @@ public class ProfessorImpl implements ProfessorInterface {
         return enrolledStudents;
     }
 
-    public List<Course> getCourses(String profId) throws SQLException {
+    public List<Course> getCourses(String profId) throws SQLException, ProfessorDoesNotExistsException {
         List<Course> coursesOffered = new ArrayList<Course>();
         try
         {
