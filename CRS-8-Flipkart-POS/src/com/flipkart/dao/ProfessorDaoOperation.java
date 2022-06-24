@@ -3,6 +3,8 @@ package com.flipkart.dao;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.ProfessorNotAddedException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -14,9 +16,7 @@ import java.util.List;
 
 public class ProfessorDaoOperation {
 
-    public boolean addGrade(String studentId) {
-        return false;
-    }
+
 
     public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
@@ -67,10 +67,11 @@ public class ProfessorDaoOperation {
         return coursesOffered;
     }
 
-    public boolean addGrade(String studentId, String courseId, String grade){
-        Connection connection = CRSDbConnection.getConnection();
+    public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException {
+        Connection connection =CRSDbConnection.getConnection();
         try {
             PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.ADD_GRADE);
+
 
             stmt.setString(1, grade);
             stmt.setString(2, courseId);
@@ -81,7 +82,7 @@ public class ProfessorDaoOperation {
             if(row==1)
                 return true;
             else
-                return false;
+                throw new GradeNotAddedException(studentId);
         }
         catch(SQLException e)
         {
@@ -89,4 +90,6 @@ public class ProfessorDaoOperation {
         }
         return false;
     }
+
+
 }

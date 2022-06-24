@@ -10,6 +10,7 @@ import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.bean.Professor;
 import com.flipkart.dao.ProfessorDaoInterface;
 import com.flipkart.dao.ProfessorDaoOperation;
+import com.flipkart.exception.GradeNotAddedException;
 
 public class ProfessorImpl implements ProfessorInterface {
 
@@ -18,7 +19,7 @@ public class ProfessorImpl implements ProfessorInterface {
     ProfessorDaoOperation professorDaoOperation = new ProfessorDaoOperation();
 
 
-    public boolean addGrade(String studentId, String courseId, String grade) {
+    public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException {
         try
         {
             professorDaoOperation.addGrade(studentId, courseId, grade);
@@ -44,16 +45,12 @@ public class ProfessorImpl implements ProfessorInterface {
         return enrolledStudents;
     }
 
-    public List<Course> getCourses(String profId) throws SQLException {
+    public List<Course> getCourses(String profId) throws GradeNotAddedException,SQLException {
         List<Course> coursesOffered = new ArrayList<Course>();
-        try
-        {
-            coursesOffered = professorDaoOperation.getCoursesByProf(profId);
-        }
-        catch(Exception ex)
-        {
-            throw ex;
-        }
+
+        coursesOffered = professorDaoOperation.getCoursesByProf(profId);
+
+
         return coursesOffered;
     }
 
