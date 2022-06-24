@@ -15,6 +15,10 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
+
+/**
+ * Class containing methods for main menu
+ */
 public class CRSApplication {
     public static boolean loggedIn = false;
     public static UserInterface userInterface = new UserImpl();
@@ -59,6 +63,9 @@ public class CRSApplication {
     }
 
 
+    /**
+     * Method to display main menu
+     */
     public static void menu() {
         System.out.println("----------Welcome to Course Management System---------");
         System.out.println("1. Login");
@@ -67,14 +74,15 @@ public class CRSApplication {
         System.out.println("4. Exit");
         System.out.println("Enter user input");
     }
-    /*
-    Method to login the user.
-    -> Admin
-    -> Student
-    -> Professor
+
+    /**
+     * Method to login the user.
+     *     -> Admin
+     *     -> Student
+     *     -> Professor
+     * @throws SQLException
+     * @throws CourseFoundException
      */
-
-
     public static void loginUser() throws SQLException, CourseFoundException {
         Scanner sc=new Scanner(System.in);
 
@@ -139,9 +147,9 @@ public class CRSApplication {
         }
 
 
-    /*
-    Method to register the student on
-    the portal.
+    /**
+     * Method to register the student on
+     *     the portal.
      */
     public static void registerStudent() {
 
@@ -182,7 +190,7 @@ public class CRSApplication {
 
     }
         public static void updatePassword() {
-
+//            TODO
 
         }
 

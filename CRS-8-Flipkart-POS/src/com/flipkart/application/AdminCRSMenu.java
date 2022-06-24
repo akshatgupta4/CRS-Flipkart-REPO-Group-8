@@ -15,6 +15,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class containing methods for Admin menu
+ */
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
 //    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
@@ -23,6 +26,11 @@ public class AdminCRSMenu {
     /* Admin Menu*/
 
 
+    /**
+     * Method to display admin menu
+     * @throws SQLException
+     * @throws CourseFoundException
+     */
     public void displayMenu() throws SQLException, CourseFoundException {
         while(true) {
             System.out.println("**********Admin Menu*********");
@@ -96,6 +104,11 @@ public class AdminCRSMenu {
      */
 
 
+    /**
+     * Method to add course to catalog
+     * @throws SQLException
+     * @throws CourseFoundException
+     */
     public void addCourseToCatalog() throws SQLException, CourseFoundException {
 
         scanner.nextLine();
@@ -120,20 +133,20 @@ public class AdminCRSMenu {
 
     }
 
-    public void deleteCourseFromCatalog(){}
-    /*
-    Method to approve the student
-    by the admin.
+    /**
+     * Method to approve the student by the admin.
+     * @throws SQLException
      */
-//    public void deleteCourseFromCatalog(){}
-
     public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
         String studentUserId= scanner.next();
         adminObj.approveStudent(studentUserId);
     }
-    /*
-    Method to add the Professor.
+
+
+    /**
+     * Method to add the Professor.
+     * @throws SQLException
      */
     public void addProfessor() throws SQLException {
         Professor professor = new Professor();
@@ -181,9 +194,10 @@ public class AdminCRSMenu {
         }
 
     }
-    /*
-    Method to assign the Course to
-    Professor.
+
+    /**
+     * Method to assign the Course to Professor.
+     * @throws SQLException
      */
     public void assignCourseToProfessor() throws SQLException {
         List<Professor> professorList = adminObj.viewProfessors();
@@ -213,9 +227,11 @@ public class AdminCRSMenu {
             System.out.println(e.getMessage());
         }
     }
-    /*
-    Method to view the Pending
-    Admission of students to get them approved/rejected.
+
+
+    /**
+     * Method to view the Pending Admission of students to get them approved/rejected.
+     * @throws SQLException
      */
     public void viewPendingAdmissions() throws SQLException {
         List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
@@ -223,8 +239,11 @@ public class AdminCRSMenu {
             System.out.println(String.format("%20s | %20s ", student.getUserId(), student.getName()));
         }
     }
-    /*
-    Method to delete the Course.
+
+
+    /**
+     * Method to delete the Course.
+     * @throws SQLException
      */
     public void deleteCourse() throws SQLException {
         List<Course> courseList = adminObj.viewCoursesInCatalog();
