@@ -6,6 +6,8 @@ import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.UserDaoInterface;
+import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.*;
 
@@ -15,7 +17,9 @@ public class CRSApplication {
     public static boolean loggedIn = false;
     public static UserInterface userInterface = new UserImpl();
 
-
+    /*
+    Main Menu Displays Here.
+     */
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
 //        System.out.println("hello hello...");
@@ -59,6 +63,13 @@ public class CRSApplication {
         System.out.println("4. Exit");
         System.out.println("Enter user input");
     }
+    /*
+    Method to login the user.
+    -> Admin
+    -> Student
+    -> Professor
+     */
+
 
     public static void loginUser() throws SQLException, CourseFoundException {
         Scanner sc=new Scanner(System.in);
@@ -91,7 +102,7 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-
+	                    System.out.println(" Login Successful");
                         StudentInterface studentInterface = new StudentImpl();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
@@ -119,7 +130,10 @@ public class CRSApplication {
         }
 
 
-
+    /*
+    Method to register the student on
+    the portal.
+     */
     public static void registerStudent() {
 
         Scanner sc = new Scanner(System.in);

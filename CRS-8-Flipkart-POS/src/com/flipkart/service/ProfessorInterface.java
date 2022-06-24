@@ -16,11 +16,33 @@ import java.util.List;
 
 public interface ProfessorInterface {
 
-    public boolean addGrade(String studentId, String courseId, String grade) throws UserNotFoundException, SQLException, CourseNotFoundException;
+    /*
+     * Method to add Grade of student
+     * @param studentId
+     * @param courseId
+     * @return boolean indicating if grade is added or not
+     * @throws GradeNotAddedException
+     */
+    public boolean addGrade(String studentId, String courseId, String grade);
 
+    /*
+     * Method to view all the enrolled students
+     * @param profId: professor id
+     * @return List of enrolled students
+     */
     public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException;
 
-    public List<Course> getCourses(String profId) throws SQLException, ProfessorDoesNotExistsException;
+    /*
+     * Method to get list of all course a professor is teaching
+     * @param profId: professor id
+     * @return List of courses the professor is teaching
+     */
+    public List<Course> getCourses(String profId) throws SQLException;
 
+    /*
+     * Method to get the professor name with ID
+     * @param profId
+     * @return Professor name
+     */
     public String getProfessorById(String profId);
 }
