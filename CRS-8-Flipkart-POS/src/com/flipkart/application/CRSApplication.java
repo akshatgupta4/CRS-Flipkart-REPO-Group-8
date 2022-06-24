@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 public class CRSApplication {
     public static boolean loggedIn = false;
-    public static UserInterface userInterface = new UserImpl();
+    public static UserDaoInterface userInterface = new UserDaoOperation();
 
     /*
     Main Menu Displays Here.
