@@ -13,7 +13,7 @@ public class CRSDbConnection {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "password";
+    static final String PASS = "Blue_176439";
 
 
     public static Connection getConnection() {
@@ -25,15 +25,6 @@ public class CRSDbConnection {
                 else {
                     Class.forName("com.mysql.jdbc.Driver");
                     connection = DriverManager.getConnection(DB_URL,USER,PASS);
-    //                Properties prop = new Properties();
-    //                InputStream inputStream = CRSDb.class.getClassLoader().getResourceAsStream("./config.properties");
-    //                prop.load(inputStream);
-    //                String driver = prop.getProperty("driver");
-    //                String url = prop.getProperty("url");
-    //                String user = prop.getProperty("user");
-    //                String password = prop.getProperty("password");
-    //                Class.forName(driver);
-    //                connection = DriverManager.getConnection(url, user, password);
                 }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

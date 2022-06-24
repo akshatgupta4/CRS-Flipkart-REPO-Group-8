@@ -3,6 +3,7 @@ package com.flipkart.bean;
 public class Course {
     private String courseCode;
     private String name;
+
     private boolean isOffered;
     private String instructorId;
     private int vacantSeats = 10;
@@ -20,6 +21,16 @@ public class Course {
     public Course(String courseCode, String name) {
         this.courseCode = courseCode;
         this.name = name;
+    }
+
+    public Course(String courseCode, String professorId,int courseFee, String name, int vacantSeat) {
+        this.courseCode = courseCode;
+        this.name = name;
+        this.instructorId = professorId;
+        this.courseFee = courseFee;
+        this.vacantSeats = vacantSeat;
+
+
     }
 
     public Course(){}

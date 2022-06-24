@@ -25,7 +25,7 @@ public interface AdminInterface {
 
     public void approveStudent(String studentId) throws SQLException;
 
-    public void addProfessor(Professor professor);
+    public void addProfessor(Professor professor) throws SQLException;
 
     public void assignCourse(String courseCode, String professorId) throws SQLException;
 

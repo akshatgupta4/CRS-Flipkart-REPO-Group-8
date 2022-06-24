@@ -13,11 +13,11 @@ import java.util.List;
 
 public interface ProfessorInterface {
 
-    public boolean addGrade(String studentId) throws SQLException;
+    public boolean addGrade(String studentId, String courseId, String grade);
 
-    public List<EnrolledStudent> viewEnrolledStudents(String profId) ;
+    public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException;
 
-    public List<Course> getCourses(String profId);
+    public List<Course> getCourses(String profId) throws SQLException;
 
     public String getProfessorById(String profId);
 }
