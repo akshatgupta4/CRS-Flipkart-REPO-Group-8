@@ -12,6 +12,7 @@ import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.*;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Scanner;
 public class CRSApplication {
     public static boolean loggedIn = false;
@@ -85,7 +86,8 @@ public class CRSApplication {
 
             if(loggedIn)
             {
-
+                Date currentDate = new Date();
+                System.out.println("Logged in at : " + currentDate);
                 Role userRole=userInterface.getRole(userId);
 //                Role userRole=Role.stringToName(role);
                 switch(userRole)

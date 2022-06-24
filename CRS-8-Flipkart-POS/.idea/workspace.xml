@@ -2,46 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/ProfessorDaoOperation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseAlreadyRegisteredException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseFoundException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseLimitExceedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseNotAssignedToProfessorException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseNotDeletedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/CourseNotFoundException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/GradeNotAddedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/ProfessorAlreadyExistsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/SeatNotAvailableException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/StudentNotFoundForApprovalException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/StudentNotRegisteredException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/UserIdAlreadyInUseException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/UserNotAddedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/UserNotApprovedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/exception/UserNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/ProfessorCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/ProfessorCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/application/CRSApplication$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/application/CRSApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/application/ProfessorCRSMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/bean/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/bean/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/constant/SQLQueryConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/constant/SQLQueryConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/AdminDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/AdminDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/AdminDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/AdminDaoOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/ProfessorDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/ProfessorDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/UserDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/dao/UserDaoOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/AdminImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/AdminImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/AdminInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/CourseCatalogImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/CourseCatalogImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/CourseCatalogInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/ProfessorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/ProfessorImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/ProfessorInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/util/CRSDbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/util/CRSDbConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
