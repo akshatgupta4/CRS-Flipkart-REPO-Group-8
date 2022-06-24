@@ -3,10 +3,15 @@
  */
 package com.flipkart.application;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.SeatNotAvailableException;
+import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.service.StudentImpl;
 
 
@@ -18,7 +23,7 @@ import com.flipkart.service.StudentImpl;
 public class StudentCRSMenu {
 
 	
-	public void studentLoggedin(String id) {
+	public void studentLoggedin(String id) throws GradeNotAddedException, SQLException, StudentNotFoundForApprovalException, CourseFoundException, SeatNotAvailableException {
 		
 		CreateMenu();
 		Scanner sc = new Scanner(System.in);

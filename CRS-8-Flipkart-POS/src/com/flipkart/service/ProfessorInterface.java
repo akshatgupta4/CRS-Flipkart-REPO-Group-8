@@ -13,9 +13,18 @@ import com.flipkart.exception.ProfessorDoesNotExistsException;
 import com.flipkart.exception.UserNotFoundException;
 
 import java.util.List;
+import com.flipkart.exception.GradeNotAddedException;
 
 public interface ProfessorInterface {
 
+//<<<<<<< HEAD
+//    public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException;
+//
+//    public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException;
+//
+//    public List<Course> getCourses(String profId) throws SQLException, GradeNotAddedException;
+//
+//=======
     /*
      * Method to add Grade of student
      * @param studentId
@@ -23,7 +32,7 @@ public interface ProfessorInterface {
      * @return boolean indicating if grade is added or not
      * @throws GradeNotAddedException
      */
-    public boolean addGrade(String studentId, String courseId, String grade) throws UserNotFoundException, SQLException, CourseNotFoundException;
+    public boolean addGrade(String studentId, String courseId, String grade) throws UserNotFoundException, SQLException, CourseNotFoundException, GradeNotAddedException;
 
     /*
      * Method to view all the enrolled students

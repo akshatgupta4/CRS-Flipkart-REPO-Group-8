@@ -11,6 +11,9 @@ import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.dao.UserDaoInterface;
 import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.SeatNotAvailableException;
+import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.service.*;
 import java.util.Date;
 
@@ -76,6 +79,12 @@ public class CRSApplication {
         System.out.println("4. Exit");
         System.out.println("Enter user input");
     }
+    /*
+    Method to login the user.
+    -> Admin
+    -> Student
+    -> Professor
+     */
 
     /**
      * Method to login the user.
