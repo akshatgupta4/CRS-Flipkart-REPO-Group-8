@@ -52,8 +52,9 @@ public class AdminImpl implements AdminInterface{
         return;
     }
 
-    public void addProfessor(Professor professor)  {
-        ProfessorImpl.profList.put(Integer.parseInt(professor.getUserId()), professor);
+    public void addProfessor(Professor professor) throws SQLException {
+//        ProfessorImpl.profList.put(Integer.parseInt(professor.getUserId()), professor);
+        adminDaoObj.addProfessor(professor);
         return;
     }
 

@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
-    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
+//    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
     public void displayMenu() throws SQLException {
@@ -109,7 +109,7 @@ public class AdminCRSMenu {
 
     }
 
-    public void deleteCourseFromCatalog(){}
+//    public void deleteCourseFromCatalog(){}
 
     public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
