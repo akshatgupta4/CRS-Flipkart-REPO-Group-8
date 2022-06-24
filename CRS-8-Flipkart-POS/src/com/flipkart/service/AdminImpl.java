@@ -10,6 +10,7 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
+import com.flipkart.exception.CourseFoundException;
 
 
 public class AdminImpl implements AdminInterface{
@@ -36,7 +37,7 @@ public class AdminImpl implements AdminInterface{
         adminDaoObj.deleteCourse(courseCode);
     }
 
-    public void addCourse(Course newCourse) throws SQLException {
+    public void addCourse(Course newCourse) throws SQLException, CourseFoundException {
         adminDaoObj.addCourse(newCourse);
     }
 
@@ -52,7 +53,7 @@ public class AdminImpl implements AdminInterface{
         return;
     }
 
-    public void addProfessor(Professor professor) throws SQLException {
+    public void addProfessor(Professor professor) throws SQLException{
 //        ProfessorImpl.profList.put(Integer.parseInt(professor.getUserId()), professor);
         adminDaoObj.addProfessor(professor);
         return;

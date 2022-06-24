@@ -10,6 +10,7 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.bean.Course;
+import com.flipkart.exception.CourseFoundException;
 
 public interface AdminInterface {
 
@@ -18,7 +19,7 @@ public interface AdminInterface {
     public void deleteCourse(String courseCode) throws SQLException;
 
 
-    public void addCourse(Course course) throws SQLException;
+    public void addCourse(Course course) throws SQLException, CourseFoundException;
 
 
     public List<Student> viewPendingAdmissions() throws SQLException;
