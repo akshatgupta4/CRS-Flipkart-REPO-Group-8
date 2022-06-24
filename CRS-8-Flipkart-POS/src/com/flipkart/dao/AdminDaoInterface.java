@@ -4,6 +4,7 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.CourseNotAssignedToProfessorException;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -21,7 +22,7 @@ public interface AdminDaoInterface {
 //
     public void addProfessor(Professor professor) throws SQLException;
 //
-    public void assignCourse(String courseCode, String professorId) throws SQLException;
+    public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException;
 //
     public List<Course> viewCoursesInCatalog() throws SQLException;
 //

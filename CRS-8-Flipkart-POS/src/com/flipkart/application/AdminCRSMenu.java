@@ -184,7 +184,12 @@ public class AdminCRSMenu {
         System.out.println("Enter Course Code:");
         String courseCode = scanner.next();
 
-        adminObj.assignCourse(courseCode, profId);
+        try {
+            adminObj.assignCourse(courseCode, profId);
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void viewPendingAdmissions() throws SQLException {
