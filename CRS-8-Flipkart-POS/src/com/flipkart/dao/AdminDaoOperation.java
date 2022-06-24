@@ -5,6 +5,7 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.util.CRSDbConnection;
 
@@ -42,15 +43,26 @@ public class AdminDaoOperation implements AdminDaoInterface {
         return instance;
     }
 
-    public void addCourse(Course course) throws SQLException {
+    public void addCourse(Course course) throws SQLException, CourseFoundException  {
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
+
+
+//        try {
+            stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
+            stmt.setString(1, course.getCourseCode());
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                throw new CourseFoundException(course.getCourseCode());
+            }
+
+//        }
 
 //        String name="Anand ";
 //        String address="Bengaluru";
 //        String location="india";
         //Bind values into the parameters.
 //        stmt.setInt(1, id);  // This would set age
+        stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
         int fee = 5000;
         stmt.setString(1, course.getCourseCode());
         stmt.setNull(2, Types.NULL);
@@ -59,7 +71,8 @@ public class AdminDaoOperation implements AdminDaoInterface {
         stmt.setInt(5, 10);
         try {
             stmt.executeUpdate();
-        } catch (SQLException se) {
+        }
+        catch (SQLException se) {
             System.out.println(se.getMessage());
         } finally {
             connection.close();

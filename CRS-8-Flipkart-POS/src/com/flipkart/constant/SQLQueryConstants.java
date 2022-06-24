@@ -12,6 +12,7 @@ public class SQLQueryConstants {
     public static final String ADD_GRADE="update studentcoursegrade set grade=? where courseId=? and studentId=?";
 
     public static final String GET_VACANT_SEATS_QUERY = "select vacantSeat from coursecatalog where courseId = ?;";
+    public static final String GET_COURSE_QUERY = "select * from coursecatalog where courseId = ?;";
 
 
     //student operations

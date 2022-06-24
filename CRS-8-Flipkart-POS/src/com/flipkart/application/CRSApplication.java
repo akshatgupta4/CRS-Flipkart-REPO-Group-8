@@ -6,6 +6,7 @@ import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.NotificationType;
 import com.flipkart.constant.Role;
+import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.*;
 
 import java.sql.SQLException;
@@ -59,7 +60,7 @@ public class CRSApplication {
         System.out.println("Enter user input");
     }
 
-    public static void loginUser() throws SQLException {
+    public static void loginUser() throws SQLException, CourseFoundException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;
