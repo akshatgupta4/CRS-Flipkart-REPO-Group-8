@@ -45,7 +45,7 @@ public interface AdminDaoInterface {
 //
 
     /**
-     * Add professor using SQL commands
+     * Add professor using SQL Commands
      * @param professor
      * @throws SQLException
      */
