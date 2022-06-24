@@ -73,10 +73,9 @@ public class AdminDaoOperation implements AdminDaoInterface {
         //Bind values into the parameters.
 //        stmt.setInt(1, id);  // This would set age
         stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_QUERY);
-        int fee = 5000;
         stmt.setString(1, course.getCourseCode());
         stmt.setNull(2, Types.NULL);
-        stmt.setInt(3, fee);
+        stmt.setInt(3, course.getCourseFee());
         stmt.setString(4, course.getName());
         stmt.setInt(5, 10);
         try {
