@@ -20,13 +20,15 @@ public interface AdminInterface {
      * @throws CourseNotFoundException
      * @throws CourseNotDeletedException
      */
-    public void deleteCourse(String courseCode) throws SQLException;
+    public void deleteCourse(String courseCode) throws SQLException, CourseNotFoundException;
 
     /*
      * Method to add Course to Course Catalog
      * @param course : Course object storing details of a course
      */
-    public void addCourse(Course course) throws SQLException;
+
+
+    public void addCourse(Course course) throws SQLException, CourseFoundException;
 
     /*
      * Method to view Students yet to be approved by Admin

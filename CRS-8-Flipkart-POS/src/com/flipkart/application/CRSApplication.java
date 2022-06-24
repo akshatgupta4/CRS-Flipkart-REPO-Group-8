@@ -66,7 +66,9 @@ public class CRSApplication {
     -> Student
     -> Professor
      */
-    public static void loginUser() throws SQLException {
+
+
+    public static void loginUser() throws SQLException, CourseFoundException {
         Scanner sc=new Scanner(System.in);
 
         String userId,password;

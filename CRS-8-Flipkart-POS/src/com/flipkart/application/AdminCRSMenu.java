@@ -7,6 +7,7 @@ import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
+import com.flipkart.exception.CourseFoundException;
 import com.flipkart.service.AdminImpl;
 import com.flipkart.service.AdminInterface;
 
@@ -16,12 +17,13 @@ import java.util.Scanner;
 
 public class AdminCRSMenu {
     AdminInterface adminObj = AdminImpl.getInstance();
-    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
+//    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
     /* Admin Menu*/
 
-    public void displayMenu() throws SQLException {
+
+    public void displayMenu() throws SQLException, CourseFoundException {
         while(true) {
             System.out.println("**********Admin Menu*********");
             System.out.println("*****************************");
@@ -94,6 +96,8 @@ public class AdminCRSMenu {
      */
     public void addCourseToCatalog() throws SQLException {
 
+    public void addCourseToCatalog() throws SQLException, CourseFoundException {
+
         scanner.nextLine();
         System.out.println("Enter Course Code:");
         String courseCode = scanner.nextLine();
@@ -103,12 +107,15 @@ public class AdminCRSMenu {
 
         Course course = new Course(courseCode, courseName);
         System.out.println(course.getName() + " " + course.getCourseCode());
-        adminObj.addCourse(course);
+//        adminObj.addCourse(course);
         try {
             adminObj.addCourse(course);
         }
+        catch (CourseFoundException e) {
+            System.out.println(e.getMessage());
+        }
         catch (Exception e) {
-            return;
+            System.out.println(e.getMessage());
         }
 
     }
@@ -118,6 +125,8 @@ public class AdminCRSMenu {
     Method to approve the student
     by the admin.
      */
+//    public void deleteCourseFromCatalog(){}
+
     public void approveStudent() throws SQLException {
         System.out.println("Enter Student's ID:");
         String studentUserId= scanner.next();
@@ -164,8 +173,13 @@ public class AdminCRSMenu {
 
         professor.setRole(Role.getRole("Professor"));
 //        System.out.println(professor.getUserId()) + " "  + " " + professor.getName() + " " + professor.getPassword() + " " + professor.getGender().toString());
+        try {
+            adminObj.addProfessor(professor);
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
 
-        adminObj.addProfessor(professor);
     }
     /*
     Method to assign the Course to
@@ -192,7 +206,12 @@ public class AdminCRSMenu {
         System.out.println("Enter Course Code:");
         String courseCode = scanner.next();
 
-        adminObj.assignCourse(courseCode, profId);
+        try {
+            adminObj.assignCourse(courseCode, profId);
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     /*
     Method to view the Pending
@@ -215,7 +234,13 @@ public class AdminCRSMenu {
 
         System.out.println("Enter Course Code for the course to be deleted:");
         String courseCode = scanner.next();
-        adminObj.deleteCourse(courseCode);
+        try {
+            adminObj.deleteCourse(courseCode);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 }
