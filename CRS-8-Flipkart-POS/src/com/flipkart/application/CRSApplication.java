@@ -14,7 +14,9 @@ public class CRSApplication {
     public static boolean loggedIn = false;
     public static UserInterface userInterface = new UserImpl();
 
-
+    /*
+    Main Menu Displays Here.
+     */
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
 //        System.out.println("hello hello...");
@@ -58,7 +60,12 @@ public class CRSApplication {
         System.out.println("4. Exit");
         System.out.println("Enter user input");
     }
-
+    /*
+    Method to login the user.
+    -> Admin
+    -> Student
+    -> Professor
+     */
     public static void loginUser() throws SQLException {
         Scanner sc=new Scanner(System.in);
 
@@ -118,7 +125,10 @@ public class CRSApplication {
         }
 
 
-
+    /*
+    Method to register the student on
+    the portal.
+     */
     public static void registerStudent() {
 
         Scanner sc = new Scanner(System.in);
