@@ -2,6 +2,10 @@ package com.flipkart.dao;
 
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
+import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.SeatNotAvailableException;
+import com.flipkart.exception.StudentNotFoundForApprovalException;
 
 import java.sql.SQLException;
 
@@ -9,12 +13,13 @@ import java.sql.SQLException;
  * Interface for Student Dao Operations
  */
 public interface StudentDaoInterface {
+
     /**
      * Method to view grades by id
      * @param studentID
      * @throws SQLException
      */
-    public void viewGrades(String studentID) throws SQLException;
+    public void viewGrades(String studentID) throws SQLException, StudentNotFoundForApprovalException, GradeNotAddedException;
 
     /**
      * method to register a student
@@ -31,19 +36,21 @@ public interface StudentDaoInterface {
      */
     public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country) ;
 
+
     /**
-     * method to add course by Id
+     * Method to add course to student's registered courses
      * @param studentID
      * @throws SQLException
+     * @throws SeatNotAvailableException
      */
-    public void addCourse(String studentID) throws SQLException;
+    public void addCourse(String studentID) throws SQLException, SeatNotAvailableException;
 
     /**
      * method to drop course by Id
      * @param studentID
      * @throws SQLException
      */
-    public void dropCourse(String studentID) throws SQLException;
+    public void dropCourse(String studentID) throws SQLException, CourseFoundException;
 
     /**
      * Method to view the registered courses for student by Id

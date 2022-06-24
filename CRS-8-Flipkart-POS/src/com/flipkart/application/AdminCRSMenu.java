@@ -94,7 +94,7 @@ public class AdminCRSMenu {
     /* Method to add the courses
        in the database.
      */
-//    public void addCourseToCatalog() throws SQLException {
+
 
     public void addCourseToCatalog() throws SQLException, CourseFoundException {
 

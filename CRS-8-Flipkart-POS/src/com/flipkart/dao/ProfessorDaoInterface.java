@@ -3,6 +3,7 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
+import com.flipkart.exception.GradeNotAddedException;
 
 
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.List;
  *Interface for Professor Dao Operations
  */
 public interface ProfessorDaoInterface {
+
     /**
      * Method to Grade a student using SQL Commands
      * @param studentId
@@ -35,6 +37,7 @@ public interface ProfessorDaoInterface {
      * @return
      */
     public List<Course> getCourses(String profId);
+
 
     /**
      * Method to Get professor name by id

@@ -3,6 +3,10 @@ package com.flipkart.dao;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.CourseFoundException;
+import com.flipkart.exception.GradeNotAddedException;
+import com.flipkart.exception.SeatNotAvailableException;
+import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -22,12 +26,13 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
         return instance;
     }
-    public void viewGrades(String studentID) throws SQLException{
+    public void viewGrades(String studentID) throws SQLException, GradeNotAddedException {
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
         stmt.setString(1, studentID);
         try {
             ResultSet R = stmt.executeQuery();
+            if(!R.next()) throw new GradeNotAddedException(studentID);
             while(R.next())
             {
                 String cid=R.getString("courseId");
@@ -38,6 +43,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
         catch (SQLException se)
         {
             System.out.println(se.getMessage());
+
         }
         finally {
             connection.close();
@@ -49,17 +55,37 @@ public class StudentDaoOperation implements StudentDaoInterface{
     } ;
 
     public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country){
-        return "NULL";
+        Connection connection = CRSDbConnection.getConnection();
+        try{
+            stmt=connection.prepareStatement(SQLQueryConstants.ADD_USER_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setInt(2, role.getValue());
+            stmt.setString(3, name);
+            stmt.setString(4, password);
+            stmt.setString(5, gender.toString());
+            stmt.setString(6, address);
+            stmt.setString(7, country);
+            stmt.executeUpdate();
+            stmt=connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setString(2, branch);
+            stmt.executeUpdate();
+            return "Done\n";
+        }catch (SQLException se){
+            System.out.println(se.getMessage());
+        }
+        return "Error";
     } ;
 
-
-    public void addCourse(String studentID) throws SQLException {
+ //changes to be made
+    public void addCourse(String studentID) throws SQLException, SeatNotAvailableException {
         Connection connection = CRSDbConnection.getConnection();
         String cid="cs002";
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
         checkStmt.setString(1, cid);
         try{
             ResultSet R= checkStmt.executeQuery();
+            if(!R.next()) throw new SeatNotAvailableException(cid);
             if(R.getInt("vacantSeat")>0){
                     stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_BY_STUDENT_QUERY);
                     stmt.setString(1,studentID);
@@ -76,7 +102,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
     };
-    public void dropCourse(String studentID) throws SQLException{
+    public void dropCourse(String studentID) throws SQLException, CourseFoundException {
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
         String courseCode="CS101";
@@ -88,7 +114,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
         catch (SQLException se)
         {
-            System.out.println(se.getMessage());
+            throw new CourseFoundException(courseCode);
         }
         finally {
             connection.close();
@@ -174,7 +200,8 @@ public class StudentDaoOperation implements StudentDaoInterface{
         try {
 
             ResultSet R = stmt.executeQuery();
-            isApproved=R.getBoolean("isApproved");
+            R.next();
+            isApproved=R.getBoolean(1);
 
         }
         catch (SQLException se)
