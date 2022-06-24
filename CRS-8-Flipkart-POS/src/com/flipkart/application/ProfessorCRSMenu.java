@@ -1,37 +1,49 @@
 package com.flipkart.application;
 
+import com.flipkart.bean.Course;
+import com.flipkart.bean.EnrolledStudent;
+import com.flipkart.dao.ProfessorDaoInterface;
 import com.flipkart.service.ProfessorImpl;
 import com.flipkart.service.StudentImpl;
 import com.flipkart.service.StudentImpl;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class ProfessorCRSMenu {
 
-    public void professorLoggedin(String id) {
+    ProfessorImpl professorImpl = new ProfessorImpl();
+
+    public void professorLoggedin(String profId) {
         CreateMenu();
         Scanner sc = new Scanner(System.in);
-        ProfessorImpl professorImpl = new ProfessorImpl();
         System.out.println("Enter your option");
         int option = sc.nextInt();
-        while (option != 11) {
-            switch (option) {
+        while (option != 4) {
+            switch(option)
+            {
                 case 1:
-                    professorImpl.getCourses(id);
+                    //view all the courses taught by the professor
+                    getCourses(profId);
                     break;
                 case 2:
-                    professorImpl.viewEnrolledStudents(id);
+                    //view all the enrolled students for the course
+                    viewEnrolledStudents(profId);
                     break;
 
                 case 3:
-                    professorImpl.addGrade(id);
+                    //add grade for a student
+                    addGrade(profId);
                     break;
                 case 4:
-                    CRSApplication.loggedIn = false;
+                    //logout from the system
+                    CRSApplication.loggedIn=false;
                     return;
                 default:
-                    System.out.print("***** Wrong Choice *****");
+                    System.out.println("***** Wrong Choice *****");
             }
             CreateMenu();
             System.out.println("\nEnter Your Choice");
@@ -47,6 +59,80 @@ public class ProfessorCRSMenu {
             System.out.println("4. Logout");
 
         }
+
+        public void getCourses(String profId){
+
+            try
+            {
+                List<Course> enrolledCourses = professorImpl.getCourses(profId);
+                System.out.println(String.format("%20s %20s %20s","COURSE CODE","COURSE NAME","No. of Students  enrolled" ));
+                for(Course object : enrolledCourses){
+                    System.out.println(String.format("%20s %20s %20s",object.getCourseCode(), object.getName(), 10- object.getVacantSeats()));
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("Something went wrong!"+e.getMessage());
+
+            }
+
+        }
+
+    public void viewEnrolledStudents(String profId){try{
+        List<EnrolledStudent> enrolledStudents = professorImpl.viewEnrolledStudents(profId);
+        System.out.println(String.format("%20s %20s %20s","COURSE CODE","COURSE NAME","STUDENT ID" ));
+        for(EnrolledStudent object : enrolledStudents){
+            System.out.println(String.format("%20s %20s %20s",object.getCourseCode(), object.getName(),object.getStudentId()));
+        }
+    }
+    catch (Exception e){
+        System.out.println("Something went wrong!"+e.getMessage());
+    }
+    }
+    public void  addGrade(String profId){
+        Scanner sc=new Scanner(System.in);
+
+        String studentId, courseId,grade;
+        try
+        {
+            List<EnrolledStudent> enrolledStudents=  new ArrayList<EnrolledStudent>();
+            enrolledStudents = professorImpl.viewEnrolledStudents(profId);
+            System.out.println(String.format("%20s %20s %20s","COURSE CODE","COURSE NAME","Student ID" ));
+            for(EnrolledStudent obj: enrolledStudents)
+            {
+                System.out.println(String.format("%20s %20s %20s",obj.getCourseCode(), obj.getName(),obj.getStudentId()));
+            }
+            List<Course> coursesEnrolled=new ArrayList<Course>();
+            coursesEnrolled	=professorImpl.getCourses(profId);
+            System.out.println("----------------Add Grade--------------");
+            System.out.println("Enter student id");
+            studentId=sc.next();
+            System.out.println("Enter course code");
+            courseId=sc.next();
+            System.out.println("Enter grade");
+            grade=sc.next();
+//            if(ProfessorValidator.isValidStudent(enrolledStudents, studentId) && ProfessorValidator.isValidCourse(coursesEnrolled, courseCode))
+//            {
+                professorImpl.addGrade(studentId, courseId, grade);
+                System.out.println("Grade added successfully for "+studentId);
+//            }
+//            else
+//            {
+//                System.out.println("Invalid data entered, try again!");
+//            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Grade not added, SQL exception occured "+ex);
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Grade cannot be added for"+ex);
+
+        }
+
+    }
+
 
 }
 

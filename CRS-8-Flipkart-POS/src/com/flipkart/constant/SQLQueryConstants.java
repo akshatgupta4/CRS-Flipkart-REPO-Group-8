@@ -4,17 +4,26 @@ public class SQLQueryConstants {
 
     //admin dao
     public static final String ADD_COURSE_QUERY = "insert into coursecatalog values (?, ?, ?, ?, ?);";
-
-    //professor dao
-    public static final String GET_ENROLLED_STUDENTS="select studentId from studentcoursegrade inner join course on studentcoursegrade.courseId = course.courseID and profId=?";
-
     public static final String VIEW_COURSES_IN_CATALOG_QUERY = "select * from coursecatalog";
+
+    public static final String PROF_GET_COURSES = "Select cc.courseId as cid, cc.courseName as cname,  count(*) as ns from coursecatalog as cc innerjoin studentcoursegrade as sag on cc.courseId = sag.courseId where cc.profId = ? group by courseId";
+    public static final String PROF_GET_COURSE = "select * from course where professorId=?";
+    public static final String GET_ENROLLED_STUDENTS="select course.courseId,course.name , sudentcoursegrade.studentId from coursecatalog as course inner join studentcoursegrade on course.courseId = studentcoursegrade.courseId where course.professorId = ? order by course.courseId";
+    public static final String ADD_GRADE="update studentcoursegrade set grade=? where courseId=? and studentId=?";
+
+    public static final String GET_VACANT_SEATS_QUERY = "select vacantSeat from coursecatalog where courseId = ?;";
+
+
     //student operations
     public static final String VIEW_GRADE_QUERY= "select courseId, grade from studentcoursegrade where studentId = ? ;";
     public static final String VIEW_REGISTERED_COURSE_QUERY="select courseId from studentcoursegrade where studentId = ?;";
     public static final String IS_STUDENT_APPROVED="select isApproved from student where studentId = ?;";
     public static final String ADD_STUDENT_PAYMENT_QUERY="insert into payment values(?, ?, ?, ?, ?);";
-    public static final String ADD_STUDENT_NOTIFCATION_QUERY="insert into notification values(?, ?, ?);";
+    public static final String ADD_STUDENT_NOTIFICATION_QUERY="insert into notification values(?, ?, ?);";
+    public static final String DROP_COURSE_BY_STUDENT_QUERY="delete from studentcoursegrade where studentId=? and courseId=?;" +
+            "update coursecatalog set vacantSeat=vacantSeat-1 where courseId = ?;" ;
+    public static final String ADD_COURSE_BY_STUDENT_QUERY="insert into studentcoursegrade values(?, ?, null);" +
+            "update coursecatalog set vacantSeat=vacantSeat+1 where courseId = ?;";
 
     public static final String ADD_PROFESSOR_QUERY = "insert into professor values (?, ?, ?);";
     public static final String ADD_USER_QUERY = "insert into user values (?, ?, ?, ?, ?, ?, ?);";

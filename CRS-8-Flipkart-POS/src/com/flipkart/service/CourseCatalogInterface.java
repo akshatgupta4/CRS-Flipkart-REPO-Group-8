@@ -7,4 +7,5 @@ import java.util.List;
 public interface CourseCatalogInterface {
     public List<Course> viewAllCourses();
     public void addCourse(Course newCourse);
+    public void deleteCourse(String courseCode);
 }

@@ -16,4 +16,6 @@ public boolean addGrade(String studentId, String courseId, String grade) throws 
     public List<Course> getCourses(String profId);
 
     public String getProfessorById(String profId);
+
+    List<Course> getCoursesByProf(String profId);
 }
