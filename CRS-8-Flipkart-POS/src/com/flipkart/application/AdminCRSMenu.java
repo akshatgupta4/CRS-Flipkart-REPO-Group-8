@@ -20,6 +20,9 @@ public class AdminCRSMenu {
 //    AdminDaoInterface adminDaoObj = AdminDaoOperation.getInstance();
     Scanner scanner = new Scanner(System.in);
 
+    /* Admin Menu*/
+
+
     public void displayMenu() throws SQLException, CourseFoundException {
         while(true) {
             System.out.println("**********Admin Menu*********");
@@ -88,6 +91,10 @@ public class AdminCRSMenu {
         }
     }
     }
+    /* Method to add the courses
+       in the database.
+     */
+    public void addCourseToCatalog() throws SQLException {
 
     public void addCourseToCatalog() throws SQLException, CourseFoundException {
 
@@ -113,6 +120,11 @@ public class AdminCRSMenu {
 
     }
 
+    public void deleteCourseFromCatalog(){}
+    /*
+    Method to approve the student
+    by the admin.
+     */
 //    public void deleteCourseFromCatalog(){}
 
     public void approveStudent() throws SQLException {
@@ -120,7 +132,9 @@ public class AdminCRSMenu {
         String studentUserId= scanner.next();
         adminObj.approveStudent(studentUserId);
     }
-
+    /*
+    Method to add the Professor.
+     */
     public void addProfessor() throws SQLException {
         Professor professor = new Professor();
 
@@ -167,7 +181,10 @@ public class AdminCRSMenu {
         }
 
     }
-
+    /*
+    Method to assign the Course to
+    Professor.
+     */
     public void assignCourseToProfessor() throws SQLException {
         List<Professor> professorList = adminObj.viewProfessors();
 
@@ -196,14 +213,19 @@ public class AdminCRSMenu {
             System.out.println(e.getMessage());
         }
     }
-
+    /*
+    Method to view the Pending
+    Admission of students to get them approved/rejected.
+     */
     public void viewPendingAdmissions() throws SQLException {
         List<Student> pendingAdmissionsList = adminObj.viewPendingAdmissions();
         for(Student student: pendingAdmissionsList) {
             System.out.println(String.format("%20s | %20s ", student.getUserId(), student.getName()));
         }
     }
-
+    /*
+    Method to delete the Course.
+     */
     public void deleteCourse() throws SQLException {
         List<Course> courseList = adminObj.viewCoursesInCatalog();
         for(Course course: courseList) {
