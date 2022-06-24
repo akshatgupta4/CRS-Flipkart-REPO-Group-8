@@ -25,74 +25,137 @@ public class User {
         this.country = country;
     }
 
-
+    /**
+     * gives gender of a user
+     *
+     * @return gender
+     */
     public Gender getGender() {
         return gender;
     }
 
-
+    /**
+     * sets gender of a user
+     *
+     * @param gender
+     */
     public void setGender(Gender gender) {
         this.gender = gender;
     }
 
+    /**
+     * gives address of a user
+     *
+     * @return address
+     */
     public String getAddress() {
         return address;
     }
 
-
+    /**
+     * sets address of a user
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-
+    /**
+     * gives country for a user
+     *
+     * @return country
+     */
     public String getCountry() {
         return country;
     }
 
-
+    /**
+     * sets country for a user
+     *
+     * @param country
+     */
     public void setCountry(String country) {
         this.country = country;
     }
 
+    /**
+     * default constructor for User
+     */
 
-    public User(){
+    public User() {
 
     }
 
+    /**
+     * gives userId for a user
+     *
+     * @return userId
+     */
     public String getUserId() {
         return userId;
     }
 
-
+    /**
+     * sets userId for a user
+     *
+     * @param userId
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
+    /**
+     * gives name for a user
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
-
+    /**
+     * sets name for a user
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-
+    /**
+     * gives role for a user(Admin/Professor/Student)
+     *
+     * @return role
+     */
     public Role getRole() {
         return role;
     }
 
-
+    /**
+     * sets role for a user(Admin/Professor/Student)
+     *
+     * @param role
+     */
     public void setRole(Role role) {
         this.role = role;
     }
 
-
+    /**
+     * gives password for a user
+     *
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
 
-
+    /**
+     * sets password for a user
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
-    }}
+    }
+}
