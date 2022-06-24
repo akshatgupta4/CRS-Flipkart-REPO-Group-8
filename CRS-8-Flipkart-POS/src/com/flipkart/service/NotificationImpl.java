@@ -1,6 +1,8 @@
 package com.flipkart.service;
 
 import com.flipkart.constant.ModeOfPayment;
+import com.flipkart.dao.NotificationDaoInterface;
+import com.flipkart.dao.NotificationDaoOperation;
 
 import java.sql.SQLException;
 import java.util.UUID;
@@ -8,9 +10,9 @@ import java.util.UUID;
 public class NotificationImpl implements NotificationInterface{
 
     private static volatile NotificationImpl instance=null;
-    NotificationDaoInterface notificationDaoInterface=NotificationDaoOperation.getInstance();
+    NotificationDaoInterface notificationDaoInterface= NotificationDaoOperation.getInstance();
 
-    private NotificationImpl()
+    public NotificationImpl()
     {
 
     }

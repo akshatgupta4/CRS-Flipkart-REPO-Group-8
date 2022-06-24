@@ -95,8 +95,7 @@ public class CRSApplication {
                 Date currentDate = new Date();
                 System.out.println("Logged in at : " + currentDate);
                 Role userRole=userInterface.getRole(userId);
-                Date currentDate = new Date();
-                System.out.println("Logged in at : " + currentDate);
+
 //                Role userRole=Role.stringToName(role);
                 switch(userRole)
                 {
