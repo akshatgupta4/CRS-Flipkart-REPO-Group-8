@@ -1,9 +1,12 @@
 package com.flipkart.service;
 
+import com.flipkart.bean.Course;
 import com.flipkart.bean.Student;
 import com.flipkart.bean.User;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.AdminDaoInterface;
+import com.flipkart.dao.AdminDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.exception.GradeNotAddedException;
 import com.flipkart.exception.SeatNotAvailableException;
@@ -11,10 +14,24 @@ import com.flipkart.exception.StudentNotFoundForApprovalException;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentImpl implements StudentInterface  {
     public static HashMap<String, Student> StudentList = new HashMap<String, Student>();
+    private static AdminDaoInterface adminDaoObj = null;
+    private static StudentImpl instance = null;
+
+    public static StudentImpl getInstance()
+    {
+        if(instance==null)
+        {
+            // This is a synchronized block, when multiple threads will access this instance
+            instance = new StudentImpl();
+            adminDaoObj = AdminDaoOperation.getInstance();
+        }
+        return instance;
+    }
 
     public void viewGrades(String studentID) throws SQLException, StudentNotFoundForApprovalException, GradeNotAddedException {};
     public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country) throws SQLException{
@@ -35,7 +52,9 @@ public class StudentImpl implements StudentInterface  {
         return studentID;
 
     };
-    public void addCourse(String studentID) throws SQLException, SeatNotAvailableException {};
+    public void addCourse(String studentID) throws SQLException, SeatNotAvailableException {
+
+    };
     public void dropCourse(String studentID)throws SQLException, CourseFoundException {};
 
     public void viewRegisteredCourses(String studentID)throws SQLException{};

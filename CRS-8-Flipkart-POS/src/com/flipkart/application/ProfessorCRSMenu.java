@@ -72,7 +72,7 @@ public class ProfessorCRSMenu {
             try
             {
                 List<Course> enrolledCourses = professorImpl.getCourses(profId);
-                System.out.println(String.format("%20s %20s %20s","COURSE CODE","COURSE NAME","No. of Students  enrolled" ));
+                System.out.println(String.format("%20s| %20s| %20s","COURSE CODE","COURSE NAME","STUDENTS ENROLLED" ));
                 for(Course object : enrolledCourses){
                     System.out.println(String.format("%20s %20s %20s",object.getCourseCode(), object.getName(), 10- object.getVacantSeats()));
                 }

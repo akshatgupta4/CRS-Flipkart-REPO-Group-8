@@ -7,11 +7,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * Implementation of notification dao interface
+ */
 public class NotificationDaoOperation implements NotificationDaoInterface{
     public static PreparedStatement stmt = null;
     private static NotificationDaoOperation instance = null;
     private static int notification_id = 1;
 
+    /**
+     * Method to get Notification dao instance, and preserve single instance
+     * @return
+     */
     public static NotificationDaoOperation getInstance() {
         if (instance == null) {
             // This is a synchronized block, when multiple threads will access this instance
@@ -19,6 +26,14 @@ public class NotificationDaoOperation implements NotificationDaoInterface{
         }
         return instance;
     }
+
+    /**
+     * Dao method to add notification to system storage
+     * @param studentId
+     * @param message
+     * @return
+     * @throws SQLException
+     */
     @Override
     public int sendNotification(String studentId, String message) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
