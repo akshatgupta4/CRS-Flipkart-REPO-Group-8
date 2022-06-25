@@ -130,7 +130,6 @@ public class CRSApplication {
 
                         break;
                     case STUDENT:
-	                    System.out.println(" Login Successful");
                         StudentDaoInterface studentInterface = new StudentDaoOperation();
                         boolean isApproved=studentInterface.isApproved(userId);
                         if(isApproved)
@@ -138,7 +137,6 @@ public class CRSApplication {
                             System.out.println(" Login Successful");
                             StudentCRSMenu studentMenu=new StudentCRSMenu();
                             studentMenu.studentLoggedin(userId);
-
                         }
                         else
                         {
@@ -182,14 +180,13 @@ public class CRSApplication {
             gender = sc.next();
             System.out.println("Branch:");
             branchName = sc.next();
-            System.out.println("Batch:");
+            System.out.println("Batch(in numbers):");
             batch = sc.nextInt();
             sc.nextLine();
             System.out.println("Address:");
             address = sc.next();
             System.out.println("Country");
             country = sc.next();
-            System.out.println("here...");
             String newStudentId = studentImpl.register(name, userId, password, Role.STUDENT, Gender.getName(Integer.parseInt(gender)), branchName, batch, address, country);
             System.out.println(newStudentId);
 //            notificationImpl.sendNotification(NotificationType.REGISTRATION, newStudentId, null, 0);

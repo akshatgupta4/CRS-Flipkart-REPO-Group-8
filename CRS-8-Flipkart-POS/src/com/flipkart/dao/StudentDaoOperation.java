@@ -3,10 +3,6 @@ package com.flipkart.dao;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
-import com.flipkart.exception.CourseFoundException;
-import com.flipkart.exception.GradeNotAddedException;
-import com.flipkart.exception.SeatNotAvailableException;
-import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -26,13 +22,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
         return instance;
     }
-    public void viewGrades(String studentID) throws SQLException, GradeNotAddedException {
+    public void viewGrades(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
         stmt.setString(1, studentID);
         try {
             ResultSet R = stmt.executeQuery();
-            if(!R.next()) throw new GradeNotAddedException(studentID);
             while(R.next())
             {
                 String cid=R.getString("courseId");
@@ -43,7 +38,6 @@ public class StudentDaoOperation implements StudentDaoInterface{
         catch (SQLException se)
         {
             System.out.println(se.getMessage());
-
         }
         finally {
             connection.close();
@@ -77,20 +71,21 @@ public class StudentDaoOperation implements StudentDaoInterface{
         return "Error";
     } ;
 
- //changes to be made
-    public void addCourse(String studentID) throws SQLException, SeatNotAvailableException {
+
+    public void addCourse(String studentID, String cid) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
-        String cid="cs002";
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
         checkStmt.setString(1, cid);
         try{
             ResultSet R= checkStmt.executeQuery();
-            if(!R.next()) throw new SeatNotAvailableException(cid);
+            R.next();
             if(R.getInt("vacantSeat")>0){
                     stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_BY_STUDENT_QUERY);
                     stmt.setString(1,studentID);
                     stmt.setString(2,cid);
-                    stmt.setString(3, cid);
+                    stmt.executeUpdate();
+                    stmt = connection.prepareStatement(SQLQueryConstants.DECREMENT_VACANT_SEATS_QUERY);
+                    stmt.setString(1, cid);
                     stmt.executeUpdate();
             }
             else{
@@ -102,19 +97,20 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
     };
-    public void dropCourse(String studentID) throws SQLException, CourseFoundException {
+    public void dropCourse(String studentID, String courseCode) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
-        stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
-        String courseCode="CS101";
-        stmt.setString(1, studentID);
-        stmt.setString(2, courseCode);
-        stmt.setString(3, courseCode);
         try {
+            stmt = connection.prepareStatement(SQLQueryConstants.DROP_COURSE_BY_STUDENT_QUERY);
+            stmt.setString(1, studentID);
+            stmt.setString(2, courseCode);
+            stmt.executeUpdate();
+            stmt = connection.prepareStatement(SQLQueryConstants.INCREMENT_VACANT_SEARS_QUERY);
+            stmt.setString(1, courseCode);
             stmt.executeUpdate();
         }
         catch (SQLException se)
         {
-            throw new CourseFoundException(courseCode);
+            System.out.println(se.getMessage());
         }
         finally {
             connection.close();
