@@ -11,6 +11,7 @@ import java.util.UUID;
 import com.flipkart.dao.StudentDaoInterface;
 import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.service.StudentImpl;
+import com.flipkart.service.StudentInterface;
 
 
 /**
@@ -25,6 +26,7 @@ public class StudentCRSMenu {
 		
 		CreateMenu();
 		Scanner sc = new Scanner(System.in);
+		StudentInterface studentobj = new StudentImpl();
 		StudentDaoInterface studentImpl = new StudentDaoOperation();
 		System.out.println("Enter your option");
 		int option = sc.nextInt();
@@ -41,16 +43,25 @@ public class StudentCRSMenu {
 					 studentImpl.showNotifications(id);
 					 break;
 				case 4:
+					System.out.println("Enter course code");
 					courseId= sc.next();
-					studentImpl.addCourse(id, courseId);
+					try {
+						studentImpl.addCourse(id, courseId);
+					}
+					catch(Exception ex) {
+						System.out.println(ex.getMessage());
+					}
 					break;
 				case 5:
+					System.out.println("Enter course code");
 					courseId= sc.next();
 					studentImpl.dropCourse(id, courseId);
 					break;
 				case 6:
 					studentImpl.payFees(id);
 					break;
+				case 7:
+					return;
 				default:
 					System.out.println("Enter valid option");
 			}
@@ -68,7 +79,7 @@ public class StudentCRSMenu {
 		System.out.println("4. Add Course");
 		System.out.println("5. Drop Course");
 		System.out.println("6. Pay Fees");
-
+		System.out.println("7. Log out");
 	}
 
 

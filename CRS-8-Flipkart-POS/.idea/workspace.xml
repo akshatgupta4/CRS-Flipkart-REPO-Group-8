@@ -3,7 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/ProfessorCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/ProfessorCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/EnrolledStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/EnrolledStudent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Notification.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Notification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Professor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/StudentGrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/StudentGrade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/bean/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/AdminDaoOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/service/StudentImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/service/StudentImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/ProfessorCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/ProfessorCRSMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/util/CRSDbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/util/CRSDbConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

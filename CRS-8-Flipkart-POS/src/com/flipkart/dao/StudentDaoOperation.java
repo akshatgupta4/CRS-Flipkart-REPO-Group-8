@@ -3,6 +3,7 @@ package com.flipkart.dao;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.SeatNotAvailableException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -32,7 +33,8 @@ public class StudentDaoOperation implements StudentDaoInterface{
             {
                 String cid=R.getString("courseId");
                 String grade=R.getString("grade");
-                System.out.println("course id is "+cid+"grade is "+grade);
+                System.out.println(String.format("%20s | %20s", cid, grade));
+//                System.out.println("course id is "+cid+"grade is "+grade);
             }
         }
         catch (SQLException se)
@@ -72,7 +74,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
     } ;
 
 
-    public void addCourse(String studentID, String cid) throws SQLException {
+    public void addCourse(String studentID, String cid) throws SQLException, SeatNotAvailableException {
         Connection connection = CRSDbConnection.getConnection();
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
         checkStmt.setString(1, cid);
@@ -89,7 +91,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
                     stmt.executeUpdate();
             }
             else{
-                throw new SQLException();
+                throw new SeatNotAvailableException(cid);
             }
         }catch(SQLException se){
             System.out.println(se.getMessage());
@@ -123,12 +125,15 @@ public class StudentDaoOperation implements StudentDaoInterface{
         stmt.setString(1, studentID);
         try {
             ResultSet R = stmt.executeQuery();
+            System.out.println("***********");
             while(R.next())
             {
                 String cid=R.getString("courseId");
 
-                System.out.println("course id is "+cid);
+                System.out.println(cid);
             }
+            System.out.println("***********");
+
         }
         catch (SQLException se)
         {

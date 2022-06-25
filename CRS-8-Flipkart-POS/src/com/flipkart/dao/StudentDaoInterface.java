@@ -2,6 +2,7 @@ package com.flipkart.dao;
 
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
+import com.flipkart.exception.SeatNotAvailableException;
 
 import java.sql.SQLException;
 
@@ -36,7 +37,7 @@ public interface StudentDaoInterface {
      * @param studentID
      * @throws SQLException
      */
-    public void addCourse(String studentID, String courseId) throws SQLException;
+    public void addCourse(String studentID, String courseId) throws SQLException, SeatNotAvailableException;
 
     /**
      * method to drop course by Id
