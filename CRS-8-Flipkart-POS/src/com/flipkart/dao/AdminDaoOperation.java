@@ -18,10 +18,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to implement admindaointerface
+ */
 public class AdminDaoOperation implements AdminDaoInterface {
     public static PreparedStatement stmt = null;
     private static AdminDaoOperation instance = null;
 
+    /**
+     * Method to implement delete course from the catalog
+     * @param courseCode
+     * @throws SQLException
+     * @throws CourseNotFoundException
+     */
     public void deleteCourse(String courseCode) throws SQLException, CourseNotFoundException {
         Connection connection = CRSDbConnection.getConnection();
 
@@ -43,8 +52,11 @@ public class AdminDaoOperation implements AdminDaoInterface {
         }
     }
 
-    ;
 
+    /**
+     * Method to preserve single instance of the class
+     * @return
+     */
     public static AdminDaoOperation getInstance() {
         if (instance == null) {
             // This is a synchronized block, when multiple threads will access this instance
@@ -53,6 +65,12 @@ public class AdminDaoOperation implements AdminDaoInterface {
         return instance;
     }
 
+    /**
+     * Dao Method to add course to the catalog
+     * @param course
+     * @throws SQLException
+     * @throws CourseFoundException
+     */
     public void addCourse(Course course) throws SQLException, CourseFoundException  {
         Connection connection = CRSDbConnection.getConnection();
 
@@ -91,7 +109,12 @@ public class AdminDaoOperation implements AdminDaoInterface {
     }
 
 
-        public List<Student> viewPendingAdmissions() throws SQLException {
+    /**
+     * DAO method to view pending admissions
+     * @return
+     * @throws SQLException
+     */
+    public List<Student> viewPendingAdmissions() throws SQLException {
             Connection connection = CRSDbConnection.getConnection();
             stmt = connection.prepareStatement(SQLQueryConstants.VIEW_PENDING_ADMISSIONS_QUERY);
 
@@ -108,6 +131,12 @@ public class AdminDaoOperation implements AdminDaoInterface {
             return studentList;
         }
 //
+
+    /**
+     * DAO method to approve student admission
+     * @param studentId
+     * @throws SQLException
+     */
     public void approveStudent(String studentId) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.APPROVE_STUDENT_QUERY);
@@ -126,6 +155,13 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     }
 //
+
+    /**
+     * DAO method to add professor to platform
+     * @param professor
+     * @throws SQLException
+     * @throws ProfessorAlreadyExistsException
+     */
     public void addProfessor(Professor professor) throws SQLException, ProfessorAlreadyExistsException {
         Connection connection = CRSDbConnection.getConnection();
 
@@ -167,6 +203,14 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     };
 //
+
+    /**
+     * DAO method to assign course to the professor
+     * @param courseCode
+     * @param professorId
+     * @throws SQLException
+     * @throws CourseNotAssignedToProfessorException
+     */
     public void assignCourse(String courseCode, String professorId) throws SQLException, CourseNotAssignedToProfessorException {
         Connection connection = CRSDbConnection.getConnection();
 
@@ -195,6 +239,12 @@ public class AdminDaoOperation implements AdminDaoInterface {
         }
     }
 //
+
+    /**
+     * DAO method to view courses in the catalog
+     * @return
+     * @throws SQLException
+     */
     public List<Course> viewCoursesInCatalog() throws SQLException {
 //        sql = "SELECT id, name ,address, location FROM employee";
 //        ResultSet rs = stmt.executeQuery(sql);
@@ -220,6 +270,11 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
     }
 
+    /**
+     * DAO method to view professors on the platform
+     * @return
+     * @throws SQLException
+     */
     public List<Professor> viewProfessors() throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_PROFESSORS_QUERY);
