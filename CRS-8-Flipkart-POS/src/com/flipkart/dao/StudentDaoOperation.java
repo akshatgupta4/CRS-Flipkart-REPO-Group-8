@@ -11,6 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of StudentDaoInterface
+ */
 public class StudentDaoOperation implements StudentDaoInterface{
     public static PreparedStatement stmt = null;
     private static StudentDaoOperation instance = null;
@@ -23,6 +26,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
         return instance;
     }
+
+    /**
+     * DAO method to get student's grades
+     * @param studentID
+     * @throws SQLException
+     */
     public void viewGrades(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
@@ -50,6 +59,20 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     } ;
 
+    /**
+     * DAO method to register student on the platform
+     * @param name
+     * @param studentID
+     * @param password
+     * @param role
+     * @param gender
+     * @param branch
+     * @param batch
+     * @param address
+     * @param country
+     * @return
+     */
+
     public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country){
         Connection connection = CRSDbConnection.getConnection();
         try{
@@ -73,7 +96,13 @@ public class StudentDaoOperation implements StudentDaoInterface{
         return "Error";
     } ;
 
-
+    /**
+     * DAO method to add course to list of registered courses of a student
+     * @param studentID
+     * @param cid
+     * @throws SQLException
+     * @throws SeatNotAvailableException
+     */
     public void addCourse(String studentID, String cid) throws SQLException, SeatNotAvailableException {
         Connection connection = CRSDbConnection.getConnection();
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
@@ -99,6 +128,13 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
     };
+
+    /**
+     * DAO method to remove course from list of registered courses of the student
+     * @param studentID
+     * @param courseCode
+     * @throws SQLException
+     */
     public void dropCourse(String studentID, String courseCode) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         try {
@@ -119,6 +155,11 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
     };
 
+    /**
+     * DAO method to view list of registered courses by the student
+     * @param studentID
+     * @throws SQLException
+     */
     public void viewRegisteredCourses(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_REGISTERED_COURSE_QUERY);
@@ -144,6 +185,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
 
     };
+
+    /**
+     * DAO method to record student payment in the system
+     * @param studentID
+     * @throws SQLException
+     */
     public void payFees(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_PAYMENT_QUERY);
@@ -168,6 +215,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
     };
+
+    /**
+     * DAO method to show notifications to the student
+     * @param studentID
+     * @throws SQLException
+     */
     public void showNotifications(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_NOTIFICATION_QUERY);
@@ -192,6 +245,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
         }
     };
 
+    /**
+     * DAO method to check if the student is approved
+     * @param studentId
+     * @return
+     * @throws SQLException
+     */
     public boolean isApproved(String studentId) throws SQLException{
 
         Connection connection = CRSDbConnection.getConnection();

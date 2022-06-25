@@ -17,9 +17,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfessorDaoOperation {
+/**
+ * Implementation of Professor DAO interface
+ */
+public class ProfessorDaoOperation implements ProfessorDaoInterface{
 
 
+    /**
+     * DAO method to get students enrolled under the professor
+     * @param profId
+     * @return
+     * @throws SQLException
+     */
 
     public List<EnrolledStudent> viewEnrolledStudents(String profId) throws SQLException {
         Connection connection = CRSDbConnection.getConnection();
@@ -45,6 +54,14 @@ public class ProfessorDaoOperation {
         return enrolledStudents;
 
     }
+
+    /**
+     * DAO method to get courses taught by the professor
+     * @param profId
+     * @return
+     * @throws SQLException
+     * @throws ProfessorDoesNotExistsException
+     */
 
     public List<Course> getCoursesByProf(String profId) throws SQLException, ProfessorDoesNotExistsException {
         Connection connection = CRSDbConnection.getConnection();
@@ -74,10 +91,18 @@ public class ProfessorDaoOperation {
         return coursesOffered;
     }
 
-//<<<<<<< HEAD
-//    public boolean addGrade(String studentId, String courseId, String grade) throws GradeNotAddedException {
-//        Connection connection =CRSDbConnection.getConnection();
-//=======
+
+    /**
+     * DAO method to assign grade to the student by the professor
+     * @param studentId
+     * @param courseId
+     * @param grade
+     * @return
+     * @throws SQLException
+     * @throws CourseNotFoundException
+     * @throws UserNotFoundException
+     * @throws GradeNotAddedException
+     */
     public boolean addGrade(String studentId, String courseId, String grade) throws SQLException, CourseNotFoundException, UserNotFoundException, GradeNotAddedException {
         Connection connection = CRSDbConnection.getConnection();
         PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_COURSE_QUERY);
