@@ -11,6 +11,7 @@ import java.util.UUID;
 import com.flipkart.dao.StudentDaoInterface;
 import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.service.StudentImpl;
+import sun.lwawt.macosx.CSystemTray;
 
 
 /**
@@ -41,12 +42,16 @@ public class StudentCRSMenu {
 					 studentImpl.showNotifications(id);
 					 break;
 				case 4:
+					System.out.println("Enter CourseId");
 					courseId= sc.next();
 					studentImpl.addCourse(id, courseId);
+					System.out.println("\n");
 					break;
 				case 5:
+					System.out.println("Enter CourseId");
 					courseId= sc.next();
 					studentImpl.dropCourse(id, courseId);
+					System.out.println("\n");
 					break;
 				case 6:
 					studentImpl.payFees(id);

@@ -3,6 +3,7 @@ package com.flipkart.dao;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.CourseLimitExceedException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -78,7 +79,6 @@ public class StudentDaoOperation implements StudentDaoInterface{
         checkStmt.setString(1, cid);
         try{
             ResultSet R= checkStmt.executeQuery();
-            R.next();
             if(R.getInt("vacantSeat")>0){
                     stmt = connection.prepareStatement(SQLQueryConstants.ADD_COURSE_BY_STUDENT_QUERY);
                     stmt.setString(1,studentID);
@@ -89,7 +89,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
                     stmt.executeUpdate();
             }
             else{
-                throw new SQLException();
+                System.out.println("Course already reached maximum capicity");
             }
         }catch(SQLException se){
             System.out.println(se.getMessage());
