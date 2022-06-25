@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import com.flipkart.dao.StudentDaoInterface;
 import com.flipkart.dao.StudentDaoOperation;
+import com.flipkart.exception.SeatNotAvailableException;
 import com.flipkart.service.StudentImpl;
 import sun.lwawt.macosx.CSystemTray;
 import com.flipkart.service.StudentInterface;
@@ -23,7 +24,7 @@ import com.flipkart.service.StudentInterface;
 public class StudentCRSMenu {
 
 	
-	public void studentLoggedin(String id) throws SQLException {
+	public void studentLoggedin(String id) throws SQLException, SeatNotAvailableException {
 		
 		CreateMenu();
 		Scanner sc = new Scanner(System.in);
