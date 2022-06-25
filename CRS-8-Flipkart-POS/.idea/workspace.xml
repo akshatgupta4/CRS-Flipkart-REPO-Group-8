@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/NotificationDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/NotificationDaoOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDaoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDaoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

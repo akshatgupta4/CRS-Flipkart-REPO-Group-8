@@ -88,9 +88,9 @@ public class CRSApplication {
 
     /**
      * Method to login the user.
-     *     -> Admin
-     *     -> Student
-     *     -> Professor
+     *     - Admin
+     *     - Student
+     *     - Professor
      * @throws SQLException
      * @throws CourseFoundException
      */
