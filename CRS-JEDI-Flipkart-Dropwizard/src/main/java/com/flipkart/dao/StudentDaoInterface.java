@@ -1,10 +1,12 @@
 package com.flipkart.dao;
 
+import com.flipkart.bean.Course;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.exception.SeatNotAvailableException;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Interface for Student Dao Operations
@@ -15,7 +17,7 @@ public interface StudentDaoInterface {
      * @param studentID
      * @throws SQLException
      */
-    public void viewGrades(String studentID) throws SQLException;
+    public List<String> viewGrades(String studentID) throws SQLException;
 
     /**
      * method to register a student
@@ -51,7 +53,7 @@ public interface StudentDaoInterface {
      * @param studentID
      * @throws SQLException
      */
-    public void viewRegisteredCourses(String studentID) throws SQLException;
+    public List<Course> viewRegisteredCourses(String studentID) throws SQLException;
 
     /**
      * Method to pay fees for registered courses by the student by Id

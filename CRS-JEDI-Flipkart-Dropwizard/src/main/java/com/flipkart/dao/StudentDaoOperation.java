@@ -1,5 +1,6 @@
 package com.flipkart.dao;
 
+import com.flipkart.bean.Course;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Implementation of StudentDaoInterface
@@ -32,7 +34,8 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * @param studentID
      * @throws SQLException
      */
-    public void viewGrades(String studentID) throws SQLException{
+    public List<String> viewGrades(String studentID) throws SQLException{
+        List<String> Grades = null;
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
         stmt.setString(1, studentID);
@@ -43,6 +46,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
                 String cid=R.getString("courseId");
                 String grade=R.getString("grade");
                 System.out.println(String.format("%20s | %20s", cid, grade));
+                Grades.add(R.getString("courseId") + " : " + R.getString("grade"));
 //                System.out.println("course id is "+cid+"grade is "+grade);
             }
         }
@@ -53,6 +57,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
         finally {
             connection.close();
         }
+        return Grades;
 
 
 
@@ -157,10 +162,13 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     /**
      * DAO method to view list of registered courses by the student
+     *
      * @param studentID
+     * @return
      * @throws SQLException
      */
-    public void viewRegisteredCourses(String studentID) throws SQLException{
+    public List<Course> viewRegisteredCourses(String studentID) throws SQLException{
+        List<Course> registeredCourses = null;
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_REGISTERED_COURSE_QUERY);
         stmt.setString(1, studentID);
@@ -169,6 +177,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
             System.out.println("***********");
             while(R.next())
             {
+                Course course=new Course();
+//                course.setCourseCode(R.getString("courseID"));
+//                course.setCourseFee(R.getString("courseFee"));
+//                course.setInstructorId(R.getString("profId"));
+//                course.setName(R.getString("name"));
+//                course.setVacantSeats(R.getString(vacantSeats));
                 String cid=R.getString("courseId");
 
                 System.out.println(cid);
@@ -184,6 +198,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
             connection.close();
         }
 
+        return registeredCourses;
     };
 
     /**
