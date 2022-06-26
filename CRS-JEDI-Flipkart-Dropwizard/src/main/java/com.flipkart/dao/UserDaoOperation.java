@@ -94,4 +94,9 @@ public class UserDaoOperation implements UserDaoInterface{
 		}
 		return null;
 	}
+
+	@Override
+	public boolean updatePassword(String userId, String newPassword) {
+		return false;
+	}
 }

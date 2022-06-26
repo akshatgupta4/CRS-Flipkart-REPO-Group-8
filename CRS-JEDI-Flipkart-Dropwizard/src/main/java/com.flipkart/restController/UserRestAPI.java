@@ -2,12 +2,11 @@ package com.flipkart.restController;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constant.Role;
+import com.flipkart.dao.StudentDaoInterface;
+import com.flipkart.dao.StudentDaoOperation;
+import com.flipkart.dao.UserDaoInterface;
+import com.flipkart.dao.UserDaoOperation;
 import com.flipkart.exception.UserNotFoundException;
-import com.flipkart.service.StudentImpl;
-import com.flipkart.service.StudentInterface;
-import com.flipkart.service.UserImpl;
-import com.flipkart.service.UserInterface;
-import org.hibernate.validator.constraints.Email;
 
 import javax.validation.Valid;
 import javax.validation.ValidationException;
@@ -21,19 +20,19 @@ import java.sql.SQLException;
 
 @Path("/user")
 public class UserRestAPI {
-    StudentInterface studentInterface = new StudentImpl();
-    UserInterface userInterface = new UserImpl();
+    StudentDaoInterface studentInterface = new StudentDaoOperation();
+    UserDaoInterface userInterface = new UserDaoOperation();
 
     @GET
     @Path("/test")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEmployees() {
         System.out.println("In get Employees");
-        return Response.ok().build();
+        return Response.ok().entity("testing successful").build();
     }
 
     /**
-     * @param userId:      email address of the user
+     * @param userId:      userId of the user
      * @param newPassword: new password to be stored in db.
      * @return @return 201, if password is updated, else 500 in case of error
      */
@@ -62,9 +61,9 @@ public class UserRestAPI {
 
     @POST
     @Path("/login")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response verifyCredentials(
             @NotNull
-            @Email(message = "Invalid User ID: Not in email format")
             @QueryParam("userId") String userId,
             @NotNull
             @Size(min = 4, max = 20, message = "Password length should be between 4 and 20 characters")
@@ -105,12 +104,18 @@ public class UserRestAPI {
      */
     @GET
     @Path("/getRole")
-    public Role getRole(
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRole(
             @NotNull
-            @Email(message = "Invalid User ID: Not in email format")
             @QueryParam("userId") String userId) throws ValidationException {
 
-        return userInterface.getRole(userId);
+            Role role = userInterface.getRole(userId);
+            System.out.println(role);
+        if(true ){
+            return Response.status(201).entity("Role is " + role ).build();
+        }else{
+            return Response.status(201).entity("Role fetching failed" ).build();
+        }
     }
 
     /**

@@ -8,4 +8,5 @@ public interface UserDaoInterface {
 
 	public Role getRole(String userId);
 
+	boolean updatePassword(String userId, String newPassword);
 }
