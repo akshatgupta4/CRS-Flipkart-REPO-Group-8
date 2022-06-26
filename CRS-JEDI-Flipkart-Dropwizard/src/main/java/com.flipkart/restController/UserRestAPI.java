@@ -130,7 +130,8 @@ public class UserRestAPI {
     public Response register(@Valid Student student) {
 
         try {
-            studentInterface.register(student.getName(), student.getUserId(), student.getPassword(),student.getRole() ,student.getGender(), student.getBranch(), 1,student.getAddress(), student.getCountry());
+            student.setRole(Role.getRole("Student"));
+            studentInterface.register(student.getName(), student.getUserId(), student.getPassword(),student.getRole() ,student.getGender(), student.getBranch(), student.getAddress(), student.getCountry());
         } catch (Exception ex) {
             return Response.status(500).entity("Something went wrong! Please try again.").build();
         }

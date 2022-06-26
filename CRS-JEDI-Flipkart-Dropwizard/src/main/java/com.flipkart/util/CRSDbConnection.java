@@ -11,7 +11,7 @@ public class CRSDbConnection {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "password";
+    static final String PASS = "hellojoshi123";
 
 
     public static Connection getConnection() {

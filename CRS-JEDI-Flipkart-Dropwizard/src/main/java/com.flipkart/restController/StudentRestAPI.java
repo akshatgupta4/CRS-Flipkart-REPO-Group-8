@@ -105,8 +105,8 @@ public class StudentRestAPI {
 
 
 		try{
-//exchange to be done
-			registrationInterface.dropCourse(courseCode, studentId);
+
+			registrationInterface.dropCourse(studentId, courseCode);
 			return Response.status(201).entity( "You have successfully dropped Course : " + courseCode).build();
 		}
 		catch(SQLException e)

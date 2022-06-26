@@ -20,7 +20,7 @@ public class ProfessorRestAPI {
     ProfessorInterface professorInterface=  new ProfessorImpl();
     /**
      * Method to view enrolled studet a professor is teaching
-     * @param professorId
+     * @param profId
      * @return
      */
     @GET
@@ -45,7 +45,7 @@ public class ProfessorRestAPI {
     
     /**
      * Method to view list of courses a professor is teaching
-     * @param professorId
+     * @param profId
      * @throws SQLException
      * @return
      */
@@ -73,7 +73,7 @@ public class ProfessorRestAPI {
     
     /**
      * Method to add grade of course of student
-     * @param professorId
+     * @param profId
      * @param studentId
      * @param courseId
      * @throws SQLException
