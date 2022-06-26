@@ -9,5 +9,6 @@
         <module name="CRS-JEDI-Flipkart-Dropwizard" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

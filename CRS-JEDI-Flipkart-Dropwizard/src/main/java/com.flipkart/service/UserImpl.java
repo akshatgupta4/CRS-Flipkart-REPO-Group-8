@@ -25,4 +25,9 @@ public class UserImpl implements UserInterface{
         User user = userList.get(userId);
         return user.getRole();
     }
+
+    @Override
+    public boolean updatePassword(String userId, String newPassword) {
+        return false;
+    }
 }

@@ -6,4 +6,6 @@ public interface UserInterface {
     public boolean verifyCredentials(String userID, String password);
 
     public Role getRole(String userId);
+
+    boolean updatePassword(String userId, String newPassword);
 }
