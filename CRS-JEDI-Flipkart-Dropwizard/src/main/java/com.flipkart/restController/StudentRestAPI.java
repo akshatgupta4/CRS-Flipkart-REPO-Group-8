@@ -7,10 +7,10 @@ import com.flipkart.exception.CourseAlreadyRegisteredException;
 import com.flipkart.exception.CourseLimitExceedException;
 import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.SeatNotAvailableException;
-import com.sun.istack.internal.NotNull;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -78,7 +78,7 @@ public class StudentRestAPI {
 
 
 		try{
-			registrationInterface.addCourse(courseCode, studentId);
+			registrationInterface.addCourse(studentId, courseCode);
 
 			return Response.status(201).entity( "You have successfully added Course : " + courseCode).build();
 
@@ -106,7 +106,7 @@ public class StudentRestAPI {
 
 		try{
 
-			registrationInterface.dropCourse(courseCode, studentId);
+			registrationInterface.dropCourse(studentId, courseCode);
 			return Response.status(201).entity( "You have successfully dropped Course : " + courseCode).build();
 		}
 		catch(SQLException e)

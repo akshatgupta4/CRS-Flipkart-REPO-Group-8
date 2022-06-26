@@ -19,7 +19,7 @@ public class SQLQueryConstants {
 
     //student operations
     public static final String VIEW_GRADE_QUERY= "select courseId, grade from studentcoursegrade where studentId = ? ;";
-    public static final String VIEW_REGISTERED_COURSE_QUERY="select * from studentcoursegrade where studentId = ?;";
+    public static final String VIEW_REGISTERED_COURSE_QUERY="select coursecatalog.courseId, coursecatalog.name, coursecatalog.vacantSeat from studentcoursegrade inner join coursecatalog where coursecatalog.courseId = studentcoursegrade.courseId and studentId = ?;";
     public static final String IS_STUDENT_APPROVED="select isApproved from student where studentId = ?;";
     public static final String ADD_STUDENT_PAYMENT_QUERY="insert into payment values(?, ?, ?, ?, ?);";
     public static final String ADD_STUDENT_NOTIFICATION_QUERY="insert into notification values(?, ?, ?);";

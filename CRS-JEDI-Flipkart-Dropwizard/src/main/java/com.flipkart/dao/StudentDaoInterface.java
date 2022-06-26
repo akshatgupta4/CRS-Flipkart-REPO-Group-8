@@ -28,12 +28,11 @@ public interface StudentDaoInterface {
      * @param role
      * @param gender
      * @param branch
-     * @param batch
      * @param address
      * @param country
      * @return
      */
-    public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country) ;
+    public String register(String name, String studentID, String password, Role role, Gender gender, String branch, String address, String country) ;
 
     /**
      * method to add course by Id

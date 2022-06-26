@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,7 +36,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * @throws SQLException
      */
     public List<String> viewGrades(String studentID) throws SQLException{
-        List<String> Grades = null;
+        List<String> Grades = new ArrayList<String>();
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_GRADE_QUERY);
         stmt.setString(1, studentID);
@@ -72,13 +73,12 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * @param role
      * @param gender
      * @param branch
-     * @param batch
      * @param address
      * @param country
      * @return
      */
 
-    public String register(String name, String studentID, String password, Role role, Gender gender, String branch, int batch, String address, String country){
+    public String register(String name, String studentID, String password, Role role, Gender gender, String branch, String address, String country){
         Connection connection = CRSDbConnection.getConnection();
         try{
             stmt=connection.prepareStatement(SQLQueryConstants.ADD_USER_QUERY);
@@ -109,6 +109,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * @throws SeatNotAvailableException
      */
     public void addCourse(String studentID, String cid) throws SQLException, SeatNotAvailableException {
+        System.out.println("inside add course student dao");
         Connection connection = CRSDbConnection.getConnection();
         PreparedStatement checkStmt=connection.prepareStatement(SQLQueryConstants.GET_VACANT_SEATS_QUERY);
         checkStmt.setString(1, cid);
@@ -168,7 +169,7 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * @throws SQLException
      */
     public List<Course> viewRegisteredCourses(String studentID) throws SQLException{
-        List<Course> registeredCourses = null;
+        List<Course> registeredCourses = new ArrayList<Course>();
         Connection connection = CRSDbConnection.getConnection();
         stmt = connection.prepareStatement(SQLQueryConstants.VIEW_REGISTERED_COURSE_QUERY);
         stmt.setString(1, studentID);
@@ -178,14 +179,19 @@ public class StudentDaoOperation implements StudentDaoInterface{
             while(R.next())
             {
                 Course course=new Course();
+                course.setCourseCode(R.getString("courseId"));
+                course.setName(R.getString("name"));
+                course.setVacantSeats(R.getInt("vacantSeat"));
+
 //                course.setCourseCode(R.getString("courseID"));
 //                course.setCourseFee(R.getString("courseFee"));
 //                course.setInstructorId(R.getString("profId"));
 //                course.setName(R.getString("name"));
 //                course.setVacantSeats(R.getString(vacantSeats));
-                String cid=R.getString("courseId");
-
-                System.out.println(cid);
+//                String cid=R.getString("courseId");
+//
+//                System.out.println(cid);
+                registeredCourses.add(course);
             }
             System.out.println("***********");
 
