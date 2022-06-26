@@ -45,11 +45,13 @@ public class UserRestAPI {
             @Size(min = 4, max = 20, message = "Password length should be between 4 and 20 characters")
             @QueryParam("newPassword") String newPassword) throws ValidationException {
 
-        if (userInterface.updatePassword(userId, newPassword)) {
+        try {
+            userInterface.updatePassword(userId, newPassword);
             return Response.status(201).entity("Password updated successfully! ").build();
-        } else {
-            return Response.status(500).entity("Something went wrong, please try again!").build();
+            } catch (Exception ex) {
+            return Response.status(500).entity("Something went wrong, " + ex.getMessage()).build();
         }
+
 
     }
 

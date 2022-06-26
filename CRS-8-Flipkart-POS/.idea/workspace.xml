@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/constant/SQLQueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/constant/SQLQueryConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/AdminRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/AdminRestAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/ProfessorRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/ProfessorRestAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/UserRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/UserRestAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

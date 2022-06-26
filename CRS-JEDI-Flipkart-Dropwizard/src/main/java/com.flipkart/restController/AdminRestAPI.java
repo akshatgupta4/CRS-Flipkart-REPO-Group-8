@@ -19,10 +19,18 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Admin rest controller class
+ */
 @Path("/admin")
 public class AdminRestAPI {
     AdminInterface adminOpObj = AdminImpl.getInstance();
 
+    /**
+     * Method to delete course from the catalog
+     * @param courseCode
+     * @return
+     */
     @PUT
     @Path("/deleteCourse")
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +45,11 @@ public class AdminRestAPI {
         }
     }
 
+    /**
+     * Method to add course to the catalog
+     * @param course
+     * @return
+     */
     @POST
     @Path("/addCourse")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -52,6 +65,10 @@ public class AdminRestAPI {
 
     }
 
+    /**
+     * Method to view pending admissions
+     * @return
+     */
     @GET
     @Path("/viewPendingAdmissions")
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,6 +81,11 @@ public class AdminRestAPI {
 
     }
 
+    /**
+     * Method to approve student
+     * @param studentId
+     * @return
+     */
     @PUT
     @Path("/approveStudent")
     @Produces(MediaType.APPLICATION_JSON)
@@ -79,6 +101,11 @@ public class AdminRestAPI {
         }
     }
 
+    /**
+     * Method to add professor to the platform
+     * @param professor
+     * @return
+     */
     @POST
     @Path("/addProfessor")
     @Produces(MediaType.APPLICATION_JSON)
@@ -95,6 +122,13 @@ public class AdminRestAPI {
         }
     }
 //
+
+    /**
+     * Method to assign course to the professor
+     * @param courseCode
+     * @param professorId
+     * @return
+     */
     @POST
     @Path("/assignCourseToProfessor")
     @Produces(MediaType.APPLICATION_JSON)
@@ -113,6 +147,12 @@ public class AdminRestAPI {
 
     }
 //
+
+    /**
+     * Method to view courses in the catalog
+     * @return
+     * @throws SQLException
+     */
     @GET
     @Path("/viewCourses")
     @Produces(MediaType.APPLICATION_JSON)
@@ -121,6 +161,12 @@ public class AdminRestAPI {
     ) throws SQLException {
         return adminOpObj.viewCoursesInCatalog();
     }
+
+    /**
+     * Method to view professors on the platform
+     * @return
+     * @throws SQLException
+     */
 //
     @GET
     @Path("/viewProfessors")

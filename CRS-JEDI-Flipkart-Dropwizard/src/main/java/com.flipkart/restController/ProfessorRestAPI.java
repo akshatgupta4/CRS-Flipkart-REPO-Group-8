@@ -88,7 +88,7 @@ public class ProfessorRestAPI {
         }
         catch(Exception ex)
         {
-            return Response.status(500).entity( "Something went wrong, Please Try Again ! ").build();
+            return Response.status(500).entity( ex.getMessage()).build();
         }
         return Response.status(200).entity( "Grade updated for student: "+studentId).build();
 

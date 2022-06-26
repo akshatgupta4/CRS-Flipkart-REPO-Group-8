@@ -2,6 +2,7 @@ package com.flipkart.dao;
 
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
+import com.flipkart.exception.UserNotFoundException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
@@ -96,7 +97,26 @@ public class UserDaoOperation implements UserDaoInterface{
 	}
 
 	@Override
-	public boolean updatePassword(String userId, String newPassword) {
-		return false;
+	public boolean updatePassword(String userId, String newPassword) throws SQLException, UserNotFoundException {
+		Connection connection = CRSDbConnection.getConnection();
+		PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_USER_QUERY);
+
+		ResultSet rs = stmt.executeQuery();
+		if(!rs.next()) throw new UserNotFoundException(userId);
+
+		stmt = connection.prepareStatement(SQLQueryConstants.UPDATE_PASSWORD_QUERY);
+		stmt.setString(1, newPassword);
+		stmt.setString(2, userId);
+
+		try {
+			stmt.executeQuery();
+			return true;
+		} catch (Exception ex) {
+			throw ex;
+		}
+		finally {
+			connection.close();
+			return false;
+		}
 	}
 }
