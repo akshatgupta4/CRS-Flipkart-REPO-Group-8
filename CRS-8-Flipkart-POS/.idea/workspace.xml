@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="" />
+    <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/EnrolledStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Professor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/StudentGrade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/restController/AdminRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/restController/AdminRestAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/utils/CRSDbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com/flipkart/util/CRSDbConnection.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
