@@ -18,7 +18,11 @@ import java.util.List;
 @Path("/professor")
 public class ProfessorRestAPI {
     ProfessorInterface professorInterface=  new ProfessorImpl();
-
+    /**
+     * Method to view enrolled studet a professor is teaching
+     * @param professorId
+     * @return
+     */
     @GET
     @Path("/getEnrolledStudents")
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +42,13 @@ public class ProfessorRestAPI {
         }
         return students;
     }
+    
+    /**
+     * Method to view list of courses a professor is teaching
+     * @param professorId
+     * @throws SQLException
+     * @return
+     */
 
     @GET
     @Path("/getCourses")
@@ -59,6 +70,14 @@ public class ProfessorRestAPI {
         return courses;
 
     }
+    
+    /**
+     * Method to add grade of course of student
+     * @param professorId
+     * @param studentId
+     * @param courseId
+     * @throws SQLException
+     */
 
     @POST
     @Path("/addGrade")
