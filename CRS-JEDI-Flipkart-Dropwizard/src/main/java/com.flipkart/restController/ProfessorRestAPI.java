@@ -43,8 +43,8 @@ public class ProfessorRestAPI {
     @Path("/getCourses")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Course> getCourses(
-            @NotNull
 
+            @NotNull
             @QueryParam("profId") String profId) throws SQLException	{
 
         List<Course> courses=new ArrayList<Course>();
