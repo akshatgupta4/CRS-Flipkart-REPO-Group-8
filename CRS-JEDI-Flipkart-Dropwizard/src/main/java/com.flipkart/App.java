@@ -2,6 +2,7 @@ package com.flipkart;
 
 import com.flipkart.restController.AdminRestAPI;
 import com.flipkart.restController.ProfessorRestAPI;
+import com.flipkart.restController.StudentRestAPI;
 import com.flipkart.restController.UserRestAPI;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
@@ -29,6 +30,7 @@ public class App extends Application<Configuration> {
         e.jersey().register(new AdminRestAPI());
         e.jersey().register(new ProfessorRestAPI());
         e.jersey().register(new UserRestAPI());
+        e.jersey().register(new StudentRestAPI());
 
 
 
