@@ -107,9 +107,10 @@ public class UserDaoOperation implements UserDaoInterface{
 		stmt = connection.prepareStatement(SQLQueryConstants.UPDATE_PASSWORD_QUERY);
 		stmt.setString(1, newPassword);
 		stmt.setString(2, userId);
-
+		System.out.println(stmt.toString());
 		try {
-			stmt.executeQuery();
+			System.out.println("executing update password");
+			stmt.executeUpdate();
 			return true;
 		} catch (Exception ex) {
 			throw ex;

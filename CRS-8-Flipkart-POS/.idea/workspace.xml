@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constant/SQLQueryConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDaoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/constant/SQLQueryConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/constant/SQLQueryConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/StudentDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/StudentDaoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/StudentRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/StudentRestAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/UserRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/restController/UserRestAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/service/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/service/StudentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/service/StudentInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
