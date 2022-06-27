@@ -21,7 +21,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
 
-import static javafx.application.Platform.exit;
 
 /**
  * Class containing methods for main menu

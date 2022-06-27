@@ -163,7 +163,6 @@ public class StudentDaoOperation implements StudentDaoInterface{
      * DAO method to view list of registered courses by the student
      *
      * @param studentID
-     * @return
      * @throws SQLException
      */
     public void viewRegisteredCourses(String studentID) throws SQLException{

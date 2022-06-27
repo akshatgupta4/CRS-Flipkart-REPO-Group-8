@@ -52,7 +52,6 @@ public interface StudentDaoInterface {
      * Method to view the registered courses for student by Id
      *
      * @param studentID
-     * @return
      * @throws SQLException
      */
     public void viewRegisteredCourses(String studentID) throws SQLException;
