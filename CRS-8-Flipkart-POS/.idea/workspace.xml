@@ -4,6 +4,7 @@
     <list default="true" id="92fe8297-6053-4472-98a9-e4fef4fe4670" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/CRS-Flipkart-REPO-Group-8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CRS-Flipkart-REPO-Group-8.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
@@ -122,6 +123,13 @@
       <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/UserImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/service/UserInterface.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../out/production/CRS-Flipkart-REPO-Group-8/com/flipkart/util/CRSDbConnection.class" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/constant/SQLQueryConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/ProfessorDaoOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-8-Flipkart-POS/com/flipkart/dao/StudentDaoOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRS-JEDI-Flipkart-Dropwizard/src/main/java/com.flipkart/dao/UserDaoOperation.java" afterDir="false" />
+>>>>>>> 4dc5d9a91c82986f847aa7774ccb1ad1ab31e645
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

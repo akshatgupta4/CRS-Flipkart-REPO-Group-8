@@ -31,12 +31,12 @@ public class UserRestAPI {
         return Response.ok().entity("testing successful").build();
     }
 
-    /**
+    /** Method to update password
      * @param userId:      userId of the user
      * @param newPassword: new password to be stored in db.
      * @return @return 201, if password is updated, else 500 in case of error
      */
-    @GET
+    @PUT
     @Path("/updatePassword")
     public Response updatePassword(
             @NotNull
@@ -55,7 +55,7 @@ public class UserRestAPI {
 
     }
 
-    /**
+    /** Method to login
      * @param userId
      * @param password
      * @return
@@ -99,7 +99,7 @@ public class UserRestAPI {
 
     }
 
-    /**
+    /** Method to get role based on user id
      * @param userId
      * @return
      * @throws ValidationException
@@ -120,7 +120,7 @@ public class UserRestAPI {
         }
     }
 
-    /**
+    /** Method to register student on the platform
      * @param student
      * @return 201, if user is created, else 500 in case of error
      */

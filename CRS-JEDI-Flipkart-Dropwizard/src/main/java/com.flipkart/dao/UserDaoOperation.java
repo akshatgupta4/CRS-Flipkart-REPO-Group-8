@@ -100,16 +100,17 @@ public class UserDaoOperation implements UserDaoInterface{
 	public boolean updatePassword(String userId, String newPassword) throws SQLException, UserNotFoundException {
 		Connection connection = CRSDbConnection.getConnection();
 		PreparedStatement stmt = connection.prepareStatement(SQLQueryConstants.GET_USER_QUERY);
-
+		stmt.setString(1, userId);
 		ResultSet rs = stmt.executeQuery();
 		if(!rs.next()) throw new UserNotFoundException(userId);
 
 		stmt = connection.prepareStatement(SQLQueryConstants.UPDATE_PASSWORD_QUERY);
 		stmt.setString(1, newPassword);
 		stmt.setString(2, userId);
-
+		System.out.println(stmt.toString());
 		try {
-			stmt.executeQuery();
+			System.out.println("executing update password");
+			stmt.executeUpdate();
 			return true;
 		} catch (Exception ex) {
 			throw ex;

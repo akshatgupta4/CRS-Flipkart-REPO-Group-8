@@ -57,7 +57,7 @@ public interface StudentInterface {
      * Method to implement fee payment for a student
      * @param studentID
      */
-    public void payFees(String studentID);
+    public void payFees(String studentID) throws SQLException;
 
     /**
      * Method to display notifications
