@@ -54,6 +54,8 @@ public class StudentCRSMenu {
 				case 5:
 					studentImpl.payFees(id);
 					break;
+				case 6:
+					return;
 				default:
 					System.out.println("Enter valid option");
 			}
@@ -70,6 +72,7 @@ public class StudentCRSMenu {
 		System.out.println("3. Add Course");
 		System.out.println("4. Drop Course");
 		System.out.println("5. Pay Fees");
+		System.out.println("6. Logout");
 
 	}
 

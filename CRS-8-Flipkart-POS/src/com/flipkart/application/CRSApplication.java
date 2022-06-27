@@ -21,6 +21,8 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
 
+import static javafx.application.Platform.exit;
+
 /**
  * Class containing methods for main menu
  */
@@ -39,7 +41,7 @@ public class CRSApplication {
         int userInput = sc.nextInt();
 
         try {
-            while (userInput != 4) {
+            while (userInput != 3) {
                 switch (userInput) {
                     case 1:
                         // login
@@ -50,10 +52,6 @@ public class CRSApplication {
                     case 2:
                         // student registration
                         registerStudent();
-                        break;
-                    case 3:
-                        // update Password
-                        updatePassword();
                         break;
                     default:
                         System.out.println("Invalid Input");
@@ -75,8 +73,7 @@ public class CRSApplication {
         System.out.println("----------Welcome to Course Management System---------");
         System.out.println("1. Login");
         System.out.println("2. Student Registration");
-        System.out.println("3. UpdatePassword");
-        System.out.println("4. Exit");
+        System.out.println("3. Exit");
         System.out.println("Enter user input");
     }
     /*
