@@ -18,6 +18,7 @@ import java.sql.SQLException;
 public class StudentDaoOperation implements StudentDaoInterface{
     public static PreparedStatement stmt = null;
     private static StudentDaoOperation instance = null;
+    public static int paymentID = 1;
     public static StudentDaoOperation getInstance()
     {
         if(instance==null)
@@ -195,14 +196,20 @@ public class StudentDaoOperation implements StudentDaoInterface{
      */
     public void payFees(String studentID) throws SQLException{
         Connection connection = CRSDbConnection.getConnection();
+        stmt = connection.prepareStatement(SQLQueryConstants.GET_FEE_AMOUNT);
+        stmt.setString(1, studentID);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        int fee_amount = rs.getInt(1);
         stmt = connection.prepareStatement(SQLQueryConstants.ADD_STUDENT_PAYMENT_QUERY);
-        String paymentId="p0101";
-        int amount=5000;
+        String current_paymentId= Integer.toString(paymentID++);
+
+
         String mode="online";
         Boolean status=true;
-        stmt.setString(1,paymentId);
+        stmt.setString(1,current_paymentId);
         stmt.setString(2,studentID);
-        stmt.setInt(3,amount);
+        stmt.setInt(3,fee_amount);
         stmt.setString(4,mode);
         stmt.setBoolean(5,status);
 

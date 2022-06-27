@@ -50,4 +50,5 @@ public class SQLQueryConstants {
 
     public static final String UPDATE_PASSWORD_QUERY="update user set password = ? where userId = ?;";
     public static final String GET_USER_QUERY="select * from user where userId = ?;";
+    public static final String GET_FEE_AMOUNT = "select sum(coursecatalog.courseFee), studentcoursegrade.studentId from studentcoursegrade inner join coursecatalog where studentcoursegrade.courseId = coursecatalog.courseId and studentcoursegrade.studentId = ? group by studentcoursegrade.studentId;";
 }

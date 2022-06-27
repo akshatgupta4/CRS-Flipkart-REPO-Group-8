@@ -6,6 +6,8 @@ import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
+import com.flipkart.dao.StudentDaoInterface;
+import com.flipkart.dao.StudentDaoOperation;
 import com.flipkart.exception.CourseFoundException;
 import com.flipkart.exception.GradeNotAddedException;
 import com.flipkart.exception.SeatNotAvailableException;
@@ -60,7 +62,7 @@ public class StudentImpl implements StudentInterface  {
     public void showNotifications(String studentID)throws SQLException{};
 
 
-    public void payFees(String studentID){
+    public void payFees(String studentID) throws SQLException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Credit Card Number:");
         String cardNumber = sc.next();
@@ -75,6 +77,8 @@ public class StudentImpl implements StudentInterface  {
         String otp = sc.next();
         System.out.println("Processing Payment");
         for(int i=0;i<1e7;i++);
+        StudentDaoInterface studentDaoObj = new StudentDaoOperation();
+        studentDaoObj.payFees(studentID);
         System.out.println("Payment Completed Successfully");
     };
 

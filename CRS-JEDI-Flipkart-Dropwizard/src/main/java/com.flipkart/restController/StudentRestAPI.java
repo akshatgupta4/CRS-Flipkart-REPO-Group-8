@@ -139,4 +139,20 @@ public class StudentRestAPI {
 
 	}
 
+	@POST
+	@Path("/payFee")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response payFee(
+			@NotNull
+			@QueryParam("studentId") String studentId
+	) {
+		try {
+			registrationInterface.payFees(studentId);
+			return Response.status(201).entity( "You have successfully paid the fee : " + studentId).build();
+
+		} catch (SQLException e) {
+			return Response.status(501).entity("Please try again later").build();
+		}
+	}
+
 }
