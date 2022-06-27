@@ -40,22 +40,19 @@ public class StudentCRSMenu {
 				case 2:
 					studentImpl.viewRegisteredCourses(id);
 					break;
-				 case 3:
-					 studentImpl.showNotifications(id);
-					 break;
-				case 4:
+				case 3:
 					System.out.println("Enter CourseId");
 					courseId= sc.next();
 					studentImpl.addCourse(id, courseId);
 					System.out.println("\n");
 					break;
-				case 5:
+				case 4:
 					System.out.println("Enter CourseId");
 					courseId= sc.next();
 					studentImpl.dropCourse(id, courseId);
 					System.out.println("\n");
 					break;
-				case 6:
+				case 5:
 					studentImpl.payFees(id);
 					break;
 				default:
@@ -71,10 +68,9 @@ public class StudentCRSMenu {
 		// TODO Auto-generated method stub
 		System.out.println("1. View Report Card");
 		System.out.println("2. View Registered Courses");
-		System.out.println("3. Show Notifications");
-		System.out.println("4. Add Course");
-		System.out.println("5. Drop Course");
-		System.out.println("6. Pay Fees");
+		System.out.println("3. Add Course");
+		System.out.println("4. Drop Course");
+		System.out.println("5. Pay Fees");
 
 	}
 

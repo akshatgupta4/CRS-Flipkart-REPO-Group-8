@@ -1,16 +1,17 @@
 package com.flipkart.dao;
 
+import com.flipkart.bean.Course;
 import com.flipkart.constant.Gender;
 import com.flipkart.constant.Role;
 import com.flipkart.constant.SQLQueryConstants;
 import com.flipkart.exception.SeatNotAvailableException;
-import com.flipkart.exception.CourseLimitExceedException;
 import com.flipkart.util.CRSDbConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Implementation of StudentDaoInterface
@@ -159,7 +160,9 @@ public class StudentDaoOperation implements StudentDaoInterface{
 
     /**
      * DAO method to view list of registered courses by the student
+     *
      * @param studentID
+     * @return
      * @throws SQLException
      */
     public void viewRegisteredCourses(String studentID) throws SQLException{
@@ -185,7 +188,6 @@ public class StudentDaoOperation implements StudentDaoInterface{
         finally {
             connection.close();
         }
-
     };
 
     /**
